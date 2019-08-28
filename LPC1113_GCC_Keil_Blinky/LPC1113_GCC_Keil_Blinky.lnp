@@ -1,0 +1,1 @@
+-T ./Startup/lpc1113F_301.ld -mcpu=cortex-m0 -mthumb -mthumb-interwork -Wl,-Map="./Listings/LPC1113_GCC_Keil_Blinky.map" -o "./LPC1113_GCC_Keil_Blinky.elf" "./system_lpc11xx.o" "./startup_lpc11xx.o" "./blinky.o" -lm -Wl,-lgcc,  -lnosys --specs=nosys.specs
