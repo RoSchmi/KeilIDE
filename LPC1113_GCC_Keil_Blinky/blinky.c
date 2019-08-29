@@ -1,3 +1,6 @@
+// This is a blinky example made on the Keil MDK using the GNU compiler toolchain
+// Runs on NXP LPC1113F/301 MCU (obsolete GHI electronics DL40 Gadgeteer Module)
+
 #include <LPC11xx.h>
 
 const uint32_t led_mask[] = {1UL << 18, 1UL << 19, 1UL << 1};
@@ -25,8 +28,11 @@ int main(void)
     __NOP();
 		
 	 Delay(LOOP_COUNT);
+		//dummy++;
    LED_Set();
+		//dummy++;
    Delay(LOOP_COUNT);
+		//dummy++;
    LED_Clear();
    };
 }

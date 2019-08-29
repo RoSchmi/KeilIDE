@@ -5,460 +5,469 @@ ARM GAS  Startup/startup_LPC11xx.S 			page 1
    2              	/* startup_LPC11xx.s: Startup file for LPC11xx device series                 */
    3              	/*****************************************************************************/
    4              	
-   5              	/* ------------------- */
-   6              	/* Stack Configuration */
-   7              	    .syntax unified
-   8              	    .arch armv6-m
-   9              	
-  10              	    .section .stack
-  11              	    .align 3
-  12              	#ifdef __STACK_SIZE
-  13              	    .equ    Stack_Size, __STACK_SIZE
-  14              	#else
-  15              	    .equ    Stack_Size, 0xc00
-  16              	#endif
-  17              	    .globl    __StackTop
-  18              	    .globl    __StackLimit
-  19              	__StackLimit:
-  20 0000 00000000 	    .space    Stack_Size
-  20      00000000 
-  20      00000000 
-  20      00000000 
-  20      00000000 
-  21              	    .size __StackLimit, . - __StackLimit
-  22              	__StackTop:
-  23              	    .size __StackTop, . - __StackTop
-  24              	
-  25              	/* ------------------ */
-  26              	/* Heap Configuration */
+   5              	/* Changes of the template were made by RoSchmi to circumvent issues with the not defined symbol __
+   6              	/* Solution: __Start was defined to 0x0000.0000 in the linker script and set to -start in this star
+   7              	
+   8              	/* ------------------- */
+   9              	/* Stack Configuration */
+  10              	    .syntax unified
+  11              	    .arch armv6-m
+  12              	
+  13              	    .section .stack
+  14              	    .align 3
+  15              	#ifdef __STACK_SIZE
+  16              	    .equ    Stack_Size, __STACK_SIZE
+  17              	#else
+  18              	    .equ    Stack_Size, 0xc00
+  19              	#endif
+  20              	    .globl    __StackTop
+  21              	    .globl    __StackLimit
+  22              	__StackLimit:
+  23 0000 00000000 	    .space    Stack_Size
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  23      00000000 
+  24              	    .size __StackLimit, . - __StackLimit
+  25              	__StackTop:
+  26              	    .size __StackTop, . - __StackTop
   27              	
-  28              	    .section .heap
-  29              	    .align 3
-  30              	#ifdef __HEAP_SIZE
-  31              	    .equ    Heap_Size, __HEAP_SIZE
-  32              	#else
-  33              	    .equ    Heap_Size, 0
-  34              	#endif
-  35              	    .globl    __HeapBase
-  36              	    .globl    __HeapLimit
-  37              	__HeapBase:
-  38              	    .if    Heap_Size
-  39              	    .space    Heap_Size
-  40              	    .endif
-  41              	    .size __HeapBase, . - __HeapBase
-  42              	__HeapLimit:
-  43              	    .size __HeapLimit, . - __HeapLimit
-  44              	
-  45              	
-  46              	/* ----------------------------------------------------- */
-  47              	/* Vector Table */
+  28              	/* ------------------ */
+  29              	/* Heap Configuration */
+  30              	
+  31              	    .section .heap
+  32              	    .align 3
+  33              	#ifdef __HEAP_SIZE
+  34              	    .equ    Heap_Size, __HEAP_SIZE
+  35              	#else
+  36              	    .equ    Heap_Size, 0
+  37              	#endif
+  38              	    .globl    __HeapBase
+  39              	    .globl    __HeapLimit
+  40              	__HeapBase:
+  41              	    .if    Heap_Size
+  42              	    .space    Heap_Size
+  43              	    .endif
+  44              	    .size __HeapBase, . - __HeapBase
+  45              	__HeapLimit:
+  46              	    .size __HeapLimit, . - __HeapLimit
+  47              	
   48              	
-  49              	    .section .isr_vector
-  50              	    .align 2
-  51              	    .globl __isr_vector
-  52              	__isr_vector:
-  53 0000 00000000 	    .long    __StackTop            /* Top of Stack */
+  49              	/* ----------------------------------------------------- */
+  50              	/* Vector Table */
+  51              	
+  52              	    .section .isr_vector
+  53              	    .align 2
 ARM GAS  Startup/startup_LPC11xx.S 			page 2
 
 
-  54 0004 00000000 	    .long    Reset_Handler         /* Reset Handler */
-  55 0008 00000000 	    .long    NMI_Handler           /* NMI Handler */
-  56 000c 00000000 	    .long    HardFault_Handler     /* Hard Fault Handler */
-  57 0010 00000000 	    .long    0                     /* Reserved */
-  58 0014 00000000 	    .long    0                     /* Reserved */
-  59 0018 00000000 	    .long    0                     /* Reserved */
-  60 001c 00000000 	    .long    0                     /* Reserved */
-  61 0020 00000000 	    .long    0                     /* Reserved */
-  62 0024 00000000 	    .long    0                     /* Reserved */
-  63 0028 00000000 	    .long    0                     /* Reserved */
-  64 002c 00000000 	    .long    SVC_Handler           /* SVCall Handler */
-  65 0030 00000000 	    .long    0                     /* Reserved */
-  66 0034 00000000 	    .long    0                     /* Reserved */
-  67 0038 00000000 	    .long    PendSV_Handler        /* PendSV Handler */
-  68 003c 00000000 	    .long    SysTick_Handler       /* SysTick Handler */
-  69              	
-  70              	    /* External Interrupts */
-  71 0040 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 0: Wakeup PIO0.0          */
-  72 0044 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 1: Wakeup PIO0.1          */
-  73 0048 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 2: Wakeup PIO0.2          */
-  74 004c 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 3: Wakeup PIO0.3          */
-  75 0050 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 4: Wakeup PIO0.4          */
-  76 0054 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 5: Wakeup PIO0.5          */
-  77 0058 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 6: Wakeup PIO0.6          */
-  78 005c 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 7: Wakeup PIO0.7          */
-  79 0060 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 8: Wakeup PIO0.8          */
-  80 0064 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 9: Wakeup PIO0.9          */
-  81 0068 00000000 	    .long   WAKEUP_IRQHandler           /* 16+10: Wakeup PIO0.10         */
-  82 006c 00000000 	    .long   WAKEUP_IRQHandler           /* 16+11: Wakeup PIO0.11         */
-  83 0070 00000000 	    .long   WAKEUP_IRQHandler           /* 16+12: Wakeup PIO1.0          */
-  84 0074 00000000 	    .long   0                           /* 16+13: Reserved               */
-  85 0078 00000000 	    .long   SSP1_IRQHandler             /* 16+14: SSP1                   */
-  86 007c 00000000 	    .long   I2C_IRQHandler              /* 16+15: I2C                    */
-  87 0080 00000000 	    .long   TIMER16_0_IRQHandler        /* 16+16: 16-bit Counter-Timer 0 */
-  88 0084 00000000 	    .long   TIMER16_1_IRQHandler        /* 16+17: 16-bit Counter-Timer 1 */
-  89 0088 00000000 	    .long   TIMER32_0_IRQHandler        /* 16+18: 32-bit Counter-Timer 0 */
-  90 008c 00000000 	    .long   TIMER32_1_IRQHandler        /* 16+19: 32-bit Counter-Timer 1 */
-  91 0090 00000000 	    .long   SSP0_IRQHandler             /* 16+20: SSP                    */
-  92 0094 00000000 	    .long   UART_IRQHandler             /* 16+21: UART                   */
-  93 0098 00000000 	    .long   0                           /* 16+22: Reserved               */
-  94 009c 00000000 	    .long   0                           /* 16+23: Reserved               */
-  95 00a0 00000000 	    .long   ADC_IRQHandler              /* 16+24: A/D Converter          */
-  96 00a4 00000000 	    .long   WDT_IRQHandler              /* 16+25: Watchdog Timer         */
-  97 00a8 00000000 	    .long   BOD_IRQHandler              /* 16+26: Brown Out Detect       */
-  98 00ac 00000000 	    .long   0                           /* 16+27: Reserved               */
-  99 00b0 00000000 	    .long   PIOINT3_IRQHandler          /* 16+28: PIO INT3               */
- 100 00b4 00000000 	    .long   PIOINT2_IRQHandler          /* 16+29: PIO INT2               */
- 101 00b8 00000000 	    .long   PIOINT1_IRQHandler          /* 16+30: PIO INT1               */
- 102 00bc 00000000 	    .long   PIOINT0_IRQHandler          /* 16+31: PIO INT0               */
- 103              	
- 104              	
- 105              	    .size    __isr_vector, . - __isr_vector
+  54              	    .globl __isr_vector
+  55              	__isr_vector:
+  56 0000 00000000 	    .long    __StackTop            /* Top of Stack */
+  57 0004 00000000 	    .long    Reset_Handler         /* Reset Handler */
+  58 0008 00000000 	    .long    NMI_Handler           /* NMI Handler */
+  59 000c 00000000 	    .long    HardFault_Handler     /* Hard Fault Handler */
+  60 0010 00000000 	    .long    0                     /* Reserved */
+  61 0014 00000000 	    .long    0                     /* Reserved */
+  62 0018 00000000 	    .long    0                     /* Reserved */
+  63 001c 00000000 	    .long    0                     /* Reserved */
+  64 0020 00000000 	    .long    0                     /* Reserved */
+  65 0024 00000000 	    .long    0                     /* Reserved */
+  66 0028 00000000 	    .long    0                     /* Reserved */
+  67 002c 00000000 	    .long    SVC_Handler           /* SVCall Handler */
+  68 0030 00000000 	    .long    0                     /* Reserved */
+  69 0034 00000000 	    .long    0                     /* Reserved */
+  70 0038 00000000 	    .long    PendSV_Handler        /* PendSV Handler */
+  71 003c 00000000 	    .long    SysTick_Handler       /* SysTick Handler */
+  72              	
+  73              	    /* External Interrupts */
+  74 0040 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 0: Wakeup PIO0.0          */
+  75 0044 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 1: Wakeup PIO0.1          */
+  76 0048 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 2: Wakeup PIO0.2          */
+  77 004c 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 3: Wakeup PIO0.3          */
+  78 0050 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 4: Wakeup PIO0.4          */
+  79 0054 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 5: Wakeup PIO0.5          */
+  80 0058 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 6: Wakeup PIO0.6          */
+  81 005c 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 7: Wakeup PIO0.7          */
+  82 0060 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 8: Wakeup PIO0.8          */
+  83 0064 00000000 	    .long   WAKEUP_IRQHandler           /* 16+ 9: Wakeup PIO0.9          */
+  84 0068 00000000 	    .long   WAKEUP_IRQHandler           /* 16+10: Wakeup PIO0.10         */
+  85 006c 00000000 	    .long   WAKEUP_IRQHandler           /* 16+11: Wakeup PIO0.11         */
+  86 0070 00000000 	    .long   WAKEUP_IRQHandler           /* 16+12: Wakeup PIO1.0          */
+  87 0074 00000000 	    .long   0                           /* 16+13: Reserved               */
+  88 0078 00000000 	    .long   SSP1_IRQHandler             /* 16+14: SSP1                   */
+  89 007c 00000000 	    .long   I2C_IRQHandler              /* 16+15: I2C                    */
+  90 0080 00000000 	    .long   TIMER16_0_IRQHandler        /* 16+16: 16-bit Counter-Timer 0 */
+  91 0084 00000000 	    .long   TIMER16_1_IRQHandler        /* 16+17: 16-bit Counter-Timer 1 */
+  92 0088 00000000 	    .long   TIMER32_0_IRQHandler        /* 16+18: 32-bit Counter-Timer 0 */
+  93 008c 00000000 	    .long   TIMER32_1_IRQHandler        /* 16+19: 32-bit Counter-Timer 1 */
+  94 0090 00000000 	    .long   SSP0_IRQHandler             /* 16+20: SSP                    */
+  95 0094 00000000 	    .long   UART_IRQHandler             /* 16+21: UART                   */
+  96 0098 00000000 	    .long   0                           /* 16+22: Reserved               */
+  97 009c 00000000 	    .long   0                           /* 16+23: Reserved               */
+  98 00a0 00000000 	    .long   ADC_IRQHandler              /* 16+24: A/D Converter          */
+  99 00a4 00000000 	    .long   WDT_IRQHandler              /* 16+25: Watchdog Timer         */
+ 100 00a8 00000000 	    .long   BOD_IRQHandler              /* 16+26: Brown Out Detect       */
+ 101 00ac 00000000 	    .long   0                           /* 16+27: Reserved               */
+ 102 00b0 00000000 	    .long   PIOINT3_IRQHandler          /* 16+28: PIO INT3               */
+ 103 00b4 00000000 	    .long   PIOINT2_IRQHandler          /* 16+29: PIO INT2               */
+ 104 00b8 00000000 	    .long   PIOINT1_IRQHandler          /* 16+30: PIO INT1               */
+ 105 00bc 00000000 	    .long   PIOINT0_IRQHandler          /* 16+31: PIO INT0               */
  106              	
- 107              	/* ----------------------------------------------------- */
- 108              	/* Reset Handler */
- 109              	    .text
- 110              	
+ 107              	
+ 108              	    .size    __isr_vector, . - __isr_vector
+ 109              	
+ 110              	/* ----------------------------------------------------- */
 ARM GAS  Startup/startup_LPC11xx.S 			page 3
 
 
- 111              	    .thumb
- 112              	    .thumb_func
+ 111              	/* Reset Handler */
+ 112              	    .text
  113              	
- 114              	    .align 2
- 115              	
- 116              	    .globl    Reset_Handler
- 117              	
- 118              	    .type     Reset_Handler, %function
- 119              	
+ 114              	    .thumb
+ 115              	    .thumb_func
+ 116              	
+ 117              	    .align 2
+ 118              	
+ 119              	    .globl    Reset_Handler
  120              	
- 121              	
- 122              	Reset_Handler:
- 123              	/*     Loop to copy data from read only memory to RAM. The ranges
- 124              	 *      of copy from/to are specified by following symbols evaluated in 
- 125              	 *      linker script.
- 126              	 *      __etext: End of code section, i.e., begin of data sections to copy from.
- 127              	 *      __data_start__/__data_end__: RAM address range that data should be
- 128              	 *      copied to. Both must be aligned to 4 bytes boundary.  */
- 129              	
- 130 0000 0A49     	    ldr    r1, =__etext
- 131 0002 0B4A     	    ldr    r2, =__data_start__
- 132 0004 0B4B     	    ldr    r3, =__data_end__
- 133              	
- 134 0006 9B1A     	    subs    r3, r2
- 135 0008 03DD     	    ble    .LC1    
- 136              	.LC0:
- 137 000a 043B     	    subs    r3, #4
- 138 000c C858     	    ldr    r0, [r1, r3]
- 139 000e D050     	    str    r0, [r2, r3]
- 140 0010 FBDC     	    bgt    .LC0
- 141              	.LC1:
- 142              	
- 143              	#ifdef __STARTUP_CLEAR_BSS
- 144              	/*     This part of work usually is done in C library startup code. Otherwise,
- 145              	 *     define this macro to enable it in this startup.
- 146              	 *
- 147              	 *     Loop to zero out BSS section, which uses following symbols
- 148              	 *     in linker script:
- 149              	 *      __bss_start__: start of BSS section. Must align to 4
- 150              	 *      __bss_end__: end of BSS section. Must align to 4
- 151              	 */
- 152 0012 0949     	    ldr r1, =__bss_start__
- 153 0014 094A     	    ldr r2, =__bss_end__
- 154              	
- 155 0016 0020     	    movs    r0, 0
- 156              	.LC2:
- 157 0018 9142     	    cmp     r1, r2
- 158 001a 02DA     	    bge     .LC2end
- 159 001c 0860     	    str     r0, [r1]
- 160 001e 0431     	    adds    r1, #4
- 161 0020 FADB     	    blt    .LC2
- 162              	.LC2end:
- 163              	#endif /* __STARTUP_CLEAR_BSS */
- 164              	
- 165              	#ifndef __NO_SYSTEM_INIT
- 166 0022 FFF7FEFF 	    bl    SystemInit
- 167              	#endif
+ 121              	    .type     Reset_Handler, %function
+ 122              	
+ 123              	
+ 124              	
+ 125              	Reset_Handler:
+ 126              	/*     Loop to copy data from read only memory to RAM. The ranges
+ 127              	 *      of copy from/to are specified by following symbols evaluated in 
+ 128              	 *      linker script.
+ 129              	 *      __etext: End of code section, i.e., begin of data sections to copy from.
+ 130              	 *      __data_start__/__data_end__: RAM address range that data should be
+ 131              	 *      copied to. Both must be aligned to 4 bytes boundary.  */
+ 132              	
+ 133 0000 0A49     	    ldr    r1, =__etext
+ 134 0002 0B4A     	    ldr    r2, =__data_start__
+ 135 0004 0B4B     	    ldr    r3, =__data_end__
+ 136              	
+ 137 0006 9B1A     	    subs    r3, r2
+ 138 0008 03DD     	    ble    .LC1    
+ 139              	.LC0:
+ 140 000a 043B     	    subs    r3, #4
+ 141 000c C858     	    ldr    r0, [r1, r3]
+ 142 000e D050     	    str    r0, [r2, r3]
+ 143 0010 FBDC     	    bgt    .LC0
+ 144              	.LC1:
+ 145              	
+ 146              	#ifdef __STARTUP_CLEAR_BSS
+ 147              	/*     This part of work usually is done in C library startup code. Otherwise,
+ 148              	 *     define this macro to enable it in this startup.
+ 149              	 *
+ 150              	 *     Loop to zero out BSS section, which uses following symbols
+ 151              	 *     in linker script:
+ 152              	 *      __bss_start__: start of BSS section. Must align to 4
+ 153              	 *      __bss_end__: end of BSS section. Must align to 4
+ 154              	 */
+ 155 0012 0949     	    ldr r1, =__bss_start__
+ 156 0014 094A     	    ldr r2, =__bss_end__
+ 157              	
+ 158 0016 0020     	    movs    r0, 0
+ 159              	.LC2:
+ 160 0018 9142     	    cmp     r1, r2
+ 161 001a 02DA     	    bge     .LC2end
+ 162 001c 0860     	    str     r0, [r1]
+ 163 001e 0431     	    adds    r1, #4
+ 164 0020 FADB     	    blt    .LC2
+ 165              	.LC2end:
+ 166              	#endif /* __STARTUP_CLEAR_BSS */
+ 167              	
 ARM GAS  Startup/startup_LPC11xx.S 			page 4
 
 
- 168              	
- 169              	/* #ifndef __START */
- 170              	/* #define __START _start */
- 171              	/* #endif */
- 172              	
- 173              	__START = _start
- 174              	
- 175 0026 FFF7FEFF 	    bl    __START
- 176 002a 00000000 	    .pool
- 176      00000000 
- 176      00000000 
- 176      00000000 
- 176      00000000 
- 177              	    .size Reset_Handler, . - Reset_Handler
- 178              	    .section ".text"
- 179              	
- 180              	/* --------------------------------------------------------
- 181              	 *    Macro to define default handlers. Default handler
- 182              	 *    will be weak symbol and just dead loops. They can be
- 183              	 *    overwritten by other handlers */
- 184              	
- 185              	    .macro    def_default_handler    handler_name
- 186              	    .align 1
- 187              	    .thumb_func
- 188              	    .weak    \handler_name
- 189              	    .type    \handler_name, %function
- 190              	\handler_name :
- 191              	    b    .
- 192              	    .size    \handler_name, . - \handler_name
- 193              	    .endm
- 194              	/* ----------------------------------------------------- */
- 195              	/* Exception Handlers */
- 196              	
- 197              	    def_default_handler    NMI_Handler
- 197              	>  .align 1
- 197              	>  .thumb_func
- 197              	>  .weak NMI_Handler
- 197              	>  .type NMI_Handler,%function
- 197              	> NMI_Handler:
- 197 0040 FEE7     	>  b .
- 197              	>  .size NMI_Handler,.-NMI_Handler
- 198              	    def_default_handler    HardFault_Handler
- 198              	>  .align 1
- 198              	>  .thumb_func
- 198              	>  .weak HardFault_Handler
- 198              	>  .type HardFault_Handler,%function
- 198              	> HardFault_Handler:
- 198 0042 FEE7     	>  b .
- 198              	>  .size HardFault_Handler,.-HardFault_Handler
- 199              	    def_default_handler    SVC_Handler
- 199              	>  .align 1
- 199              	>  .thumb_func
- 199              	>  .weak SVC_Handler
- 199              	>  .type SVC_Handler,%function
- 199              	> SVC_Handler:
- 199 0044 FEE7     	>  b .
- 199              	>  .size SVC_Handler,.-SVC_Handler
+ 168              	#ifndef __NO_SYSTEM_INIT
+ 169 0022 FFF7FEFF 	    bl    SystemInit
+ 170              	#endif
+ 171              	
+ 172              	/* This was commented out by RoSchi */
+ 173              	/* #ifndef __START */
+ 174              	/* #define __START _start */
+ 175              	/* #endif */
+ 176              	
+ 177              	/* The following line was added by RoSchmi */
+ 178              	
+ 179              	__START = _start 
+ 180              	
+ 181 0026 FFF7FEFF 	    bl    __START
+ 182 002a 00000000 	    .pool
+ 182      00000000 
+ 182      00000000 
+ 182      00000000 
+ 182      00000000 
+ 183              	    .size Reset_Handler, . - Reset_Handler
+ 184              	    .section ".text"
+ 185              	
+ 186              	/* --------------------------------------------------------
+ 187              	 *    Macro to define default handlers. Default handler
+ 188              	 *    will be weak symbol and just dead loops. They can be
+ 189              	 *    overwritten by other handlers */
+ 190              	
+ 191              	    .macro    def_default_handler    handler_name
+ 192              	    .align 1
+ 193              	    .thumb_func
+ 194              	    .weak    \handler_name
+ 195              	    .type    \handler_name, %function
+ 196              	\handler_name :
+ 197              	    b    .
+ 198              	    .size    \handler_name, . - \handler_name
+ 199              	    .endm
+ 200              	/* ----------------------------------------------------- */
+ 201              	/* Exception Handlers */
+ 202              	
+ 203              	    def_default_handler    NMI_Handler
+ 203              	>  .align 1
+ 203              	>  .thumb_func
+ 203              	>  .weak NMI_Handler
+ 203              	>  .type NMI_Handler,%function
+ 203              	> NMI_Handler:
+ 203 0040 FEE7     	>  b .
+ 203              	>  .size NMI_Handler,.-NMI_Handler
+ 204              	    def_default_handler    HardFault_Handler
+ 204              	>  .align 1
+ 204              	>  .thumb_func
+ 204              	>  .weak HardFault_Handler
+ 204              	>  .type HardFault_Handler,%function
+ 204              	> HardFault_Handler:
+ 204 0042 FEE7     	>  b .
+ 204              	>  .size HardFault_Handler,.-HardFault_Handler
+ 205              	    def_default_handler    SVC_Handler
+ 205              	>  .align 1
 ARM GAS  Startup/startup_LPC11xx.S 			page 5
 
 
- 200              	    def_default_handler    DebugMon_Handler
- 200              	>  .align 1
- 200              	>  .thumb_func
- 200              	>  .weak DebugMon_Handler
- 200              	>  .type DebugMon_Handler,%function
- 200              	> DebugMon_Handler:
- 200 0046 FEE7     	>  b .
- 200              	>  .size DebugMon_Handler,.-DebugMon_Handler
- 201              	    def_default_handler    PendSV_Handler
- 201              	>  .align 1
- 201              	>  .thumb_func
- 201              	>  .weak PendSV_Handler
- 201              	>  .type PendSV_Handler,%function
- 201              	> PendSV_Handler:
- 201 0048 FEE7     	>  b .
- 201              	>  .size PendSV_Handler,.-PendSV_Handler
- 202              	    def_default_handler    SysTick_Handler
- 202              	>  .align 1
- 202              	>  .thumb_func
- 202              	>  .weak SysTick_Handler
- 202              	>  .type SysTick_Handler,%function
- 202              	> SysTick_Handler:
- 202 004a FEE7     	>  b .
- 202              	>  .size SysTick_Handler,.-SysTick_Handler
- 203              	    def_default_handler    Default_Handler
- 203              	>  .align 1
- 203              	>  .thumb_func
- 203              	>  .weak Default_Handler
- 203              	>  .type Default_Handler,%function
- 203              	> Default_Handler:
- 203 004c FEE7     	>  b .
- 203              	>  .size Default_Handler,.-Default_Handler
- 204              	
- 205              	    def_default_handler    WAKEUP_IRQHandler
- 205              	>  .align 1
  205              	>  .thumb_func
- 205              	>  .weak WAKEUP_IRQHandler
- 205              	>  .type WAKEUP_IRQHandler,%function
- 205              	> WAKEUP_IRQHandler:
- 205 004e FEE7     	>  b .
- 205              	>  .size WAKEUP_IRQHandler,.-WAKEUP_IRQHandler
- 206              	    def_default_handler    SSP1_IRQHandler
+ 205              	>  .weak SVC_Handler
+ 205              	>  .type SVC_Handler,%function
+ 205              	> SVC_Handler:
+ 205 0044 FEE7     	>  b .
+ 205              	>  .size SVC_Handler,.-SVC_Handler
+ 206              	    def_default_handler    DebugMon_Handler
  206              	>  .align 1
  206              	>  .thumb_func
- 206              	>  .weak SSP1_IRQHandler
- 206              	>  .type SSP1_IRQHandler,%function
- 206              	> SSP1_IRQHandler:
- 206 0050 FEE7     	>  b .
- 206              	>  .size SSP1_IRQHandler,.-SSP1_IRQHandler
- 207              	    def_default_handler    I2C_IRQHandler
+ 206              	>  .weak DebugMon_Handler
+ 206              	>  .type DebugMon_Handler,%function
+ 206              	> DebugMon_Handler:
+ 206 0046 FEE7     	>  b .
+ 206              	>  .size DebugMon_Handler,.-DebugMon_Handler
+ 207              	    def_default_handler    PendSV_Handler
  207              	>  .align 1
  207              	>  .thumb_func
- 207              	>  .weak I2C_IRQHandler
- 207              	>  .type I2C_IRQHandler,%function
- 207              	> I2C_IRQHandler:
- 207 0052 FEE7     	>  b .
- 207              	>  .size I2C_IRQHandler,.-I2C_IRQHandler
+ 207              	>  .weak PendSV_Handler
+ 207              	>  .type PendSV_Handler,%function
+ 207              	> PendSV_Handler:
+ 207 0048 FEE7     	>  b .
+ 207              	>  .size PendSV_Handler,.-PendSV_Handler
+ 208              	    def_default_handler    SysTick_Handler
+ 208              	>  .align 1
+ 208              	>  .thumb_func
+ 208              	>  .weak SysTick_Handler
+ 208              	>  .type SysTick_Handler,%function
+ 208              	> SysTick_Handler:
+ 208 004a FEE7     	>  b .
+ 208              	>  .size SysTick_Handler,.-SysTick_Handler
+ 209              	    def_default_handler    Default_Handler
+ 209              	>  .align 1
+ 209              	>  .thumb_func
+ 209              	>  .weak Default_Handler
+ 209              	>  .type Default_Handler,%function
+ 209              	> Default_Handler:
+ 209 004c FEE7     	>  b .
+ 209              	>  .size Default_Handler,.-Default_Handler
+ 210              	
+ 211              	    def_default_handler    WAKEUP_IRQHandler
+ 211              	>  .align 1
+ 211              	>  .thumb_func
+ 211              	>  .weak WAKEUP_IRQHandler
+ 211              	>  .type WAKEUP_IRQHandler,%function
+ 211              	> WAKEUP_IRQHandler:
+ 211 004e FEE7     	>  b .
+ 211              	>  .size WAKEUP_IRQHandler,.-WAKEUP_IRQHandler
+ 212              	    def_default_handler    SSP1_IRQHandler
+ 212              	>  .align 1
+ 212              	>  .thumb_func
+ 212              	>  .weak SSP1_IRQHandler
+ 212              	>  .type SSP1_IRQHandler,%function
+ 212              	> SSP1_IRQHandler:
+ 212 0050 FEE7     	>  b .
+ 212              	>  .size SSP1_IRQHandler,.-SSP1_IRQHandler
+ 213              	    def_default_handler    I2C_IRQHandler
+ 213              	>  .align 1
 ARM GAS  Startup/startup_LPC11xx.S 			page 6
 
 
- 208              	    def_default_handler    TIMER16_0_IRQHandler
- 208              	>  .align 1
- 208              	>  .thumb_func
- 208              	>  .weak TIMER16_0_IRQHandler
- 208              	>  .type TIMER16_0_IRQHandler,%function
- 208              	> TIMER16_0_IRQHandler:
- 208 0054 FEE7     	>  b .
- 208              	>  .size TIMER16_0_IRQHandler,.-TIMER16_0_IRQHandler
- 209              	    def_default_handler    TIMER16_1_IRQHandler
- 209              	>  .align 1
- 209              	>  .thumb_func
- 209              	>  .weak TIMER16_1_IRQHandler
- 209              	>  .type TIMER16_1_IRQHandler,%function
- 209              	> TIMER16_1_IRQHandler:
- 209 0056 FEE7     	>  b .
- 209              	>  .size TIMER16_1_IRQHandler,.-TIMER16_1_IRQHandler
- 210              	    def_default_handler    TIMER32_0_IRQHandler
- 210              	>  .align 1
- 210              	>  .thumb_func
- 210              	>  .weak TIMER32_0_IRQHandler
- 210              	>  .type TIMER32_0_IRQHandler,%function
- 210              	> TIMER32_0_IRQHandler:
- 210 0058 FEE7     	>  b .
- 210              	>  .size TIMER32_0_IRQHandler,.-TIMER32_0_IRQHandler
- 211              	    def_default_handler    TIMER32_1_IRQHandler
- 211              	>  .align 1
- 211              	>  .thumb_func
- 211              	>  .weak TIMER32_1_IRQHandler
- 211              	>  .type TIMER32_1_IRQHandler,%function
- 211              	> TIMER32_1_IRQHandler:
- 211 005a FEE7     	>  b .
- 211              	>  .size TIMER32_1_IRQHandler,.-TIMER32_1_IRQHandler
- 212              	    def_default_handler    SSP0_IRQHandler
- 212              	>  .align 1
- 212              	>  .thumb_func
- 212              	>  .weak SSP0_IRQHandler
- 212              	>  .type SSP0_IRQHandler,%function
- 212              	> SSP0_IRQHandler:
- 212 005c FEE7     	>  b .
- 212              	>  .size SSP0_IRQHandler,.-SSP0_IRQHandler
- 213              	    def_default_handler    UART_IRQHandler
- 213              	>  .align 1
  213              	>  .thumb_func
- 213              	>  .weak UART_IRQHandler
- 213              	>  .type UART_IRQHandler,%function
- 213              	> UART_IRQHandler:
- 213 005e FEE7     	>  b .
- 213              	>  .size UART_IRQHandler,.-UART_IRQHandler
- 214              	    def_default_handler    ADC_IRQHandler
+ 213              	>  .weak I2C_IRQHandler
+ 213              	>  .type I2C_IRQHandler,%function
+ 213              	> I2C_IRQHandler:
+ 213 0052 FEE7     	>  b .
+ 213              	>  .size I2C_IRQHandler,.-I2C_IRQHandler
+ 214              	    def_default_handler    TIMER16_0_IRQHandler
  214              	>  .align 1
  214              	>  .thumb_func
- 214              	>  .weak ADC_IRQHandler
- 214              	>  .type ADC_IRQHandler,%function
- 214              	> ADC_IRQHandler:
- 214 0060 FEE7     	>  b .
- 214              	>  .size ADC_IRQHandler,.-ADC_IRQHandler
- 215              	    def_default_handler    WDT_IRQHandler
+ 214              	>  .weak TIMER16_0_IRQHandler
+ 214              	>  .type TIMER16_0_IRQHandler,%function
+ 214              	> TIMER16_0_IRQHandler:
+ 214 0054 FEE7     	>  b .
+ 214              	>  .size TIMER16_0_IRQHandler,.-TIMER16_0_IRQHandler
+ 215              	    def_default_handler    TIMER16_1_IRQHandler
+ 215              	>  .align 1
+ 215              	>  .thumb_func
+ 215              	>  .weak TIMER16_1_IRQHandler
+ 215              	>  .type TIMER16_1_IRQHandler,%function
+ 215              	> TIMER16_1_IRQHandler:
+ 215 0056 FEE7     	>  b .
+ 215              	>  .size TIMER16_1_IRQHandler,.-TIMER16_1_IRQHandler
+ 216              	    def_default_handler    TIMER32_0_IRQHandler
+ 216              	>  .align 1
+ 216              	>  .thumb_func
+ 216              	>  .weak TIMER32_0_IRQHandler
+ 216              	>  .type TIMER32_0_IRQHandler,%function
+ 216              	> TIMER32_0_IRQHandler:
+ 216 0058 FEE7     	>  b .
+ 216              	>  .size TIMER32_0_IRQHandler,.-TIMER32_0_IRQHandler
+ 217              	    def_default_handler    TIMER32_1_IRQHandler
+ 217              	>  .align 1
+ 217              	>  .thumb_func
+ 217              	>  .weak TIMER32_1_IRQHandler
+ 217              	>  .type TIMER32_1_IRQHandler,%function
+ 217              	> TIMER32_1_IRQHandler:
+ 217 005a FEE7     	>  b .
+ 217              	>  .size TIMER32_1_IRQHandler,.-TIMER32_1_IRQHandler
+ 218              	    def_default_handler    SSP0_IRQHandler
+ 218              	>  .align 1
+ 218              	>  .thumb_func
+ 218              	>  .weak SSP0_IRQHandler
+ 218              	>  .type SSP0_IRQHandler,%function
+ 218              	> SSP0_IRQHandler:
+ 218 005c FEE7     	>  b .
+ 218              	>  .size SSP0_IRQHandler,.-SSP0_IRQHandler
+ 219              	    def_default_handler    UART_IRQHandler
+ 219              	>  .align 1
+ 219              	>  .thumb_func
+ 219              	>  .weak UART_IRQHandler
+ 219              	>  .type UART_IRQHandler,%function
+ 219              	> UART_IRQHandler:
+ 219 005e FEE7     	>  b .
+ 219              	>  .size UART_IRQHandler,.-UART_IRQHandler
+ 220              	    def_default_handler    ADC_IRQHandler
+ 220              	>  .align 1
+ 220              	>  .thumb_func
 ARM GAS  Startup/startup_LPC11xx.S 			page 7
 
 
- 215              	>  .align 1
- 215              	>  .thumb_func
- 215              	>  .weak WDT_IRQHandler
- 215              	>  .type WDT_IRQHandler,%function
- 215              	> WDT_IRQHandler:
- 215 0062 FEE7     	>  b .
- 215              	>  .size WDT_IRQHandler,.-WDT_IRQHandler
- 216              	    def_default_handler    BOD_IRQHandler
- 216              	>  .align 1
- 216              	>  .thumb_func
- 216              	>  .weak BOD_IRQHandler
- 216              	>  .type BOD_IRQHandler,%function
- 216              	> BOD_IRQHandler:
- 216 0064 FEE7     	>  b .
- 216              	>  .size BOD_IRQHandler,.-BOD_IRQHandler
- 217              	    def_default_handler    PIOINT3_IRQHandler
- 217              	>  .align 1
- 217              	>  .thumb_func
- 217              	>  .weak PIOINT3_IRQHandler
- 217              	>  .type PIOINT3_IRQHandler,%function
- 217              	> PIOINT3_IRQHandler:
- 217 0066 FEE7     	>  b .
- 217              	>  .size PIOINT3_IRQHandler,.-PIOINT3_IRQHandler
- 218              	    def_default_handler    PIOINT2_IRQHandler
- 218              	>  .align 1
- 218              	>  .thumb_func
- 218              	>  .weak PIOINT2_IRQHandler
- 218              	>  .type PIOINT2_IRQHandler,%function
- 218              	> PIOINT2_IRQHandler:
- 218 0068 FEE7     	>  b .
- 218              	>  .size PIOINT2_IRQHandler,.-PIOINT2_IRQHandler
- 219              	    def_default_handler    PIOINT1_IRQHandler
- 219              	>  .align 1
- 219              	>  .thumb_func
- 219              	>  .weak PIOINT1_IRQHandler
- 219              	>  .type PIOINT1_IRQHandler,%function
- 219              	> PIOINT1_IRQHandler:
- 219 006a FEE7     	>  b .
- 219              	>  .size PIOINT1_IRQHandler,.-PIOINT1_IRQHandler
- 220              	    def_default_handler    PIOINT0_IRQHandler
- 220              	>  .align 1
- 220              	>  .thumb_func
- 220              	>  .weak PIOINT0_IRQHandler
- 220              	>  .type PIOINT0_IRQHandler,%function
- 220              	> PIOINT0_IRQHandler:
- 220 006c FEE7     	>  b .
- 220              	>  .size PIOINT0_IRQHandler,.-PIOINT0_IRQHandler
- 221              	
- 222              	    .weak    DEF_IRQHandler
- 223              	
- 224              	    .set    DEF_IRQHandler, Default_Handler
- 225              	
- 226 006e C046     	    .end
+ 220              	>  .weak ADC_IRQHandler
+ 220              	>  .type ADC_IRQHandler,%function
+ 220              	> ADC_IRQHandler:
+ 220 0060 FEE7     	>  b .
+ 220              	>  .size ADC_IRQHandler,.-ADC_IRQHandler
+ 221              	    def_default_handler    WDT_IRQHandler
+ 221              	>  .align 1
+ 221              	>  .thumb_func
+ 221              	>  .weak WDT_IRQHandler
+ 221              	>  .type WDT_IRQHandler,%function
+ 221              	> WDT_IRQHandler:
+ 221 0062 FEE7     	>  b .
+ 221              	>  .size WDT_IRQHandler,.-WDT_IRQHandler
+ 222              	    def_default_handler    BOD_IRQHandler
+ 222              	>  .align 1
+ 222              	>  .thumb_func
+ 222              	>  .weak BOD_IRQHandler
+ 222              	>  .type BOD_IRQHandler,%function
+ 222              	> BOD_IRQHandler:
+ 222 0064 FEE7     	>  b .
+ 222              	>  .size BOD_IRQHandler,.-BOD_IRQHandler
+ 223              	    def_default_handler    PIOINT3_IRQHandler
+ 223              	>  .align 1
+ 223              	>  .thumb_func
+ 223              	>  .weak PIOINT3_IRQHandler
+ 223              	>  .type PIOINT3_IRQHandler,%function
+ 223              	> PIOINT3_IRQHandler:
+ 223 0066 FEE7     	>  b .
+ 223              	>  .size PIOINT3_IRQHandler,.-PIOINT3_IRQHandler
+ 224              	    def_default_handler    PIOINT2_IRQHandler
+ 224              	>  .align 1
+ 224              	>  .thumb_func
+ 224              	>  .weak PIOINT2_IRQHandler
+ 224              	>  .type PIOINT2_IRQHandler,%function
+ 224              	> PIOINT2_IRQHandler:
+ 224 0068 FEE7     	>  b .
+ 224              	>  .size PIOINT2_IRQHandler,.-PIOINT2_IRQHandler
+ 225              	    def_default_handler    PIOINT1_IRQHandler
+ 225              	>  .align 1
+ 225              	>  .thumb_func
+ 225              	>  .weak PIOINT1_IRQHandler
+ 225              	>  .type PIOINT1_IRQHandler,%function
+ 225              	> PIOINT1_IRQHandler:
+ 225 006a FEE7     	>  b .
+ 225              	>  .size PIOINT1_IRQHandler,.-PIOINT1_IRQHandler
+ 226              	    def_default_handler    PIOINT0_IRQHandler
+ 226              	>  .align 1
+ 226              	>  .thumb_func
+ 226              	>  .weak PIOINT0_IRQHandler
+ 226              	>  .type PIOINT0_IRQHandler,%function
+ 226              	> PIOINT0_IRQHandler:
+ 226 006c FEE7     	>  b .
+ 226              	>  .size PIOINT0_IRQHandler,.-PIOINT0_IRQHandler
+ 227              	
+ 228              	    .weak    DEF_IRQHandler
+ 229              	
+ 230              	    .set    DEF_IRQHandler, Default_Handler
 ARM GAS  Startup/startup_LPC11xx.S 			page 8
+
+
+ 231              	
+ 232 006e C046     	    .end
+ARM GAS  Startup/startup_LPC11xx.S 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:000002db __GCC_VERSION
                             *ABS*:00000001 __GCC
                             *ABS*:00000210 __UVISION_VERSION
-Startup/startup_LPC11xx.S:11     .stack:00000000 $d
-Startup/startup_LPC11xx.S:13     *ABS*:00000c00 Stack_Size
-Startup/startup_LPC11xx.S:22     .stack:00000c00 __StackTop
-Startup/startup_LPC11xx.S:19     .stack:00000000 __StackLimit
-Startup/startup_LPC11xx.S:31     *ABS*:00000000 Heap_Size
-Startup/startup_LPC11xx.S:37     .heap:00000000 __HeapBase
-Startup/startup_LPC11xx.S:42     .heap:00000000 __HeapLimit
-Startup/startup_LPC11xx.S:50     .isr_vector:00000000 $d
-Startup/startup_LPC11xx.S:52     .isr_vector:00000000 __isr_vector
-Startup/startup_LPC11xx.S:122    .text:00000000 Reset_Handler
-Startup/startup_LPC11xx.S:197    .text:00000040 NMI_Handler
-Startup/startup_LPC11xx.S:198    .text:00000042 HardFault_Handler
-Startup/startup_LPC11xx.S:199    .text:00000044 SVC_Handler
-Startup/startup_LPC11xx.S:201    .text:00000048 PendSV_Handler
-Startup/startup_LPC11xx.S:202    .text:0000004a SysTick_Handler
-Startup/startup_LPC11xx.S:205    .text:0000004e WAKEUP_IRQHandler
-Startup/startup_LPC11xx.S:206    .text:00000050 SSP1_IRQHandler
-Startup/startup_LPC11xx.S:207    .text:00000052 I2C_IRQHandler
-Startup/startup_LPC11xx.S:208    .text:00000054 TIMER16_0_IRQHandler
-Startup/startup_LPC11xx.S:209    .text:00000056 TIMER16_1_IRQHandler
-Startup/startup_LPC11xx.S:210    .text:00000058 TIMER32_0_IRQHandler
-Startup/startup_LPC11xx.S:211    .text:0000005a TIMER32_1_IRQHandler
-Startup/startup_LPC11xx.S:212    .text:0000005c SSP0_IRQHandler
-Startup/startup_LPC11xx.S:213    .text:0000005e UART_IRQHandler
-Startup/startup_LPC11xx.S:214    .text:00000060 ADC_IRQHandler
-Startup/startup_LPC11xx.S:215    .text:00000062 WDT_IRQHandler
-Startup/startup_LPC11xx.S:216    .text:00000064 BOD_IRQHandler
-Startup/startup_LPC11xx.S:217    .text:00000066 PIOINT3_IRQHandler
-Startup/startup_LPC11xx.S:218    .text:00000068 PIOINT2_IRQHandler
-Startup/startup_LPC11xx.S:219    .text:0000006a PIOINT1_IRQHandler
-Startup/startup_LPC11xx.S:220    .text:0000006c PIOINT0_IRQHandler
-Startup/startup_LPC11xx.S:114    .text:00000000 $t
-Startup/startup_LPC11xx.S:176    .text:0000002a $d
-Startup/startup_LPC11xx.S:176    .text:0000002c $d
-Startup/startup_LPC11xx.S:197    .text:00000040 $t
-Startup/startup_LPC11xx.S:200    .text:00000046 DebugMon_Handler
-Startup/startup_LPC11xx.S:203    .text:0000004c Default_Handler
-Startup/startup_LPC11xx.S:203    .text:0000004c DEF_IRQHandler
+Startup/startup_LPC11xx.S:14     .stack:00000000 $d
+Startup/startup_LPC11xx.S:16     *ABS*:00000c00 Stack_Size
+Startup/startup_LPC11xx.S:25     .stack:00000c00 __StackTop
+Startup/startup_LPC11xx.S:22     .stack:00000000 __StackLimit
+Startup/startup_LPC11xx.S:34     *ABS*:00000000 Heap_Size
+Startup/startup_LPC11xx.S:40     .heap:00000000 __HeapBase
+Startup/startup_LPC11xx.S:45     .heap:00000000 __HeapLimit
+Startup/startup_LPC11xx.S:53     .isr_vector:00000000 $d
+Startup/startup_LPC11xx.S:55     .isr_vector:00000000 __isr_vector
+Startup/startup_LPC11xx.S:125    .text:00000000 Reset_Handler
+Startup/startup_LPC11xx.S:203    .text:00000040 NMI_Handler
+Startup/startup_LPC11xx.S:204    .text:00000042 HardFault_Handler
+Startup/startup_LPC11xx.S:205    .text:00000044 SVC_Handler
+Startup/startup_LPC11xx.S:207    .text:00000048 PendSV_Handler
+Startup/startup_LPC11xx.S:208    .text:0000004a SysTick_Handler
+Startup/startup_LPC11xx.S:211    .text:0000004e WAKEUP_IRQHandler
+Startup/startup_LPC11xx.S:212    .text:00000050 SSP1_IRQHandler
+Startup/startup_LPC11xx.S:213    .text:00000052 I2C_IRQHandler
+Startup/startup_LPC11xx.S:214    .text:00000054 TIMER16_0_IRQHandler
+Startup/startup_LPC11xx.S:215    .text:00000056 TIMER16_1_IRQHandler
+Startup/startup_LPC11xx.S:216    .text:00000058 TIMER32_0_IRQHandler
+Startup/startup_LPC11xx.S:217    .text:0000005a TIMER32_1_IRQHandler
+Startup/startup_LPC11xx.S:218    .text:0000005c SSP0_IRQHandler
+Startup/startup_LPC11xx.S:219    .text:0000005e UART_IRQHandler
+Startup/startup_LPC11xx.S:220    .text:00000060 ADC_IRQHandler
+Startup/startup_LPC11xx.S:221    .text:00000062 WDT_IRQHandler
+Startup/startup_LPC11xx.S:222    .text:00000064 BOD_IRQHandler
+Startup/startup_LPC11xx.S:223    .text:00000066 PIOINT3_IRQHandler
+Startup/startup_LPC11xx.S:224    .text:00000068 PIOINT2_IRQHandler
+Startup/startup_LPC11xx.S:225    .text:0000006a PIOINT1_IRQHandler
+Startup/startup_LPC11xx.S:226    .text:0000006c PIOINT0_IRQHandler
+Startup/startup_LPC11xx.S:117    .text:00000000 $t
+Startup/startup_LPC11xx.S:182    .text:0000002a $d
+Startup/startup_LPC11xx.S:182    .text:0000002c $d
+Startup/startup_LPC11xx.S:203    .text:00000040 $t
+Startup/startup_LPC11xx.S:206    .text:00000046 DebugMon_Handler
+Startup/startup_LPC11xx.S:209    .text:0000004c Default_Handler
+Startup/startup_LPC11xx.S:209    .text:0000004c DEF_IRQHandler
 
 UNDEFINED SYMBOLS
 __STACK_SIZE

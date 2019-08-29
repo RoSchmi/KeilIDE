@@ -2,6 +2,9 @@
 /* startup_LPC11xx.s: Startup file for LPC11xx device series                 */
 /*****************************************************************************/
 
+/* Changes of the template were made by RoSchmi to circumvent issues with the not defined symbol __START */
+/* Solution: __Start was defined to 0x0000.0000 in the linker script and set to -start in this startup Code */ 
+
 /* ------------------- */
 /* Stack Configuration */
     .syntax unified
@@ -166,11 +169,14 @@ Reset_Handler:
     bl    SystemInit
 #endif
 
+/* This was commented out by RoSchi */
 /* #ifndef __START */
 /* #define __START _start */
 /* #endif */
 
-__START = _start
+/* The following line was added by RoSchmi */
+
+__START = _start 
 
     bl    __START
     .pool

@@ -68,48 +68,41 @@ __isr_vector:
     .long    SysTick_Handler       /* SysTick Handler */
 
     /* External Interrupts */
-    .long    DMA0_IRQHandler        /* DMA channel 0 transfer complete/error interrupt */
-    .long    DMA1_IRQHandler        /* DMA channel 1 transfer complete/error interrupt */
-    .long    DMA2_IRQHandler        /* DMA channel 2 transfer complete/error interrupt */
-    .long    DMA3_IRQHandler        /* DMA channel 3 transfer complete/error interrupt */
-    .long    Reserved20_IRQHandler  /* Reserved interrupt 20 */
-    .long    FTFA_IRQHandler        /* FTFA command complete/read collision interrupt */
-    .long    LVD_LVW_IRQHandler     /* Low Voltage Detect, Low Voltage Warning */
-    .long    LLW_IRQHandler         /* Low Leakage Wakeup */
-    .long    I2C0_IRQHandler        /* I2C0 interrupt */
-    .long    I2C1_IRQHandler        /* I2C0 interrupt 25 */
-    .long    SPI0_IRQHandler        /* SPI0 interrupt */
-    .long    SPI1_IRQHandler        /* SPI1 interrupt */
-    .long    UART0_IRQHandler       /* UART0 status/error interrupt */
-    .long    UART1_IRQHandler       /* UART1 status/error interrupt */
-    .long    UART2_IRQHandler       /* UART2 status/error interrupt */
-    .long    ADC0_IRQHandler        /* ADC0 interrupt */
-    .long    CMP0_IRQHandler        /* CMP0 interrupt */
-    .long    TPM0_IRQHandler        /* TPM0 fault, overflow and channels interrupt */
-    .long    TPM1_IRQHandler        /* TPM1 fault, overflow and channels interrupt */
-    .long    TPM2_IRQHandler        /* TPM2 fault, overflow and channels interrupt */
-    .long    RTC_IRQHandler         /* RTC interrupt */
-    .long    RTC_Seconds_IRQHandler /* RTC seconds interrupt */
-    .long    PIT_IRQHandler         /* PIT timer interrupt */
-    .long    Reserved39_IRQHandler  /* Reserved interrupt 39 */
-    .long    USB0_IRQHandler        /* USB0 interrupt */
-    .long    DAC0_IRQHandler        /* DAC0 interrupt */
-    .long    TSI0_IRQHandler        /* TSI0 interrupt */
-    .long    MCG_IRQHandler         /* MCG interrupt */
-    .long    LPTimer_IRQHandler     /* LPTimer interrupt */
-    .long    Reserved45_IRQHandler  /* Reserved interrupt 45 */
-    .long    PORTA_IRQHandler       /* Port A interrupt */
-    .long    PORTD_IRQHandler       /* Port D interrupt */
+    .long   WAKEUP_IRQHandler           /* 16+ 0: Wakeup PIO0.0          */
+    .long   WAKEUP_IRQHandler           /* 16+ 1: Wakeup PIO0.1          */
+    .long   WAKEUP_IRQHandler           /* 16+ 2: Wakeup PIO0.2          */
+    .long   WAKEUP_IRQHandler           /* 16+ 3: Wakeup PIO0.3          */
+    .long   WAKEUP_IRQHandler           /* 16+ 4: Wakeup PIO0.4          */
+    .long   WAKEUP_IRQHandler           /* 16+ 5: Wakeup PIO0.5          */
+    .long   WAKEUP_IRQHandler           /* 16+ 6: Wakeup PIO0.6          */
+    .long   WAKEUP_IRQHandler           /* 16+ 7: Wakeup PIO0.7          */
+    .long   WAKEUP_IRQHandler           /* 16+ 8: Wakeup PIO0.8          */
+    .long   WAKEUP_IRQHandler           /* 16+ 9: Wakeup PIO0.9          */
+    .long   WAKEUP_IRQHandler           /* 16+10: Wakeup PIO0.10         */
+    .long   WAKEUP_IRQHandler           /* 16+11: Wakeup PIO0.11         */
+    .long   WAKEUP_IRQHandler           /* 16+12: Wakeup PIO1.0          */
+    .long   0                           /* 16+13: Reserved               */
+    .long   SSP1_IRQHandler             /* 16+14: SSP1                   */
+    .long   I2C_IRQHandler              /* 16+15: I2C                    */
+    .long   TIMER16_0_IRQHandler        /* 16+16: 16-bit Counter-Timer 0 */
+    .long   TIMER16_1_IRQHandler        /* 16+17: 16-bit Counter-Timer 1 */
+    .long   TIMER32_0_IRQHandler        /* 16+18: 32-bit Counter-Timer 0 */
+    .long   TIMER32_1_IRQHandler        /* 16+19: 32-bit Counter-Timer 1 */
+    .long   SSP0_IRQHandler             /* 16+20: SSP                    */
+    .long   UART_IRQHandler             /* 16+21: UART                   */
+    .long   0                           /* 16+22: Reserved               */
+    .long   0                           /* 16+23: Reserved               */
+    .long   ADC_IRQHandler              /* 16+24: A/D Converter          */
+    .long   WDT_IRQHandler              /* 16+25: Watchdog Timer         */
+    .long   BOD_IRQHandler              /* 16+26: Brown Out Detect       */
+    .long   0                           /* 16+27: Reserved               */
+    .long   PIOINT3_IRQHandler          /* 16+28: PIO INT3               */
+    .long   PIOINT2_IRQHandler          /* 16+29: PIO INT2               */
+    .long   PIOINT1_IRQHandler          /* 16+30: PIO INT1               */
+    .long   PIOINT0_IRQHandler          /* 16+31: PIO INT0               */
 
 
     .size    __isr_vector, . - __isr_vector
-
-__FlashConfig:
-    .long    0xFFFFFFFF
-    .long    0xFFFFFFFF
-    .long    0xFFFFFFFF
-    .long    0xFFFFFFFE
-__FlashConfig_End:
 
 /* ----------------------------------------------------- */
 /* Reset Handler */
@@ -173,9 +166,12 @@ Reset_Handler:
     bl    SystemInit
 #endif
 
-#ifndef __START
-#define __START _start
-#endif
+/* #ifndef __START */
+/* #define __START _start */
+/* #endif */
+
+__START = _start
+
     bl    __START
     .pool
     .size Reset_Handler, . - Reset_Handler
@@ -206,39 +202,22 @@ Reset_Handler:
     def_default_handler    SysTick_Handler
     def_default_handler    Default_Handler
 
-    def_default_handler    DMA0_IRQHandler
-    def_default_handler    DMA1_IRQHandler
-    def_default_handler    DMA2_IRQHandler
-    def_default_handler    DMA3_IRQHandler
-    def_default_handler    Reserved20_IRQHandler
-    def_default_handler    FTFA_IRQHandler
-    def_default_handler    LVD_LVW_IRQHandler
-    def_default_handler    LLW_IRQHandler
-    def_default_handler    I2C0_IRQHandler
-    def_default_handler    I2C1_IRQHandler
-    def_default_handler    SPI0_IRQHandler
-    def_default_handler    SPI1_IRQHandler
-    def_default_handler    UART0_IRQHandler
-    def_default_handler    UART1_IRQHandler
-    def_default_handler    UART2_IRQHandler
-
-    def_default_handler    ADC0_IRQHandler
-    def_default_handler    CMP0_IRQHandler  
-    def_default_handler    TPM0_IRQHandler
-    def_default_handler    TPM1_IRQHandler
-    def_default_handler    TPM2_IRQHandler
-    def_default_handler    RTC_IRQHandler
-    def_default_handler    RTC_Seconds_IRQHandler
-    def_default_handler    PIT_IRQHandler
-    def_default_handler    Reserved39_IRQHandler
-    def_default_handler    USB0_IRQHandler
-    def_default_handler    DAC0_IRQHandler
-    def_default_handler    TSI0_IRQHandler
-    def_default_handler    MCG_IRQHandler
-    def_default_handler    LPTimer_IRQHandler
-    def_default_handler    Reserved45_IRQHandler  
-    def_default_handler    PORTA_IRQHandler
-    def_default_handler    PORTD_IRQHandler
+    def_default_handler    WAKEUP_IRQHandler
+    def_default_handler    SSP1_IRQHandler
+    def_default_handler    I2C_IRQHandler
+    def_default_handler    TIMER16_0_IRQHandler
+    def_default_handler    TIMER16_1_IRQHandler
+    def_default_handler    TIMER32_0_IRQHandler
+    def_default_handler    TIMER32_1_IRQHandler
+    def_default_handler    SSP0_IRQHandler
+    def_default_handler    UART_IRQHandler
+    def_default_handler    ADC_IRQHandler
+    def_default_handler    WDT_IRQHandler
+    def_default_handler    BOD_IRQHandler
+    def_default_handler    PIOINT3_IRQHandler
+    def_default_handler    PIOINT2_IRQHandler
+    def_default_handler    PIOINT1_IRQHandler
+    def_default_handler    PIOINT0_IRQHandler
 
     .weak    DEF_IRQHandler
 

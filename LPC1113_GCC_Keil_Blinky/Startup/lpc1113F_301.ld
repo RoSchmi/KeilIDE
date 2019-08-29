@@ -1,4 +1,6 @@
 /* Linker script for NXP Lpc1113F/301 */
+/* The template was changed by RoSchmi to define __START with value 0x0000.0000 */
+/* Defining __START was needed, as it didn't link otherwise, because of the undefined symbol */
 
 
 /* Linker script to configure memory regions. 
@@ -45,13 +47,15 @@ MEMORY
  *   __stack
  */
 ENTRY(Reset_Handler)
+
+/* The following line was added by RoSchmi */
 EXTERN(__START)
 
-
+/* The line: __START = .; was added by RoSchmi */
 SECTIONS
 {
 	.text :
-	{
+	{             
 		__START = .;		
 		KEEP(*(.isr_vector))
 		*(.text*)

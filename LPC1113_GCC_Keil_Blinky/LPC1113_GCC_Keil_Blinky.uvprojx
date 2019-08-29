@@ -235,14 +235,14 @@
             <interw>1</interw>
             <bigend>0</bigend>
             <Strict>0</Strict>
-            <Optim>0</Optim>
+            <Optim>1</Optim>
             <wLevel>2</wLevel>
             <uThumb>1</uThumb>
             <VariousControls>
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Startup;.\CMSIS\Include; C:\nanoFramework_Tools\GNU_ARM_Toolchain\8-2018-q4_major\arm-none-eabi</IncludePath>
+              <IncludePath>.\Startup;.\CMSIS\Include;C:\nanoFramework_Tools\GNU_ARM_Toolchain\8-2018-q4_major\arm-none-eabi</IncludePath>
             </VariousControls>
           </Carm>
           <Aarm>
@@ -266,7 +266,7 @@
             <BSSAddressRange></BSSAddressRange>
             <IncludeLibs></IncludeLibs>
             <IncludeDir></IncludeDir>
-            <Misc>-Wl,-lgcc,  -lnosys --specs=nosys.specs</Misc>
+            <Misc>-Wl,-lgcc, -lnosys --specs=nosys.specs</Misc>
             <ScatterFile>.\Startup\lpc1113F_301.ld</ScatterFile>
           </LDarm>
         </TargetArm>
@@ -301,9 +301,9 @@
           <GroupName>CMSIS</GroupName>
           <Files>
             <File>
-              <FileName>system_LPC11xx.h</FileName>
+              <FileName>LPC11xx.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\CMSIS\Include\system_LPC11xx.h</FilePath>
+              <FilePath>.\CMSIS\Include\LPC11xx.h</FilePath>
             </File>
           </Files>
         </Group>

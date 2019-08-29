@@ -45,11 +45,14 @@ MEMORY
  *   __stack
  */
 ENTRY(Reset_Handler)
+EXTERN(__START)
+
 
 SECTIONS
 {
 	.text :
 	{
+		__START = .;		
 		KEEP(*(.isr_vector))
 		*(.text*)
 
