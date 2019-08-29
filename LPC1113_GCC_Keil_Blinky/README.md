@@ -17,3 +17,6 @@ https://www.youtube.com/watch?v=3brOzLJmeek
 
 A comprehensive tutorial explaining the boot process can be seen here:
 https://jacobmossberg.se/posts/2018/08/11/run-c-program-bare-metal-on-arm-cortex-m3.html
+
+An in depth explanation of the startup process is here:
+https://embeddedartistry.com/blog/2019/4/16/exploring-startup-implementations-newlib-arm
