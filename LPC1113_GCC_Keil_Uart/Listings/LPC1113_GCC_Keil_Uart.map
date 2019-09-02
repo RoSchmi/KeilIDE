@@ -1,0 +1,488 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o (exit)
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o) (_global_impure_ptr)
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o (__libc_init_array)
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memset.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o (memset)
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o) (__call_exitprocs)
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o) (atexit)
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o) (__libc_fini_array)
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o) (__retarget_lock_acquire_recursive)
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o) (__register_exitproc)
+c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libnosys.a(_exit.o)
+                              c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o) (_exit)
+
+Allocating common symbols
+Common symbol       size              file
+
+__lock___atexit_recursive_mutex
+                    0x1               c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+__lock___arc4random_mutex
+                    0x1               c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+ctr                 0x4               ./objects/uart_echo.o
+__lock___env_recursive_mutex
+                    0x1               c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+__lock___sinit_recursive_mutex
+                    0x1               c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+__lock___malloc_recursive_mutex
+                    0x1               c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+__lock___at_quick_exit_mutex
+                    0x1               c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+__lock___dd_hash_mutex
+                    0x1               c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+__lock___tz_mutex   0x1               c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+__lock___sfp_recursive_mutex
+                    0x1               c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x00000000         0x00006000         xr
+RAM              0x10000000         0x00002000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crti.o
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
+LOAD ./objects/system_lpc11xx.o
+LOAD ./objects/startup_lpc11xx.o
+LOAD ./objects/led_funcs.o
+LOAD ./objects/uart_echo.o
+LOAD ./objects/uart_funcs.o
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libm.a
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m\libgcc.a
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libnosys.a
+START GROUP
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m\libgcc.a
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a
+END GROUP
+START GROUP
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m\libgcc.a
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libnosys.a
+END GROUP
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtend.o
+LOAD c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtn.o
+
+.text           0x00000000      0x9b8
+                0x00000000                __START = .
+ *(.isr_vector)
+ .isr_vector    0x00000000       0xc0 ./objects/startup_lpc11xx.o
+                0x00000000                __isr_vector
+ *(.text*)
+ .text          0x000000c0        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crti.o
+ .text          0x000000c0       0x48 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+ .text          0x00000108       0x78 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
+                0x00000108                _start
+                0x00000108                _mainCRTStartup
+ .text          0x00000180      0x11c ./objects/system_lpc11xx.o
+                0x00000180                Main_PLL_Setup
+                0x00000244                SystemInit
+ .text          0x0000029c       0x70 ./objects/startup_lpc11xx.o
+                0x0000029c                Reset_Handler
+                0x000002dc                NMI_Handler
+                0x000002de                HardFault_Handler
+                0x000002e0                SVC_Handler
+                0x000002e2                DebugMon_Handler
+                0x000002e4                PendSV_Handler
+                0x000002e6                SysTick_Handler
+                0x000002e8                Default_Handler
+                0x000002e8                DEF_IRQHandler
+                0x000002ea                WAKEUP_IRQHandler
+                0x000002ec                SSP1_IRQHandler
+                0x000002ee                I2C_IRQHandler
+                0x000002f0                TIMER16_0_IRQHandler
+                0x000002f2                TIMER16_1_IRQHandler
+                0x000002f4                TIMER32_0_IRQHandler
+                0x000002f6                TIMER32_1_IRQHandler
+                0x000002f8                SSP0_IRQHandler
+                0x000002fa                UART_IRQHandler
+                0x000002fc                ADC_IRQHandler
+                0x000002fe                WDT_IRQHandler
+                0x00000300                BOD_IRQHandler
+                0x00000302                PIOINT3_IRQHandler
+                0x00000304                PIOINT2_IRQHandler
+                0x00000306                PIOINT1_IRQHandler
+                0x00000308                PIOINT0_IRQHandler
+ .text          0x0000030c       0x90 ./objects/led_funcs.o
+                0x0000030c                LED_Config
+                0x0000036c                LED_Set
+                0x00000384                LED_Clear
+ .text          0x0000039c       0x88 ./objects/uart_echo.o
+                0x0000039c                main
+                0x00000400                Delay
+ .text          0x00000424      0x1b4 ./objects/uart_funcs.o
+                0x00000424                UART_config
+                0x000004dc                uart_status_rxd
+                0x000004f4                uart_status_txd
+                0x00000510                uart_get_intr_IIR
+                0x00000524                UART_putc
+                0x00000554                UART_getc
+                0x00000574                UART_echo
+                0x00000598                UART_puts
+ .text          0x000005d8        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o)
+ .text.exit     0x000005d8       0x20 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o)
+                0x000005d8                exit
+ .text          0x000005f8        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+ .text          0x000005f8        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+ .text.__libc_init_array
+                0x000005f8       0x48 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+                0x000005f8                __libc_init_array
+ .text          0x00000640        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memset.o)
+ .text.memset   0x00000640       0x9c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memset.o)
+                0x00000640                memset
+ .text          0x000006dc        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+ .text.startup.register_fini
+                0x000006dc       0x18 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+ .text.__call_exitprocs
+                0x000006f4      0x118 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+                0x000006f4                __call_exitprocs
+ .text          0x0000080c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+ .text.atexit   0x0000080c       0x10 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+                0x0000080c                atexit
+ .text          0x0000081c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+ .text.__libc_fini_array
+                0x0000081c       0x34 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+                0x0000081c                __libc_fini_array
+ .text          0x00000850        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+ .text.__retarget_lock_init
+                0x00000850        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00000850                __retarget_lock_init
+ .text.__retarget_lock_init_recursive
+                0x00000854        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00000854                __retarget_lock_init_recursive
+ .text.__retarget_lock_close
+                0x00000858        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00000858                __retarget_lock_close
+ .text.__retarget_lock_close_recursive
+                0x0000085c        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x0000085c                __retarget_lock_close_recursive
+ .text.__retarget_lock_acquire
+                0x00000860        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00000860                __retarget_lock_acquire
+ .text.__retarget_lock_acquire_recursive
+                0x00000864        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00000864                __retarget_lock_acquire_recursive
+ .text.__retarget_lock_try_acquire
+                0x00000868        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00000868                __retarget_lock_try_acquire
+ .text.__retarget_lock_try_acquire_recursive
+                0x0000086c        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x0000086c                __retarget_lock_try_acquire_recursive
+ .text.__retarget_lock_release
+                0x00000870        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00000870                __retarget_lock_release
+ .text.__retarget_lock_release_recursive
+                0x00000874        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x00000874                __retarget_lock_release_recursive
+ .text          0x00000878        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+ .text.__register_exitproc
+                0x00000878       0xf4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+                0x00000878                __register_exitproc
+ .text          0x0000096c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libnosys.a(_exit.o)
+ .text._exit    0x0000096c        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libnosys.a(_exit.o)
+                0x0000096c                _exit
+ .text          0x00000970        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtend.o
+ .text          0x00000970        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtn.o
+ *(.init)
+ .init          0x00000970        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crti.o
+                0x00000970                _init
+ .init          0x00000974        0x8 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtn.o
+ *(.fini)
+ .fini          0x0000097c        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crti.o
+                0x0000097c                _fini
+ .fini          0x00000980        0x8 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtn.o
+ *crtbegin.o(.ctors)
+ *crtbegin?.o(.ctors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
+ *(SORT_BY_NAME(.ctors.*))
+ *(.ctors)
+ *crtbegin.o(.dtors)
+ *crtbegin?.o(.dtors)
+ *(EXCLUDE_FILE(*crtend.o *crtend?.o) .dtors)
+ *(SORT_BY_NAME(.dtors.*))
+ *(.dtors)
+ *(.rodata*)
+ .rodata        0x00000988       0x26 ./objects/uart_echo.o
+ *fill*         0x000009ae        0x2 
+ .rodata._global_impure_ptr
+                0x000009b0        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+                0x000009b0                _global_impure_ptr
+ *(.eh_frame*)
+ .eh_frame      0x000009b4        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+ .eh_frame      0x000009b4        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtend.o
+
+.glue_7         0x000009b8        0x0
+ .glue_7        0x000009b8        0x0 linker stubs
+
+.glue_7t        0x000009b8        0x0
+ .glue_7t       0x000009b8        0x0 linker stubs
+
+.vfp11_veneer   0x000009b8        0x0
+ .vfp11_veneer  0x000009b8        0x0 linker stubs
+
+.v4_bx          0x000009b8        0x0
+ .v4_bx         0x000009b8        0x0 linker stubs
+
+.iplt           0x000009b8        0x0
+ .iplt          0x000009b8        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+
+.ARM.extab      0x000009b8        0x0
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+ .ARM.extab     0x000009b8        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
+                0x000009b8                __exidx_start = .
+
+.ARM.exidx      0x000009b8        0x8
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+ .ARM.exidx     0x000009b8        0x8 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
+                0x000009c0                __exidx_end = .
+                0x000009c0                __etext = .
+
+.rel.dyn        0x000009c0        0x0
+ .rel.iplt      0x000009c0        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+
+.data           0x10000000      0x450 load address 0x000009c0
+                0x10000000                __data_start__ = .
+ *(vtable)
+ *(.data*)
+ .data          0x10000000        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crti.o
+ .data          0x10000000        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+                0x10000000                __dso_handle
+ .data          0x10000004        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
+ .data          0x10000004        0xc ./objects/system_lpc11xx.o
+                0x10000004                ClockSource
+                0x10000008                SystemFrequency
+                0x1000000c                SystemAHBFrequency
+ .data          0x10000010        0x0 ./objects/startup_lpc11xx.o
+ .data          0x10000010        0x0 ./objects/led_funcs.o
+ .data          0x10000010        0x0 ./objects/uart_echo.o
+ .data          0x10000010        0x0 ./objects/uart_funcs.o
+ .data          0x10000010        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o)
+ .data          0x10000010        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+ .data._impure_ptr
+                0x10000010        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+                0x10000010                _impure_ptr
+ *fill*         0x10000014        0x4 
+ .data.impure_data
+                0x10000018      0x428 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+ .data          0x10000440        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+ .data          0x10000440        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memset.o)
+ .data          0x10000440        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+ .data.__atexit_recursive_mutex
+                0x10000440        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+                0x10000440                __atexit_recursive_mutex
+ .data          0x10000444        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+ .data          0x10000444        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+ .data          0x10000444        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+ .data          0x10000444        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+ .data          0x10000444        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libnosys.a(_exit.o)
+ .data          0x10000444        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtend.o
+ .data          0x10000444        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtn.o
+                0x10000444                . = ALIGN (0x4)
+                0x10000444                PROVIDE (__preinit_array_start = .)
+ *(.preinit_array)
+                0x10000444                PROVIDE (__preinit_array_end = .)
+                0x10000444                . = ALIGN (0x4)
+                0x10000444                PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ .init_array.00000
+                0x10000444        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+ *(.init_array)
+ .init_array    0x10000448        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+                0x1000044c                PROVIDE (__init_array_end = .)
+                0x1000044c                . = ALIGN (0x4)
+                0x1000044c                PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array)
+ .fini_array    0x1000044c        0x4 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+                0x10000450                PROVIDE (__fini_array_end = .)
+ *(.jcr*)
+                0x10000450                . = ALIGN (0x4)
+                0x10000450                __data_end__ = .
+
+.igot.plt       0x10000450        0x0 load address 0x00000e10
+ .igot.plt      0x10000450        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+
+.bss            0x10000450       0x44 load address 0x00000e10
+                0x10000450                . = ALIGN (0x4)
+                0x10000450                __bss_start__ = .
+ *(.bss*)
+ .bss           0x10000450        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crti.o
+ .bss           0x10000450       0x1c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
+ .bss           0x1000046c        0x0 ./objects/system_lpc11xx.o
+ .bss           0x1000046c        0x0 ./objects/startup_lpc11xx.o
+ .bss           0x1000046c        0x0 ./objects/led_funcs.o
+ .bss           0x1000046c        0x0 ./objects/uart_echo.o
+ .bss           0x1000046c        0x0 ./objects/uart_funcs.o
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memset.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libnosys.a(_exit.o)
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtend.o
+ .bss           0x1000046c        0x0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtn.o
+ *(COMMON)
+ COMMON         0x1000046c        0x4 ./objects/uart_echo.o
+                0x1000046c                ctr
+ COMMON         0x10000470       0x21 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+                0x10000470                __lock___atexit_recursive_mutex
+                0x10000474                __lock___arc4random_mutex
+                0x10000478                __lock___env_recursive_mutex
+                0x1000047c                __lock___sinit_recursive_mutex
+                0x10000480                __lock___malloc_recursive_mutex
+                0x10000484                __lock___at_quick_exit_mutex
+                0x10000488                __lock___dd_hash_mutex
+                0x1000048c                __lock___tz_mutex
+                0x10000490                __lock___sfp_recursive_mutex
+                0x10000494                . = ALIGN (0x4)
+ *fill*         0x10000491        0x3 
+                0x10000494                __bss_end__ = .
+
+.heap           0x10000498        0x0
+                0x10000498                __end__ = .
+                [!provide]                PROVIDE (end = .)
+ *(.heap*)
+ .heap          0x10000498        0x0 ./objects/startup_lpc11xx.o
+                0x10000498                __HeapLimit = .
+
+.stack_dummy    0x10000498      0xc00
+ *(.stack*)
+ .stack         0x10000498      0xc00 ./objects/startup_lpc11xx.o
+                0x10002000                __StackTop = (ORIGIN (RAM) + LENGTH (RAM))
+                0x10001400                __StackLimit = (__StackTop - SIZEOF (.stack_dummy))
+                0x10002000                PROVIDE (__stack = __StackTop)
+                0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region RAM overflowed with stack)
+OUTPUT(./Objects/LPC1113_GCC_Keil_Uart.elf elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x28
+ .ARM.attributes
+                0x00000000       0x1e c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crti.o
+ .ARM.attributes
+                0x0000001e       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x1b c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/crt0.o
+ .ARM.attributes
+                0x00000065       0x31 ./objects/system_lpc11xx.o
+ .ARM.attributes
+                0x00000096       0x1b ./objects/startup_lpc11xx.o
+ .ARM.attributes
+                0x000000b1       0x31 ./objects/led_funcs.o
+ .ARM.attributes
+                0x000000e2       0x31 ./objects/uart_echo.o
+ .ARM.attributes
+                0x00000113       0x31 ./objects/uart_funcs.o
+ .ARM.attributes
+                0x00000144       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o)
+ .ARM.attributes
+                0x00000170       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-impure.o)
+ .ARM.attributes
+                0x0000019c       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+ .ARM.attributes
+                0x000001c8       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memset.o)
+ .ARM.attributes
+                0x000001f4       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+ .ARM.attributes
+                0x00000220       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+ .ARM.attributes
+                0x0000024c       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+ .ARM.attributes
+                0x00000278       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+ .ARM.attributes
+                0x000002a4       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+ .ARM.attributes
+                0x000002d0       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libnosys.a(_exit.o)
+ .ARM.attributes
+                0x000002fc       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtend.o
+ .ARM.attributes
+                0x00000328       0x1e c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtn.o
+
+.comment        0x00000000       0x7f
+ .comment       0x00000000       0x7f ./objects/system_lpc11xx.o
+                                 0x80 (size before relaxing)
+ .comment       0x0000007f       0x80 ./objects/led_funcs.o
+ .comment       0x0000007f       0x80 ./objects/uart_echo.o
+ .comment       0x0000007f       0x80 ./objects/uart_funcs.o
+
+.debug_info     0x00000000     0x1924
+ .debug_info    0x00000000      0x4e8 ./objects/system_lpc11xx.o
+ .debug_info    0x000004e8       0x26 ./objects/startup_lpc11xx.o
+ .debug_info    0x0000050e      0x8fe ./objects/led_funcs.o
+ .debug_info    0x00000e0c       0xfa ./objects/uart_echo.o
+ .debug_info    0x00000f06      0xa1e ./objects/uart_funcs.o
+
+.debug_abbrev   0x00000000      0x44d
+ .debug_abbrev  0x00000000       0xe5 ./objects/system_lpc11xx.o
+ .debug_abbrev  0x000000e5       0x14 ./objects/startup_lpc11xx.o
+ .debug_abbrev  0x000000f9      0x114 ./objects/led_funcs.o
+ .debug_abbrev  0x0000020d       0x9c ./objects/uart_echo.o
+ .debug_abbrev  0x000002a9      0x1a4 ./objects/uart_funcs.o
+
+.debug_loc      0x00000000      0x2d0
+ .debug_loc     0x00000000       0x70 ./objects/system_lpc11xx.o
+ .debug_loc     0x00000070       0x84 ./objects/led_funcs.o
+ .debug_loc     0x000000f4       0x64 ./objects/uart_echo.o
+ .debug_loc     0x00000158      0x178 ./objects/uart_funcs.o
+
+.debug_aranges  0x00000000       0xa0
+ .debug_aranges
+                0x00000000       0x20 ./objects/system_lpc11xx.o
+ .debug_aranges
+                0x00000020       0x20 ./objects/startup_lpc11xx.o
+ .debug_aranges
+                0x00000040       0x20 ./objects/led_funcs.o
+ .debug_aranges
+                0x00000060       0x20 ./objects/uart_echo.o
+ .debug_aranges
+                0x00000080       0x20 ./objects/uart_funcs.o
+
+.debug_line     0x00000000      0x66a
+ .debug_line    0x00000000      0x187 ./objects/system_lpc11xx.o
+ .debug_line    0x00000187       0x82 ./objects/startup_lpc11xx.o
+ .debug_line    0x00000209      0x152 ./objects/led_funcs.o
+ .debug_line    0x0000035b      0x171 ./objects/uart_echo.o
+ .debug_line    0x000004cc      0x19e ./objects/uart_funcs.o
+
+.debug_str      0x00000000      0x72d
+ .debug_str     0x00000000      0x3ee ./objects/system_lpc11xx.o
+                                0x42b (size before relaxing)
+ .debug_str     0x000003ee       0x28 ./objects/startup_lpc11xx.o
+                                 0x5d (size before relaxing)
+ .debug_str     0x00000416      0x21f ./objects/led_funcs.o
+                                0x5e1 (size before relaxing)
+ .debug_str     0x00000635       0x34 ./objects/uart_echo.o
+                                0x1a7 (size before relaxing)
+ .debug_str     0x00000669       0xc4 ./objects/uart_funcs.o
+                                0x651 (size before relaxing)
+
+.debug_frame    0x00000000      0x434
+ .debug_frame   0x00000000       0x50 ./objects/system_lpc11xx.o
+ .debug_frame   0x00000050       0x64 ./objects/led_funcs.o
+ .debug_frame   0x000000b4       0x4c ./objects/uart_echo.o
+ .debug_frame   0x00000100       0xfc ./objects/uart_funcs.o
+ .debug_frame   0x000001fc       0x28 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-exit.o)
+ .debug_frame   0x00000224       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-init.o)
+ .debug_frame   0x00000250       0x30 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-memset.o)
+ .debug_frame   0x00000280       0x54 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__call_atexit.o)
+ .debug_frame   0x000002d4       0x28 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-atexit.o)
+ .debug_frame   0x000002fc       0x2c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-fini.o)
+ .debug_frame   0x00000328       0xb0 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-lock.o)
+ .debug_frame   0x000003d8       0x3c c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libc.a(lib_a-__atexit.o)
+ .debug_frame   0x00000414       0x20 c:/nanoframework_tools/gnu_arm_toolchain/8-2018-q4_major/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m\libnosys.a(_exit.o)

@@ -1,0 +1,2450 @@
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"led_funcs.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.align	1
+  16              		.global	LED_Config
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  20              		.fpu softvfp
+  21              		.type	LED_Config, %function
+  22              	LED_Config:
+  23              	.LFB42:
+  24              		.file 1 "Application/led_funcs.c"
+   1:Application/led_funcs.c **** #include "LPC11xx.h"
+   2:Application/led_funcs.c **** // LED is connected to pin PIO1_5
+   3:Application/led_funcs.c **** 
+   4:Application/led_funcs.c **** void LED_Config(void)
+   5:Application/led_funcs.c **** {
+  25              		.loc 1 5 0
+  26              		.cfi_startproc
+  27              		@ args = 0, pretend = 0, frame = 0
+  28              		@ frame_needed = 1, uses_anonymous_args = 0
+  29 0000 80B5     		push	{r7, lr}
+  30              	.LCFI0:
+  31              		.cfi_def_cfa_offset 8
+  32              		.cfi_offset 7, -8
+  33              		.cfi_offset 14, -4
+  34 0002 00AF     		add	r7, sp, #0
+  35              	.LCFI1:
+  36              		.cfi_def_cfa_register 7
+   6:Application/led_funcs.c ****   // Enable clocks to GPIO and IO config block
+   7:Application/led_funcs.c ****   // Bit 6: GPIO, bit 16: IO config
+   8:Application/led_funcs.c ****   LPC_SYSCON->SYSAHBCLKCTRL |=  ((1<<16) | (1<<6));
+  37              		.loc 1 8 0
+  38 0004 114A     		ldr	r2, .L3
+  39 0006 8023     		movs	r3, #128
+  40 0008 D358     		ldr	r3, [r2, r3]
+  41 000a 1049     		ldr	r1, .L3
+  42 000c 104A     		ldr	r2, .L3+4
+  43 000e 1343     		orrs	r3, r2
+  44 0010 8022     		movs	r2, #128
+  45 0012 8B50     		str	r3, [r1, r2]
+   9:Application/led_funcs.c **** 	
+  10:Application/led_funcs.c ****   __NOP(); // Short time delay
+  46              		.loc 1 10 0
+  47              		.syntax divided
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 2
+
+
+  48              	@ 10 "Application/led_funcs.c" 1
+  49 0014 C046     		nop
+  50              	@ 0 "" 2
+  11:Application/led_funcs.c ****   __NOP();
+  51              		.loc 1 11 0
+  52              	@ 11 "Application/led_funcs.c" 1
+  53 0016 C046     		nop
+  54              	@ 0 "" 2
+  12:Application/led_funcs.c ****   __NOP();
+  55              		.loc 1 12 0
+  56              	@ 12 "Application/led_funcs.c" 1
+  57 0018 C046     		nop
+  58              	@ 0 "" 2
+  13:Application/led_funcs.c **** 	
+  14:Application/led_funcs.c ****   // PIO1_5 IO output config
+  15:Application/led_funcs.c ****   //  bit[10]  - Open drain (0 = standard I/O, 1 = open drain)
+  16:Application/led_funcs.c ****   //  bit[5]   - Hysteresis (0=disable, 1 =enable)
+  17:Application/led_funcs.c ****   //  bit[4:3] - MODE(0=inactive, 1 =pulldown, 2=pullup, 3=repeater)
+  18:Application/led_funcs.c ****   //  bit[2:0] - Function (0 = IO, 1=~RTS, 2=CT32B0_CAP0)
+  19:Application/led_funcs.c ****   LPC_IOCON->PIO1_5 = (0<<10) | (0<<5) | (0<<3) | (0x0);
+  59              		.loc 1 19 0
+  60              		.thumb
+  61              		.syntax unified
+  62 001a 0E4A     		ldr	r2, .L3+8
+  63 001c A023     		movs	r3, #160
+  64 001e 0021     		movs	r1, #0
+  65 0020 D150     		str	r1, [r2, r3]
+  20:Application/led_funcs.c **** 
+  21:Application/led_funcs.c ****   // Optional: Turn off clock to I/O Config block to save power
+  22:Application/led_funcs.c ****   LPC_SYSCON->SYSAHBCLKCTRL &=  ~(1<<16);
+  66              		.loc 1 22 0
+  67 0022 0A4A     		ldr	r2, .L3
+  68 0024 8023     		movs	r3, #128
+  69 0026 D358     		ldr	r3, [r2, r3]
+  70 0028 0849     		ldr	r1, .L3
+  71 002a 0B4A     		ldr	r2, .L3+12
+  72 002c 1340     		ands	r3, r2
+  73 002e 8022     		movs	r2, #128
+  74 0030 8B50     		str	r3, [r1, r2]
+  23:Application/led_funcs.c **** 
+  24:Application/led_funcs.c ****   // Set pin 8 as output
+  25:Application/led_funcs.c ****   LPC_GPIO1->DIR = LPC_GPIO1->DIR | (1<<5);	
+  75              		.loc 1 25 0
+  76 0032 0A4A     		ldr	r2, .L3+16
+  77 0034 8023     		movs	r3, #128
+  78 0036 1B02     		lsls	r3, r3, #8
+  79 0038 D358     		ldr	r3, [r2, r3]
+  80 003a 0849     		ldr	r1, .L3+16
+  81 003c 2022     		movs	r2, #32
+  82 003e 1A43     		orrs	r2, r3
+  83 0040 8023     		movs	r3, #128
+  84 0042 1B02     		lsls	r3, r3, #8
+  85 0044 CA50     		str	r2, [r1, r3]
+  26:Application/led_funcs.c ****   return;
+  86              		.loc 1 26 0
+  87 0046 C046     		nop
+  27:Application/led_funcs.c **** }
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 3
+
+
+  88              		.loc 1 27 0
+  89 0048 BD46     		mov	sp, r7
+  90              		@ sp needed
+  91 004a 80BD     		pop	{r7, pc}
+  92              	.L4:
+  93              		.align	2
+  94              	.L3:
+  95 004c 00800440 		.word	1074036736
+  96 0050 40000100 		.word	65600
+  97 0054 00400440 		.word	1074020352
+  98 0058 FFFFFEFF 		.word	-65537
+  99 005c 00000150 		.word	1342242816
+ 100              		.cfi_endproc
+ 101              	.LFE42:
+ 102              		.size	LED_Config, .-LED_Config
+ 103              		.align	1
+ 104              		.global	LED_Set
+ 105              		.syntax unified
+ 106              		.code	16
+ 107              		.thumb_func
+ 108              		.fpu softvfp
+ 109              		.type	LED_Set, %function
+ 110              	LED_Set:
+ 111              	.LFB43:
+  28:Application/led_funcs.c **** 
+  29:Application/led_funcs.c **** 
+  30:Application/led_funcs.c **** void LED_Set(void)
+  31:Application/led_funcs.c **** {
+ 112              		.loc 1 31 0
+ 113              		.cfi_startproc
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 1, uses_anonymous_args = 0
+ 116 0060 80B5     		push	{r7, lr}
+ 117              	.LCFI2:
+ 118              		.cfi_def_cfa_offset 8
+ 119              		.cfi_offset 7, -8
+ 120              		.cfi_offset 14, -4
+ 121 0062 00AF     		add	r7, sp, #0
+ 122              	.LCFI3:
+ 123              		.cfi_def_cfa_register 7
+  32:Application/led_funcs.c ****   // Set bit 5 output to 1
+  33:Application/led_funcs.c ****   LPC_GPIO1->MASKED_ACCESS[1<<5] = (1<<5);
+ 124              		.loc 1 33 0
+ 125 0064 034A     		ldr	r2, .L7
+ 126 0066 8023     		movs	r3, #128
+ 127 0068 2021     		movs	r1, #32
+ 128 006a D150     		str	r1, [r2, r3]
+  34:Application/led_funcs.c ****   return;
+ 129              		.loc 1 34 0
+ 130 006c C046     		nop
+  35:Application/led_funcs.c **** }
+ 131              		.loc 1 35 0
+ 132 006e BD46     		mov	sp, r7
+ 133              		@ sp needed
+ 134 0070 80BD     		pop	{r7, pc}
+ 135              	.L8:
+ 136 0072 C046     		.align	2
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 4
+
+
+ 137              	.L7:
+ 138 0074 00000150 		.word	1342242816
+ 139              		.cfi_endproc
+ 140              	.LFE43:
+ 141              		.size	LED_Set, .-LED_Set
+ 142              		.align	1
+ 143              		.global	LED_Clear
+ 144              		.syntax unified
+ 145              		.code	16
+ 146              		.thumb_func
+ 147              		.fpu softvfp
+ 148              		.type	LED_Clear, %function
+ 149              	LED_Clear:
+ 150              	.LFB44:
+  36:Application/led_funcs.c **** 
+  37:Application/led_funcs.c **** 
+  38:Application/led_funcs.c **** void LED_Clear(void)
+  39:Application/led_funcs.c **** {
+ 151              		.loc 1 39 0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 1, uses_anonymous_args = 0
+ 155 0078 80B5     		push	{r7, lr}
+ 156              	.LCFI4:
+ 157              		.cfi_def_cfa_offset 8
+ 158              		.cfi_offset 7, -8
+ 159              		.cfi_offset 14, -4
+ 160 007a 00AF     		add	r7, sp, #0
+ 161              	.LCFI5:
+ 162              		.cfi_def_cfa_register 7
+  40:Application/led_funcs.c ****   // Clear bit 5 output to 1
+  41:Application/led_funcs.c ****   LPC_GPIO1->MASKED_ACCESS[1<<5] = 0;
+ 163              		.loc 1 41 0
+ 164 007c 034A     		ldr	r2, .L11
+ 165 007e 8023     		movs	r3, #128
+ 166 0080 0021     		movs	r1, #0
+ 167 0082 D150     		str	r1, [r2, r3]
+  42:Application/led_funcs.c ****   return;	
+ 168              		.loc 1 42 0
+ 169 0084 C046     		nop
+  43:Application/led_funcs.c **** }
+ 170              		.loc 1 43 0
+ 171 0086 BD46     		mov	sp, r7
+ 172              		@ sp needed
+ 173 0088 80BD     		pop	{r7, pc}
+ 174              	.L12:
+ 175 008a C046     		.align	2
+ 176              	.L11:
+ 177 008c 00000150 		.word	1342242816
+ 178              		.cfi_endproc
+ 179              	.LFE44:
+ 180              		.size	LED_Clear, .-LED_Clear
+ 181              	.Letext0:
+ 182              		.file 2 "c:\\nanoframework_tools\\gnu_arm_toolchain\\8-2018-q4_major\\arm-none-eabi\\include\\mach
+ 183              		.file 3 "c:\\nanoframework_tools\\gnu_arm_toolchain\\8-2018-q4_major\\arm-none-eabi\\include\\sys\
+ 184              		.file 4 "./CMSIS/Include/LPC11xx.h"
+ 185              		.file 5 "./CMSIS/Include/system_LPC11xx.h"
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 5
+
+
+ 186              		.section	.debug_info,"",%progbits
+ 187              	.Ldebug_info0:
+ 188 0000 FA080000 		.4byte	0x8fa
+ 189 0004 0200     		.2byte	0x2
+ 190 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 191 000a 04       		.byte	0x4
+ 192 000b 01       		.uleb128 0x1
+ 193 000c D8000000 		.4byte	.LASF125
+ 194 0010 0C       		.byte	0xc
+ 195 0011 93020000 		.4byte	.LASF126
+ 196 0015 C0010000 		.4byte	.LASF127
+ 197 0019 00000000 		.4byte	.Ltext0
+ 198 001d 90000000 		.4byte	.Letext0
+ 199 0021 00000000 		.4byte	.Ldebug_line0
+ 200 0025 02       		.uleb128 0x2
+ 201 0026 01       		.byte	0x1
+ 202 0027 06       		.byte	0x6
+ 203 0028 92050000 		.4byte	.LASF0
+ 204 002c 02       		.uleb128 0x2
+ 205 002d 01       		.byte	0x1
+ 206 002e 08       		.byte	0x8
+ 207 002f EB040000 		.4byte	.LASF1
+ 208 0033 02       		.uleb128 0x2
+ 209 0034 02       		.byte	0x2
+ 210 0035 05       		.byte	0x5
+ 211 0036 0F040000 		.4byte	.LASF2
+ 212 003a 02       		.uleb128 0x2
+ 213 003b 02       		.byte	0x2
+ 214 003c 07       		.byte	0x7
+ 215 003d 9E050000 		.4byte	.LASF3
+ 216 0041 02       		.uleb128 0x2
+ 217 0042 04       		.byte	0x4
+ 218 0043 05       		.byte	0x5
+ 219 0044 37040000 		.4byte	.LASF4
+ 220 0048 03       		.uleb128 0x3
+ 221 0049 01050000 		.4byte	.LASF9
+ 222 004d 02       		.byte	0x2
+ 223 004e 4F       		.byte	0x4f
+ 224 004f 53000000 		.4byte	0x53
+ 225 0053 02       		.uleb128 0x2
+ 226 0054 04       		.byte	0x4
+ 227 0055 07       		.byte	0x7
+ 228 0056 9B040000 		.4byte	.LASF5
+ 229 005a 02       		.uleb128 0x2
+ 230 005b 08       		.byte	0x8
+ 231 005c 05       		.byte	0x5
+ 232 005d D0020000 		.4byte	.LASF6
+ 233 0061 02       		.uleb128 0x2
+ 234 0062 08       		.byte	0x8
+ 235 0063 07       		.byte	0x7
+ 236 0064 66010000 		.4byte	.LASF7
+ 237 0068 04       		.uleb128 0x4
+ 238 0069 04       		.byte	0x4
+ 239 006a 05       		.byte	0x5
+ 240 006b 696E7400 		.ascii	"int\000"
+ 241 006f 02       		.uleb128 0x2
+ 242 0070 04       		.byte	0x4
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 6
+
+
+ 243 0071 07       		.byte	0x7
+ 244 0072 0B000000 		.4byte	.LASF8
+ 245 0076 03       		.uleb128 0x3
+ 246 0077 9F000000 		.4byte	.LASF10
+ 247 007b 03       		.byte	0x3
+ 248 007c 30       		.byte	0x30
+ 249 007d 48000000 		.4byte	0x48
+ 250 0081 05       		.uleb128 0x5
+ 251 0082 76000000 		.4byte	0x76
+ 252 0086 06       		.uleb128 0x6
+ 253 0087 81000000 		.4byte	0x81
+ 254 008b 07       		.uleb128 0x7
+ 255 008c A5030000 		.4byte	.LASF128
+ 256 0090 05       		.byte	0x5
+ 257 0091 23       		.byte	0x23
+ 258 0092 76000000 		.4byte	0x76
+ 259 0096 01       		.byte	0x1
+ 260 0097 01       		.byte	0x1
+ 261 0098 08       		.uleb128 0x8
+ 262 0099 F803     		.2byte	0x3f8
+ 263 009b 04       		.byte	0x4
+ 264 009c 7E       		.byte	0x7e
+ 265 009d BA030000 		.4byte	0x3ba
+ 266 00a1 09       		.uleb128 0x9
+ 267 00a2 4C030000 		.4byte	.LASF11
+ 268 00a6 04       		.byte	0x4
+ 269 00a7 80       		.byte	0x80
+ 270 00a8 81000000 		.4byte	0x81
+ 271 00ac 02       		.byte	0x2
+ 272 00ad 23       		.byte	0x23
+ 273 00ae 00       		.uleb128 0
+ 274 00af 09       		.uleb128 0x9
+ 275 00b0 41000000 		.4byte	.LASF12
+ 276 00b4 04       		.byte	0x4
+ 277 00b5 81       		.byte	0x81
+ 278 00b6 81000000 		.4byte	0x81
+ 279 00ba 02       		.byte	0x2
+ 280 00bb 23       		.byte	0x23
+ 281 00bc 04       		.uleb128 0x4
+ 282 00bd 09       		.uleb128 0x9
+ 283 00be 5C000000 		.4byte	.LASF13
+ 284 00c2 04       		.byte	0x4
+ 285 00c3 82       		.byte	0x82
+ 286 00c4 81000000 		.4byte	0x81
+ 287 00c8 02       		.byte	0x2
+ 288 00c9 23       		.byte	0x23
+ 289 00ca 08       		.uleb128 0x8
+ 290 00cb 09       		.uleb128 0x9
+ 291 00cc A2010000 		.4byte	.LASF14
+ 292 00d0 04       		.byte	0x4
+ 293 00d1 83       		.byte	0x83
+ 294 00d2 81000000 		.4byte	0x81
+ 295 00d6 02       		.byte	0x2
+ 296 00d7 23       		.byte	0x23
+ 297 00d8 0C       		.uleb128 0xc
+ 298 00d9 09       		.uleb128 0x9
+ 299 00da C9030000 		.4byte	.LASF15
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 7
+
+
+ 300 00de 04       		.byte	0x4
+ 301 00df 84       		.byte	0x84
+ 302 00e0 BA030000 		.4byte	0x3ba
+ 303 00e4 02       		.byte	0x2
+ 304 00e5 23       		.byte	0x23
+ 305 00e6 10       		.uleb128 0x10
+ 306 00e7 09       		.uleb128 0x9
+ 307 00e8 00000000 		.4byte	.LASF16
+ 308 00ec 04       		.byte	0x4
+ 309 00ed 86       		.byte	0x86
+ 310 00ee 81000000 		.4byte	0x81
+ 311 00f2 02       		.byte	0x2
+ 312 00f3 23       		.byte	0x23
+ 313 00f4 20       		.uleb128 0x20
+ 314 00f5 09       		.uleb128 0x9
+ 315 00f6 7D010000 		.4byte	.LASF17
+ 316 00fa 04       		.byte	0x4
+ 317 00fb 87       		.byte	0x87
+ 318 00fc 81000000 		.4byte	0x81
+ 319 0100 02       		.byte	0x2
+ 320 0101 23       		.byte	0x23
+ 321 0102 24       		.uleb128 0x24
+ 322 0103 09       		.uleb128 0x9
+ 323 0104 B1050000 		.4byte	.LASF18
+ 324 0108 04       		.byte	0x4
+ 325 0109 88       		.byte	0x88
+ 326 010a 81000000 		.4byte	0x81
+ 327 010e 02       		.byte	0x2
+ 328 010f 23       		.byte	0x23
+ 329 0110 28       		.uleb128 0x28
+ 330 0111 09       		.uleb128 0x9
+ 331 0112 D3030000 		.4byte	.LASF19
+ 332 0116 04       		.byte	0x4
+ 333 0117 89       		.byte	0x89
+ 334 0118 CA030000 		.4byte	0x3ca
+ 335 011c 02       		.byte	0x2
+ 336 011d 23       		.byte	0x23
+ 337 011e 2C       		.uleb128 0x2c
+ 338 011f 09       		.uleb128 0x9
+ 339 0120 74050000 		.4byte	.LASF20
+ 340 0124 04       		.byte	0x4
+ 341 0125 8A       		.byte	0x8a
+ 342 0126 81000000 		.4byte	0x81
+ 343 012a 02       		.byte	0x2
+ 344 012b 23       		.byte	0x23
+ 345 012c 30       		.uleb128 0x30
+ 346 012d 09       		.uleb128 0x9
+ 347 012e DD030000 		.4byte	.LASF21
+ 348 0132 04       		.byte	0x4
+ 349 0133 8B       		.byte	0x8b
+ 350 0134 DA030000 		.4byte	0x3da
+ 351 0138 02       		.byte	0x2
+ 352 0139 23       		.byte	0x23
+ 353 013a 34       		.uleb128 0x34
+ 354 013b 09       		.uleb128 0x9
+ 355 013c C3020000 		.4byte	.LASF22
+ 356 0140 04       		.byte	0x4
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 8
+
+
+ 357 0141 8C       		.byte	0x8c
+ 358 0142 81000000 		.4byte	0x81
+ 359 0146 02       		.byte	0x2
+ 360 0147 23       		.byte	0x23
+ 361 0148 40       		.uleb128 0x40
+ 362 0149 09       		.uleb128 0x9
+ 363 014a 88010000 		.4byte	.LASF23
+ 364 014e 04       		.byte	0x4
+ 365 014f 8D       		.byte	0x8d
+ 366 0150 81000000 		.4byte	0x81
+ 367 0154 02       		.byte	0x2
+ 368 0155 23       		.byte	0x23
+ 369 0156 44       		.uleb128 0x44
+ 370 0157 09       		.uleb128 0x9
+ 371 0158 E7030000 		.4byte	.LASF24
+ 372 015c 04       		.byte	0x4
+ 373 015d 8E       		.byte	0x8e
+ 374 015e EA030000 		.4byte	0x3ea
+ 375 0162 02       		.byte	0x2
+ 376 0163 23       		.byte	0x23
+ 377 0164 48       		.uleb128 0x48
+ 378 0165 09       		.uleb128 0x9
+ 379 0166 26000000 		.4byte	.LASF25
+ 380 016a 04       		.byte	0x4
+ 381 016b 90       		.byte	0x90
+ 382 016c 81000000 		.4byte	0x81
+ 383 0170 02       		.byte	0x2
+ 384 0171 23       		.byte	0x23
+ 385 0172 70       		.uleb128 0x70
+ 386 0173 09       		.uleb128 0x9
+ 387 0174 57050000 		.4byte	.LASF26
+ 388 0178 04       		.byte	0x4
+ 389 0179 91       		.byte	0x91
+ 390 017a 81000000 		.4byte	0x81
+ 391 017e 02       		.byte	0x2
+ 392 017f 23       		.byte	0x23
+ 393 0180 74       		.uleb128 0x74
+ 394 0181 09       		.uleb128 0x9
+ 395 0182 AB020000 		.4byte	.LASF27
+ 396 0186 04       		.byte	0x4
+ 397 0187 92       		.byte	0x92
+ 398 0188 81000000 		.4byte	0x81
+ 399 018c 02       		.byte	0x2
+ 400 018d 23       		.byte	0x23
+ 401 018e 78       		.uleb128 0x78
+ 402 018f 09       		.uleb128 0x9
+ 403 0190 F1030000 		.4byte	.LASF28
+ 404 0194 04       		.byte	0x4
+ 405 0195 93       		.byte	0x93
+ 406 0196 CA030000 		.4byte	0x3ca
+ 407 019a 02       		.byte	0x2
+ 408 019b 23       		.byte	0x23
+ 409 019c 7C       		.uleb128 0x7c
+ 410 019d 09       		.uleb128 0x9
+ 411 019e 18000000 		.4byte	.LASF29
+ 412 01a2 04       		.byte	0x4
+ 413 01a3 95       		.byte	0x95
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 9
+
+
+ 414 01a4 81000000 		.4byte	0x81
+ 415 01a8 03       		.byte	0x3
+ 416 01a9 23       		.byte	0x23
+ 417 01aa 8001     		.uleb128 0x80
+ 418 01ac 09       		.uleb128 0x9
+ 419 01ad FB030000 		.4byte	.LASF30
+ 420 01b1 04       		.byte	0x4
+ 421 01b2 96       		.byte	0x96
+ 422 01b3 BA030000 		.4byte	0x3ba
+ 423 01b7 03       		.byte	0x3
+ 424 01b8 23       		.byte	0x23
+ 425 01b9 8401     		.uleb128 0x84
+ 426 01bb 09       		.uleb128 0x9
+ 427 01bc 75040000 		.4byte	.LASF31
+ 428 01c0 04       		.byte	0x4
+ 429 01c1 97       		.byte	0x97
+ 430 01c2 81000000 		.4byte	0x81
+ 431 01c6 03       		.byte	0x3
+ 432 01c7 23       		.byte	0x23
+ 433 01c8 9401     		.uleb128 0x94
+ 434 01ca 09       		.uleb128 0x9
+ 435 01cb C3000000 		.4byte	.LASF32
+ 436 01cf 04       		.byte	0x4
+ 437 01d0 98       		.byte	0x98
+ 438 01d1 81000000 		.4byte	0x81
+ 439 01d5 03       		.byte	0x3
+ 440 01d6 23       		.byte	0x23
+ 441 01d7 9801     		.uleb128 0x98
+ 442 01d9 09       		.uleb128 0x9
+ 443 01da B5010000 		.4byte	.LASF33
+ 444 01de 04       		.byte	0x4
+ 445 01df 99       		.byte	0x99
+ 446 01e0 81000000 		.4byte	0x81
+ 447 01e4 03       		.byte	0x3
+ 448 01e5 23       		.byte	0x23
+ 449 01e6 9C01     		.uleb128 0x9c
+ 450 01e8 09       		.uleb128 0x9
+ 451 01e9 05040000 		.4byte	.LASF34
+ 452 01ed 04       		.byte	0x4
+ 453 01ee 9A       		.byte	0x9a
+ 454 01ef FA030000 		.4byte	0x3fa
+ 455 01f3 03       		.byte	0x3
+ 456 01f4 23       		.byte	0x23
+ 457 01f5 A001     		.uleb128 0xa0
+ 458 01f7 09       		.uleb128 0x9
+ 459 01f8 4A020000 		.4byte	.LASF35
+ 460 01fc 04       		.byte	0x4
+ 461 01fd 9C       		.byte	0x9c
+ 462 01fe 81000000 		.4byte	0x81
+ 463 0202 03       		.byte	0x3
+ 464 0203 23       		.byte	0x23
+ 465 0204 D001     		.uleb128 0xd0
+ 466 0206 09       		.uleb128 0x9
+ 467 0207 AF000000 		.4byte	.LASF36
+ 468 020b 04       		.byte	0x4
+ 469 020c 9D       		.byte	0x9d
+ 470 020d 81000000 		.4byte	0x81
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 10
+
+
+ 471 0211 03       		.byte	0x3
+ 472 0212 23       		.byte	0x23
+ 473 0213 D401     		.uleb128 0xd4
+ 474 0215 09       		.uleb128 0x9
+ 475 0216 5D040000 		.4byte	.LASF37
+ 476 021a 04       		.byte	0x4
+ 477 021b 9E       		.byte	0x9e
+ 478 021c 81000000 		.4byte	0x81
+ 479 0220 03       		.byte	0x3
+ 480 0221 23       		.byte	0x23
+ 481 0222 D801     		.uleb128 0xd8
+ 482 0224 09       		.uleb128 0x9
+ 483 0225 19040000 		.4byte	.LASF38
+ 484 0229 04       		.byte	0x4
+ 485 022a 9F       		.byte	0x9f
+ 486 022b CA030000 		.4byte	0x3ca
+ 487 022f 03       		.byte	0x3
+ 488 0230 23       		.byte	0x23
+ 489 0231 DC01     		.uleb128 0xdc
+ 490 0233 09       		.uleb128 0x9
+ 491 0234 98030000 		.4byte	.LASF39
+ 492 0238 04       		.byte	0x4
+ 493 0239 A0       		.byte	0xa0
+ 494 023a 81000000 		.4byte	0x81
+ 495 023e 03       		.byte	0x3
+ 496 023f 23       		.byte	0x23
+ 497 0240 E001     		.uleb128 0xe0
+ 498 0242 09       		.uleb128 0x9
+ 499 0243 2D040000 		.4byte	.LASF40
+ 500 0247 04       		.byte	0x4
+ 501 0248 A1       		.byte	0xa1
+ 502 0249 81000000 		.4byte	0x81
+ 503 024d 03       		.byte	0x3
+ 504 024e 23       		.byte	0x23
+ 505 024f E401     		.uleb128 0xe4
+ 506 0251 09       		.uleb128 0x9
+ 507 0252 B9000000 		.4byte	.LASF41
+ 508 0256 04       		.byte	0x4
+ 509 0257 A2       		.byte	0xa2
+ 510 0258 81000000 		.4byte	0x81
+ 511 025c 03       		.byte	0x3
+ 512 025d 23       		.byte	0x23
+ 513 025e E801     		.uleb128 0xe8
+ 514 0260 09       		.uleb128 0x9
+ 515 0261 23040000 		.4byte	.LASF42
+ 516 0265 04       		.byte	0x4
+ 517 0266 A3       		.byte	0xa3
+ 518 0267 0A040000 		.4byte	0x40a
+ 519 026b 03       		.byte	0x3
+ 520 026c 23       		.byte	0x23
+ 521 026d EC01     		.uleb128 0xec
+ 522 026f 09       		.uleb128 0x9
+ 523 0270 FA020000 		.4byte	.LASF43
+ 524 0274 04       		.byte	0x4
+ 525 0275 A5       		.byte	0xa5
+ 526 0276 81000000 		.4byte	0x81
+ 527 027a 03       		.byte	0x3
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 11
+
+
+ 528 027b 23       		.byte	0x23
+ 529 027c 8002     		.uleb128 0x100
+ 530 027e 09       		.uleb128 0x9
+ 531 027f 05030000 		.4byte	.LASF44
+ 532 0283 04       		.byte	0x4
+ 533 0284 A6       		.byte	0xa6
+ 534 0285 81000000 		.4byte	0x81
+ 535 0289 03       		.byte	0x3
+ 536 028a 23       		.byte	0x23
+ 537 028b 8402     		.uleb128 0x104
+ 538 028d 09       		.uleb128 0x9
+ 539 028e 0C050000 		.4byte	.LASF45
+ 540 0292 04       		.byte	0x4
+ 541 0293 A7       		.byte	0xa7
+ 542 0294 1A040000 		.4byte	0x41a
+ 543 0298 03       		.byte	0x3
+ 544 0299 23       		.byte	0x23
+ 545 029a 8802     		.uleb128 0x108
+ 546 029c 09       		.uleb128 0x9
+ 547 029d F9040000 		.4byte	.LASF46
+ 548 02a1 04       		.byte	0x4
+ 549 02a2 A8       		.byte	0xa8
+ 550 02a3 81000000 		.4byte	0x81
+ 551 02a7 03       		.byte	0x3
+ 552 02a8 23       		.byte	0x23
+ 553 02a9 D002     		.uleb128 0x150
+ 554 02ab 09       		.uleb128 0x9
+ 555 02ac CE000000 		.4byte	.LASF47
+ 556 02b0 04       		.byte	0x4
+ 557 02b1 A9       		.byte	0xa9
+ 558 02b2 81000000 		.4byte	0x81
+ 559 02b6 03       		.byte	0x3
+ 560 02b7 23       		.byte	0x23
+ 561 02b8 D402     		.uleb128 0x154
+ 562 02ba 09       		.uleb128 0x9
+ 563 02bb 17050000 		.4byte	.LASF48
+ 564 02bf 04       		.byte	0x4
+ 565 02c0 AB       		.byte	0xab
+ 566 02c1 2A040000 		.4byte	0x42a
+ 567 02c5 03       		.byte	0x3
+ 568 02c6 23       		.byte	0x23
+ 569 02c7 D802     		.uleb128 0x158
+ 570 02c9 09       		.uleb128 0x9
+ 571 02ca 6A020000 		.4byte	.LASF49
+ 572 02ce 04       		.byte	0x4
+ 573 02cf AC       		.byte	0xac
+ 574 02d0 81000000 		.4byte	0x81
+ 575 02d4 03       		.byte	0x3
+ 576 02d5 23       		.byte	0x23
+ 577 02d6 F402     		.uleb128 0x174
+ 578 02d8 09       		.uleb128 0x9
+ 579 02d9 22050000 		.4byte	.LASF50
+ 580 02dd 04       		.byte	0x4
+ 581 02de AD       		.byte	0xad
+ 582 02df 3A040000 		.4byte	0x43a
+ 583 02e3 03       		.byte	0x3
+ 584 02e4 23       		.byte	0x23
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 12
+
+
+ 585 02e5 F802     		.uleb128 0x178
+ 586 02e7 09       		.uleb128 0x9
+ 587 02e8 82030000 		.4byte	.LASF51
+ 588 02ec 04       		.byte	0x4
+ 589 02ed AF       		.byte	0xaf
+ 590 02ee 81000000 		.4byte	0x81
+ 591 02f2 03       		.byte	0x3
+ 592 02f3 23       		.byte	0x23
+ 593 02f4 8004     		.uleb128 0x200
+ 594 02f6 09       		.uleb128 0x9
+ 595 02f7 B5030000 		.4byte	.LASF52
+ 596 02fb 04       		.byte	0x4
+ 597 02fc B0       		.byte	0xb0
+ 598 02fd 81000000 		.4byte	0x81
+ 599 0301 03       		.byte	0x3
+ 600 0302 23       		.byte	0x23
+ 601 0303 8404     		.uleb128 0x204
+ 602 0305 09       		.uleb128 0x9
+ 603 0306 54020000 		.4byte	.LASF53
+ 604 030a 04       		.byte	0x4
+ 605 030b B1       		.byte	0xb1
+ 606 030c 81000000 		.4byte	0x81
+ 607 0310 03       		.byte	0x3
+ 608 0311 23       		.byte	0x23
+ 609 0312 8804     		.uleb128 0x208
+ 610 0314 09       		.uleb128 0x9
+ 611 0315 49040000 		.4byte	.LASF54
+ 612 0319 04       		.byte	0x4
+ 613 031a B2       		.byte	0xb2
+ 614 031b 81000000 		.4byte	0x81
+ 615 031f 03       		.byte	0x3
+ 616 0320 23       		.byte	0x23
+ 617 0321 8C04     		.uleb128 0x20c
+ 618 0323 09       		.uleb128 0x9
+ 619 0324 8D030000 		.4byte	.LASF55
+ 620 0328 04       		.byte	0x4
+ 621 0329 B3       		.byte	0xb3
+ 622 032a 81000000 		.4byte	0x81
+ 623 032e 03       		.byte	0x3
+ 624 032f 23       		.byte	0x23
+ 625 0330 9004     		.uleb128 0x210
+ 626 0332 09       		.uleb128 0x9
+ 627 0333 BF030000 		.4byte	.LASF56
+ 628 0337 04       		.byte	0x4
+ 629 0338 B4       		.byte	0xb4
+ 630 0339 81000000 		.4byte	0x81
+ 631 033d 03       		.byte	0x3
+ 632 033e 23       		.byte	0x23
+ 633 033f 9404     		.uleb128 0x214
+ 634 0341 09       		.uleb128 0x9
+ 635 0342 D3050000 		.4byte	.LASF57
+ 636 0346 04       		.byte	0x4
+ 637 0347 B5       		.byte	0xb5
+ 638 0348 81000000 		.4byte	0x81
+ 639 034c 03       		.byte	0x3
+ 640 034d 23       		.byte	0x23
+ 641 034e 9804     		.uleb128 0x218
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 13
+
+
+ 642 0350 09       		.uleb128 0x9
+ 643 0351 53040000 		.4byte	.LASF58
+ 644 0355 04       		.byte	0x4
+ 645 0356 B6       		.byte	0xb6
+ 646 0357 81000000 		.4byte	0x81
+ 647 035b 03       		.byte	0x3
+ 648 035c 23       		.byte	0x23
+ 649 035d 9C04     		.uleb128 0x21c
+ 650 035f 09       		.uleb128 0x9
+ 651 0360 38050000 		.4byte	.LASF59
+ 652 0364 04       		.byte	0x4
+ 653 0365 B7       		.byte	0xb7
+ 654 0366 BA030000 		.4byte	0x3ba
+ 655 036a 03       		.byte	0x3
+ 656 036b 23       		.byte	0x23
+ 657 036c A004     		.uleb128 0x220
+ 658 036e 09       		.uleb128 0x9
+ 659 036f B8020000 		.4byte	.LASF60
+ 660 0373 04       		.byte	0x4
+ 661 0374 B9       		.byte	0xb9
+ 662 0375 81000000 		.4byte	0x81
+ 663 0379 03       		.byte	0x3
+ 664 037a 23       		.byte	0x23
+ 665 037b B004     		.uleb128 0x230
+ 666 037d 09       		.uleb128 0x9
+ 667 037e 4C000000 		.4byte	.LASF61
+ 668 0382 04       		.byte	0x4
+ 669 0383 BA       		.byte	0xba
+ 670 0384 81000000 		.4byte	0x81
+ 671 0388 03       		.byte	0x3
+ 672 0389 23       		.byte	0x23
+ 673 038a B404     		.uleb128 0x234
+ 674 038c 09       		.uleb128 0x9
+ 675 038d 40040000 		.4byte	.LASF62
+ 676 0391 04       		.byte	0x4
+ 677 0392 BB       		.byte	0xbb
+ 678 0393 81000000 		.4byte	0x81
+ 679 0397 03       		.byte	0x3
+ 680 0398 23       		.byte	0x23
+ 681 0399 B804     		.uleb128 0x238
+ 682 039b 09       		.uleb128 0x9
+ 683 039c 2D050000 		.4byte	.LASF63
+ 684 03a0 04       		.byte	0x4
+ 685 03a1 BC       		.byte	0xbc
+ 686 03a2 4A040000 		.4byte	0x44a
+ 687 03a6 03       		.byte	0x3
+ 688 03a7 23       		.byte	0x23
+ 689 03a8 BC04     		.uleb128 0x23c
+ 690 03aa 09       		.uleb128 0x9
+ 691 03ab 80040000 		.4byte	.LASF64
+ 692 03af 04       		.byte	0x4
+ 693 03b0 BD       		.byte	0xbd
+ 694 03b1 86000000 		.4byte	0x86
+ 695 03b5 03       		.byte	0x3
+ 696 03b6 23       		.byte	0x23
+ 697 03b7 F407     		.uleb128 0x3f4
+ 698 03b9 00       		.byte	0
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 14
+
+
+ 699 03ba 0A       		.uleb128 0xa
+ 700 03bb 76000000 		.4byte	0x76
+ 701 03bf CA030000 		.4byte	0x3ca
+ 702 03c3 0B       		.uleb128 0xb
+ 703 03c4 6F000000 		.4byte	0x6f
+ 704 03c8 03       		.byte	0x3
+ 705 03c9 00       		.byte	0
+ 706 03ca 0A       		.uleb128 0xa
+ 707 03cb 76000000 		.4byte	0x76
+ 708 03cf DA030000 		.4byte	0x3da
+ 709 03d3 0B       		.uleb128 0xb
+ 710 03d4 6F000000 		.4byte	0x6f
+ 711 03d8 00       		.byte	0
+ 712 03d9 00       		.byte	0
+ 713 03da 0A       		.uleb128 0xa
+ 714 03db 76000000 		.4byte	0x76
+ 715 03df EA030000 		.4byte	0x3ea
+ 716 03e3 0B       		.uleb128 0xb
+ 717 03e4 6F000000 		.4byte	0x6f
+ 718 03e8 02       		.byte	0x2
+ 719 03e9 00       		.byte	0
+ 720 03ea 0A       		.uleb128 0xa
+ 721 03eb 76000000 		.4byte	0x76
+ 722 03ef FA030000 		.4byte	0x3fa
+ 723 03f3 0B       		.uleb128 0xb
+ 724 03f4 6F000000 		.4byte	0x6f
+ 725 03f8 09       		.byte	0x9
+ 726 03f9 00       		.byte	0
+ 727 03fa 0A       		.uleb128 0xa
+ 728 03fb 76000000 		.4byte	0x76
+ 729 03ff 0A040000 		.4byte	0x40a
+ 730 0403 0B       		.uleb128 0xb
+ 731 0404 6F000000 		.4byte	0x6f
+ 732 0408 0B       		.byte	0xb
+ 733 0409 00       		.byte	0
+ 734 040a 0A       		.uleb128 0xa
+ 735 040b 76000000 		.4byte	0x76
+ 736 040f 1A040000 		.4byte	0x41a
+ 737 0413 0B       		.uleb128 0xb
+ 738 0414 6F000000 		.4byte	0x6f
+ 739 0418 04       		.byte	0x4
+ 740 0419 00       		.byte	0
+ 741 041a 0A       		.uleb128 0xa
+ 742 041b 76000000 		.4byte	0x76
+ 743 041f 2A040000 		.4byte	0x42a
+ 744 0423 0B       		.uleb128 0xb
+ 745 0424 6F000000 		.4byte	0x6f
+ 746 0428 11       		.byte	0x11
+ 747 0429 00       		.byte	0
+ 748 042a 0A       		.uleb128 0xa
+ 749 042b 76000000 		.4byte	0x76
+ 750 042f 3A040000 		.4byte	0x43a
+ 751 0433 0B       		.uleb128 0xb
+ 752 0434 6F000000 		.4byte	0x6f
+ 753 0438 06       		.byte	0x6
+ 754 0439 00       		.byte	0
+ 755 043a 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 15
+
+
+ 756 043b 76000000 		.4byte	0x76
+ 757 043f 4A040000 		.4byte	0x44a
+ 758 0443 0B       		.uleb128 0xb
+ 759 0444 6F000000 		.4byte	0x6f
+ 760 0448 21       		.byte	0x21
+ 761 0449 00       		.byte	0
+ 762 044a 0A       		.uleb128 0xa
+ 763 044b 76000000 		.4byte	0x76
+ 764 044f 5A040000 		.4byte	0x45a
+ 765 0453 0B       		.uleb128 0xb
+ 766 0454 6F000000 		.4byte	0x6f
+ 767 0458 6D       		.byte	0x6d
+ 768 0459 00       		.byte	0
+ 769 045a 03       		.uleb128 0x3
+ 770 045b 7F050000 		.4byte	.LASF65
+ 771 045f 04       		.byte	0x4
+ 772 0460 BE       		.byte	0xbe
+ 773 0461 98000000 		.4byte	0x98
+ 774 0465 0C       		.uleb128 0xc
+ 775 0466 D8       		.byte	0xd8
+ 776 0467 04       		.byte	0x4
+ 777 0468 C6       		.byte	0xc6
+ 778 0469 7C070000 		.4byte	0x77c
+ 779 046d 09       		.uleb128 0x9
+ 780 046e 91000000 		.4byte	.LASF66
+ 781 0472 04       		.byte	0x4
+ 782 0473 C8       		.byte	0xc8
+ 783 0474 81000000 		.4byte	0x81
+ 784 0478 02       		.byte	0x2
+ 785 0479 23       		.byte	0x23
+ 786 047a 00       		.uleb128 0
+ 787 047b 09       		.uleb128 0x9
+ 788 047c C9030000 		.4byte	.LASF15
+ 789 0480 04       		.byte	0x4
+ 790 0481 C9       		.byte	0xc9
+ 791 0482 CA030000 		.4byte	0x3ca
+ 792 0486 02       		.byte	0x2
+ 793 0487 23       		.byte	0x23
+ 794 0488 04       		.uleb128 0x4
+ 795 0489 09       		.uleb128 0x9
+ 796 048a 67000000 		.4byte	.LASF67
+ 797 048e 04       		.byte	0x4
+ 798 048f CA       		.byte	0xca
+ 799 0490 81000000 		.4byte	0x81
+ 800 0494 02       		.byte	0x2
+ 801 0495 23       		.byte	0x23
+ 802 0496 08       		.uleb128 0x8
+ 803 0497 09       		.uleb128 0x9
+ 804 0498 4A050000 		.4byte	.LASF68
+ 805 049c 04       		.byte	0x4
+ 806 049d CB       		.byte	0xcb
+ 807 049e 81000000 		.4byte	0x81
+ 808 04a2 02       		.byte	0x2
+ 809 04a3 23       		.byte	0x23
+ 810 04a4 0C       		.uleb128 0xc
+ 811 04a5 09       		.uleb128 0x9
+ 812 04a6 0B020000 		.4byte	.LASF69
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 16
+
+
+ 813 04aa 04       		.byte	0x4
+ 814 04ab CC       		.byte	0xcc
+ 815 04ac 81000000 		.4byte	0x81
+ 816 04b0 02       		.byte	0x2
+ 817 04b1 23       		.byte	0x23
+ 818 04b2 10       		.uleb128 0x10
+ 819 04b3 09       		.uleb128 0x9
+ 820 04b4 C9040000 		.4byte	.LASF70
+ 821 04b8 04       		.byte	0x4
+ 822 04b9 CD       		.byte	0xcd
+ 823 04ba 81000000 		.4byte	0x81
+ 824 04be 02       		.byte	0x2
+ 825 04bf 23       		.byte	0x23
+ 826 04c0 14       		.uleb128 0x14
+ 827 04c1 09       		.uleb128 0x9
+ 828 04c2 91040000 		.4byte	.LASF71
+ 829 04c6 04       		.byte	0x4
+ 830 04c7 CE       		.byte	0xce
+ 831 04c8 81000000 		.4byte	0x81
+ 832 04cc 02       		.byte	0x2
+ 833 04cd 23       		.byte	0x23
+ 834 04ce 18       		.uleb128 0x18
+ 835 04cf 09       		.uleb128 0x9
+ 836 04d0 12020000 		.4byte	.LASF72
+ 837 04d4 04       		.byte	0x4
+ 838 04d5 CF       		.byte	0xcf
+ 839 04d6 81000000 		.4byte	0x81
+ 840 04da 02       		.byte	0x2
+ 841 04db 23       		.byte	0x23
+ 842 04dc 1C       		.uleb128 0x1c
+ 843 04dd 09       		.uleb128 0x9
+ 844 04de 98000000 		.4byte	.LASF73
+ 845 04e2 04       		.byte	0x4
+ 846 04e3 D1       		.byte	0xd1
+ 847 04e4 81000000 		.4byte	0x81
+ 848 04e8 02       		.byte	0x2
+ 849 04e9 23       		.byte	0x23
+ 850 04ea 20       		.uleb128 0x20
+ 851 04eb 09       		.uleb128 0x9
+ 852 04ec 8A040000 		.4byte	.LASF74
+ 853 04f0 04       		.byte	0x4
+ 854 04f1 D2       		.byte	0xd2
+ 855 04f2 81000000 		.4byte	0x81
+ 856 04f6 02       		.byte	0x2
+ 857 04f7 23       		.byte	0x23
+ 858 04f8 24       		.uleb128 0x24
+ 859 04f9 09       		.uleb128 0x9
+ 860 04fa 6E000000 		.4byte	.LASF75
+ 861 04fe 04       		.byte	0x4
+ 862 04ff D3       		.byte	0xd3
+ 863 0500 81000000 		.4byte	0x81
+ 864 0504 02       		.byte	0x2
+ 865 0505 23       		.byte	0x23
+ 866 0506 28       		.uleb128 0x28
+ 867 0507 09       		.uleb128 0x9
+ 868 0508 19020000 		.4byte	.LASF76
+ 869 050c 04       		.byte	0x4
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 17
+
+
+ 870 050d D4       		.byte	0xd4
+ 871 050e 81000000 		.4byte	0x81
+ 872 0512 02       		.byte	0x2
+ 873 0513 23       		.byte	0x23
+ 874 0514 2C       		.uleb128 0x2c
+ 875 0515 09       		.uleb128 0x9
+ 876 0516 20020000 		.4byte	.LASF77
+ 877 051a 04       		.byte	0x4
+ 878 051b D5       		.byte	0xd5
+ 879 051c 81000000 		.4byte	0x81
+ 880 0520 02       		.byte	0x2
+ 881 0521 23       		.byte	0x23
+ 882 0522 30       		.uleb128 0x30
+ 883 0523 09       		.uleb128 0x9
+ 884 0524 27020000 		.4byte	.LASF78
+ 885 0528 04       		.byte	0x4
+ 886 0529 D6       		.byte	0xd6
+ 887 052a 81000000 		.4byte	0x81
+ 888 052e 02       		.byte	0x2
+ 889 052f 23       		.byte	0x23
+ 890 0530 34       		.uleb128 0x34
+ 891 0531 09       		.uleb128 0x9
+ 892 0532 D0040000 		.4byte	.LASF79
+ 893 0536 04       		.byte	0x4
+ 894 0537 D7       		.byte	0xd7
+ 895 0538 81000000 		.4byte	0x81
+ 896 053c 02       		.byte	0x2
+ 897 053d 23       		.byte	0x23
+ 898 053e 38       		.uleb128 0x38
+ 899 053f 09       		.uleb128 0x9
+ 900 0540 74030000 		.4byte	.LASF80
+ 901 0544 04       		.byte	0x4
+ 902 0545 D8       		.byte	0xd8
+ 903 0546 81000000 		.4byte	0x81
+ 904 054a 02       		.byte	0x2
+ 905 054b 23       		.byte	0x23
+ 906 054c 3C       		.uleb128 0x3c
+ 907 054d 09       		.uleb128 0x9
+ 908 054e 83000000 		.4byte	.LASF81
+ 909 0552 04       		.byte	0x4
+ 910 0553 DA       		.byte	0xda
+ 911 0554 81000000 		.4byte	0x81
+ 912 0558 02       		.byte	0x2
+ 913 0559 23       		.byte	0x23
+ 914 055a 40       		.uleb128 0x40
+ 915 055b 09       		.uleb128 0x9
+ 916 055c 8A000000 		.4byte	.LASF82
+ 917 0560 04       		.byte	0x4
+ 918 0561 DB       		.byte	0xdb
+ 919 0562 81000000 		.4byte	0x81
+ 920 0566 02       		.byte	0x2
+ 921 0567 23       		.byte	0x23
+ 922 0568 44       		.uleb128 0x44
+ 923 0569 09       		.uleb128 0x9
+ 924 056a 7B030000 		.4byte	.LASF83
+ 925 056e 04       		.byte	0x4
+ 926 056f DC       		.byte	0xdc
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 18
+
+
+ 927 0570 81000000 		.4byte	0x81
+ 928 0574 02       		.byte	0x2
+ 929 0575 23       		.byte	0x23
+ 930 0576 48       		.uleb128 0x48
+ 931 0577 09       		.uleb128 0x9
+ 932 0578 2E020000 		.4byte	.LASF84
+ 933 057c 04       		.byte	0x4
+ 934 057d DD       		.byte	0xdd
+ 935 057e 81000000 		.4byte	0x81
+ 936 0582 02       		.byte	0x2
+ 937 0583 23       		.byte	0x23
+ 938 0584 4C       		.uleb128 0x4c
+ 939 0585 09       		.uleb128 0x9
+ 940 0586 35020000 		.4byte	.LASF85
+ 941 058a 04       		.byte	0x4
+ 942 058b DE       		.byte	0xde
+ 943 058c 81000000 		.4byte	0x81
+ 944 0590 02       		.byte	0x2
+ 945 0591 23       		.byte	0x23
+ 946 0592 50       		.uleb128 0x50
+ 947 0593 09       		.uleb128 0x9
+ 948 0594 A8000000 		.4byte	.LASF86
+ 949 0598 04       		.byte	0x4
+ 950 0599 DF       		.byte	0xdf
+ 951 059a 81000000 		.4byte	0x81
+ 952 059e 02       		.byte	0x2
+ 953 059f 23       		.byte	0x23
+ 954 05a0 54       		.uleb128 0x54
+ 955 05a1 09       		.uleb128 0x9
+ 956 05a2 10030000 		.4byte	.LASF87
+ 957 05a6 04       		.byte	0x4
+ 958 05a7 E0       		.byte	0xe0
+ 959 05a8 81000000 		.4byte	0x81
+ 960 05ac 02       		.byte	0x2
+ 961 05ad 23       		.byte	0x23
+ 962 05ae 58       		.uleb128 0x58
+ 963 05af 09       		.uleb128 0x9
+ 964 05b0 75000000 		.4byte	.LASF88
+ 965 05b4 04       		.byte	0x4
+ 966 05b5 E1       		.byte	0xe1
+ 967 05b6 81000000 		.4byte	0x81
+ 968 05ba 02       		.byte	0x2
+ 969 05bb 23       		.byte	0x23
+ 970 05bc 5C       		.uleb128 0x5c
+ 971 05bd 09       		.uleb128 0x9
+ 972 05be 3C020000 		.4byte	.LASF89
+ 973 05c2 04       		.byte	0x4
+ 974 05c3 E3       		.byte	0xe3
+ 975 05c4 81000000 		.4byte	0x81
+ 976 05c8 02       		.byte	0x2
+ 977 05c9 23       		.byte	0x23
+ 978 05ca 60       		.uleb128 0x60
+ 979 05cb 09       		.uleb128 0x9
+ 980 05cc 43020000 		.4byte	.LASF90
+ 981 05d0 04       		.byte	0x4
+ 982 05d1 E4       		.byte	0xe4
+ 983 05d2 81000000 		.4byte	0x81
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 19
+
+
+ 984 05d6 02       		.byte	0x2
+ 985 05d7 23       		.byte	0x23
+ 986 05d8 64       		.uleb128 0x64
+ 987 05d9 09       		.uleb128 0x9
+ 988 05da FD010000 		.4byte	.LASF91
+ 989 05de 04       		.byte	0x4
+ 990 05df E5       		.byte	0xe5
+ 991 05e0 81000000 		.4byte	0x81
+ 992 05e4 02       		.byte	0x2
+ 993 05e5 23       		.byte	0x23
+ 994 05e6 68       		.uleb128 0x68
+ 995 05e7 09       		.uleb128 0x9
+ 996 05e8 C3050000 		.4byte	.LASF92
+ 997 05ec 04       		.byte	0x4
+ 998 05ed E6       		.byte	0xe6
+ 999 05ee 81000000 		.4byte	0x81
+ 1000 05f2 02       		.byte	0x2
+ 1001 05f3 23       		.byte	0x23
+ 1002 05f4 6C       		.uleb128 0x6c
+ 1003 05f5 09       		.uleb128 0x9
+ 1004 05f6 18030000 		.4byte	.LASF93
+ 1005 05fa 04       		.byte	0x4
+ 1006 05fb E7       		.byte	0xe7
+ 1007 05fc 81000000 		.4byte	0x81
+ 1008 0600 02       		.byte	0x2
+ 1009 0601 23       		.byte	0x23
+ 1010 0602 70       		.uleb128 0x70
+ 1011 0603 09       		.uleb128 0x9
+ 1012 0604 B9050000 		.4byte	.LASF94
+ 1013 0608 04       		.byte	0x4
+ 1014 0609 E8       		.byte	0xe8
+ 1015 060a 81000000 		.4byte	0x81
+ 1016 060e 02       		.byte	0x2
+ 1017 060f 23       		.byte	0x23
+ 1018 0610 74       		.uleb128 0x74
+ 1019 0611 09       		.uleb128 0x9
+ 1020 0612 20030000 		.4byte	.LASF95
+ 1021 0616 04       		.byte	0x4
+ 1022 0617 E9       		.byte	0xe9
+ 1023 0618 81000000 		.4byte	0x81
+ 1024 061c 02       		.byte	0x2
+ 1025 061d 23       		.byte	0x23
+ 1026 061e 78       		.uleb128 0x78
+ 1027 061f 09       		.uleb128 0x9
+ 1028 0620 29030000 		.4byte	.LASF96
+ 1029 0624 04       		.byte	0x4
+ 1030 0625 EA       		.byte	0xea
+ 1031 0626 81000000 		.4byte	0x81
+ 1032 062a 02       		.byte	0x2
+ 1033 062b 23       		.byte	0x23
+ 1034 062c 7C       		.uleb128 0x7c
+ 1035 062d 09       		.uleb128 0x9
+ 1036 062e 32030000 		.4byte	.LASF97
+ 1037 0632 04       		.byte	0x4
+ 1038 0633 EC       		.byte	0xec
+ 1039 0634 81000000 		.4byte	0x81
+ 1040 0638 03       		.byte	0x3
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 20
+
+
+ 1041 0639 23       		.byte	0x23
+ 1042 063a 8001     		.uleb128 0x80
+ 1043 063c 09       		.uleb128 0x9
+ 1044 063d 58030000 		.4byte	.LASF98
+ 1045 0641 04       		.byte	0x4
+ 1046 0642 ED       		.byte	0xed
+ 1047 0643 81000000 		.4byte	0x81
+ 1048 0647 03       		.byte	0x3
+ 1049 0648 23       		.byte	0x23
+ 1050 0649 8401     		.uleb128 0x84
+ 1051 064b 09       		.uleb128 0x9
+ 1052 064c 5F030000 		.4byte	.LASF99
+ 1053 0650 04       		.byte	0x4
+ 1054 0651 EE       		.byte	0xee
+ 1055 0652 81000000 		.4byte	0x81
+ 1056 0656 03       		.byte	0x3
+ 1057 0657 23       		.byte	0x23
+ 1058 0658 8801     		.uleb128 0x88
+ 1059 065a 09       		.uleb128 0x9
+ 1060 065b 7C000000 		.4byte	.LASF100
+ 1061 065f 04       		.byte	0x4
+ 1062 0660 EF       		.byte	0xef
+ 1063 0661 81000000 		.4byte	0x81
+ 1064 0665 03       		.byte	0x3
+ 1065 0666 23       		.byte	0x23
+ 1066 0667 8C01     		.uleb128 0x8c
+ 1067 0669 09       		.uleb128 0x9
+ 1068 066a 95010000 		.4byte	.LASF101
+ 1069 066e 04       		.byte	0x4
+ 1070 066f F0       		.byte	0xf0
+ 1071 0670 81000000 		.4byte	0x81
+ 1072 0674 03       		.byte	0x3
+ 1073 0675 23       		.byte	0x23
+ 1074 0676 9001     		.uleb128 0x90
+ 1075 0678 09       		.uleb128 0x9
+ 1076 0679 AD040000 		.4byte	.LASF102
+ 1077 067d 04       		.byte	0x4
+ 1078 067e F1       		.byte	0xf1
+ 1079 067f 81000000 		.4byte	0x81
+ 1080 0683 03       		.byte	0x3
+ 1081 0684 23       		.byte	0x23
+ 1082 0685 9401     		.uleb128 0x94
+ 1083 0687 09       		.uleb128 0x9
+ 1084 0688 CB050000 		.4byte	.LASF103
+ 1085 068c 04       		.byte	0x4
+ 1086 068d F2       		.byte	0xf2
+ 1087 068e 81000000 		.4byte	0x81
+ 1088 0692 03       		.byte	0x3
+ 1089 0693 23       		.byte	0x23
+ 1090 0694 9801     		.uleb128 0x98
+ 1091 0696 09       		.uleb128 0x9
+ 1092 0697 66030000 		.4byte	.LASF104
+ 1093 069b 04       		.byte	0x4
+ 1094 069c F3       		.byte	0xf3
+ 1095 069d 81000000 		.4byte	0x81
+ 1096 06a1 03       		.byte	0x3
+ 1097 06a2 23       		.byte	0x23
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 21
+
+
+ 1098 06a3 9C01     		.uleb128 0x9c
+ 1099 06a5 09       		.uleb128 0x9
+ 1100 06a6 B4040000 		.4byte	.LASF105
+ 1101 06aa 04       		.byte	0x4
+ 1102 06ab F5       		.byte	0xf5
+ 1103 06ac 81000000 		.4byte	0x81
+ 1104 06b0 03       		.byte	0x3
+ 1105 06b1 23       		.byte	0x23
+ 1106 06b2 A001     		.uleb128 0xa0
+ 1107 06b4 09       		.uleb128 0x9
+ 1108 06b5 BB040000 		.4byte	.LASF106
+ 1109 06b9 04       		.byte	0x4
+ 1110 06ba F6       		.byte	0xf6
+ 1111 06bb 81000000 		.4byte	0x81
+ 1112 06bf 03       		.byte	0x3
+ 1113 06c0 23       		.byte	0x23
+ 1114 06c1 A401     		.uleb128 0xa4
+ 1115 06c3 09       		.uleb128 0x9
+ 1116 06c4 C2040000 		.4byte	.LASF107
+ 1117 06c8 04       		.byte	0x4
+ 1118 06c9 F7       		.byte	0xf7
+ 1119 06ca 81000000 		.4byte	0x81
+ 1120 06ce 03       		.byte	0x3
+ 1121 06cf 23       		.byte	0x23
+ 1122 06d0 A801     		.uleb128 0xa8
+ 1123 06d2 09       		.uleb128 0x9
+ 1124 06d3 6D030000 		.4byte	.LASF108
+ 1125 06d7 04       		.byte	0x4
+ 1126 06d8 F8       		.byte	0xf8
+ 1127 06d9 81000000 		.4byte	0x81
+ 1128 06dd 03       		.byte	0x3
+ 1129 06de 23       		.byte	0x23
+ 1130 06df AC01     		.uleb128 0xac
+ 1131 06e1 09       		.uleb128 0x9
+ 1132 06e2 62020000 		.4byte	.LASF109
+ 1133 06e6 04       		.byte	0x4
+ 1134 06e7 F9       		.byte	0xf9
+ 1135 06e8 81000000 		.4byte	0x81
+ 1136 06ec 03       		.byte	0x3
+ 1137 06ed 23       		.byte	0x23
+ 1138 06ee B001     		.uleb128 0xb0
+ 1139 06f0 09       		.uleb128 0x9
+ 1140 06f1 AD010000 		.4byte	.LASF110
+ 1141 06f5 04       		.byte	0x4
+ 1142 06f6 FA       		.byte	0xfa
+ 1143 06f7 81000000 		.4byte	0x81
+ 1144 06fb 03       		.byte	0x3
+ 1145 06fc 23       		.byte	0x23
+ 1146 06fd B401     		.uleb128 0xb4
+ 1147 06ff 09       		.uleb128 0x9
+ 1148 0700 DE020000 		.4byte	.LASF111
+ 1149 0704 04       		.byte	0x4
+ 1150 0705 FB       		.byte	0xfb
+ 1151 0706 81000000 		.4byte	0x81
+ 1152 070a 03       		.byte	0x3
+ 1153 070b 23       		.byte	0x23
+ 1154 070c B801     		.uleb128 0xb8
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 22
+
+
+ 1155 070e 09       		.uleb128 0x9
+ 1156 070f 43050000 		.4byte	.LASF112
+ 1157 0713 04       		.byte	0x4
+ 1158 0714 FC       		.byte	0xfc
+ 1159 0715 81000000 		.4byte	0x81
+ 1160 0719 03       		.byte	0x3
+ 1161 071a 23       		.byte	0x23
+ 1162 071b BC01     		.uleb128 0xbc
+ 1163 071d 09       		.uleb128 0x9
+ 1164 071e 83020000 		.4byte	.LASF113
+ 1165 0722 04       		.byte	0x4
+ 1166 0723 FE       		.byte	0xfe
+ 1167 0724 81000000 		.4byte	0x81
+ 1168 0728 03       		.byte	0x3
+ 1169 0729 23       		.byte	0x23
+ 1170 072a C001     		.uleb128 0xc0
+ 1171 072c 09       		.uleb128 0x9
+ 1172 072d E6020000 		.4byte	.LASF114
+ 1173 0731 04       		.byte	0x4
+ 1174 0732 FF       		.byte	0xff
+ 1175 0733 81000000 		.4byte	0x81
+ 1176 0737 03       		.byte	0x3
+ 1177 0738 23       		.byte	0x23
+ 1178 0739 C401     		.uleb128 0xc4
+ 1179 073b 0D       		.uleb128 0xd
+ 1180 073c D7040000 		.4byte	.LASF115
+ 1181 0740 04       		.byte	0x4
+ 1182 0741 0001     		.2byte	0x100
+ 1183 0743 81000000 		.4byte	0x81
+ 1184 0747 03       		.byte	0x3
+ 1185 0748 23       		.byte	0x23
+ 1186 0749 C801     		.uleb128 0xc8
+ 1187 074b 0D       		.uleb128 0xd
+ 1188 074c 71020000 		.4byte	.LASF116
+ 1189 0750 04       		.byte	0x4
+ 1190 0751 0101     		.2byte	0x101
+ 1191 0753 81000000 		.4byte	0x81
+ 1192 0757 03       		.byte	0x3
+ 1193 0758 23       		.byte	0x23
+ 1194 0759 CC01     		.uleb128 0xcc
+ 1195 075b 0D       		.uleb128 0xd
+ 1196 075c 31000000 		.4byte	.LASF117
+ 1197 0760 04       		.byte	0x4
+ 1198 0761 0201     		.2byte	0x102
+ 1199 0763 81000000 		.4byte	0x81
+ 1200 0767 03       		.byte	0x3
+ 1201 0768 23       		.byte	0x23
+ 1202 0769 D001     		.uleb128 0xd0
+ 1203 076b 0D       		.uleb128 0xd
+ 1204 076c F5010000 		.4byte	.LASF118
+ 1205 0770 04       		.byte	0x4
+ 1206 0771 0301     		.2byte	0x103
+ 1207 0773 81000000 		.4byte	0x81
+ 1208 0777 03       		.byte	0x3
+ 1209 0778 23       		.byte	0x23
+ 1210 0779 D401     		.uleb128 0xd4
+ 1211 077b 00       		.byte	0
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 23
+
+
+ 1212 077c 0E       		.uleb128 0xe
+ 1213 077d 62050000 		.4byte	.LASF119
+ 1214 0781 04       		.byte	0x4
+ 1215 0782 0401     		.2byte	0x104
+ 1216 0784 65040000 		.4byte	0x465
+ 1217 0788 0F       		.uleb128 0xf
+ 1218 0789 0040     		.2byte	0x4000
+ 1219 078b 04       		.byte	0x4
+ 1220 078c 3701     		.2byte	0x137
+ 1221 078e B2070000 		.4byte	0x7b2
+ 1222 0792 0D       		.uleb128 0xd
+ 1223 0793 C9030000 		.4byte	.LASF15
+ 1224 0797 04       		.byte	0x4
+ 1225 0798 3801     		.2byte	0x138
+ 1226 079a B2070000 		.4byte	0x7b2
+ 1227 079e 02       		.byte	0x2
+ 1228 079f 23       		.byte	0x23
+ 1229 07a0 00       		.uleb128 0
+ 1230 07a1 0D       		.uleb128 0xd
+ 1231 07a2 57000000 		.4byte	.LASF120
+ 1232 07a6 04       		.byte	0x4
+ 1233 07a7 3901     		.2byte	0x139
+ 1234 07a9 81000000 		.4byte	0x81
+ 1235 07ad 03       		.byte	0x3
+ 1236 07ae 23       		.byte	0x23
+ 1237 07af FC7F     		.uleb128 0x3ffc
+ 1238 07b1 00       		.byte	0
+ 1239 07b2 0A       		.uleb128 0xa
+ 1240 07b3 76000000 		.4byte	0x76
+ 1241 07b7 C3070000 		.4byte	0x7c3
+ 1242 07bb 10       		.uleb128 0x10
+ 1243 07bc 6F000000 		.4byte	0x6f
+ 1244 07c0 FE0F     		.2byte	0xffe
+ 1245 07c2 00       		.byte	0
+ 1246 07c3 11       		.uleb128 0x11
+ 1247 07c4 0040     		.2byte	0x4000
+ 1248 07c6 04       		.byte	0x4
+ 1249 07c7 3501     		.2byte	0x135
+ 1250 07c9 DF070000 		.4byte	0x7df
+ 1251 07cd 12       		.uleb128 0x12
+ 1252 07ce 67040000 		.4byte	.LASF129
+ 1253 07d2 04       		.byte	0x4
+ 1254 07d3 3601     		.2byte	0x136
+ 1255 07d5 F0070000 		.4byte	0x7f0
+ 1256 07d9 13       		.uleb128 0x13
+ 1257 07da 88070000 		.4byte	0x788
+ 1258 07de 00       		.byte	0
+ 1259 07df 0A       		.uleb128 0xa
+ 1260 07e0 81000000 		.4byte	0x81
+ 1261 07e4 F0070000 		.4byte	0x7f0
+ 1262 07e8 10       		.uleb128 0x10
+ 1263 07e9 6F000000 		.4byte	0x6f
+ 1264 07ed FF0F     		.2byte	0xfff
+ 1265 07ef 00       		.byte	0
+ 1266 07f0 05       		.uleb128 0x5
+ 1267 07f1 DF070000 		.4byte	0x7df
+ 1268 07f5 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 24
+
+
+ 1269 07f6 2080     		.2byte	0x8020
+ 1270 07f8 04       		.byte	0x4
+ 1271 07f9 3301     		.2byte	0x133
+ 1272 07fb 9E080000 		.4byte	0x89e
+ 1273 07ff 14       		.uleb128 0x14
+ 1274 0800 C3070000 		.4byte	0x7c3
+ 1275 0804 02       		.byte	0x2
+ 1276 0805 23       		.byte	0x23
+ 1277 0806 00       		.uleb128 0
+ 1278 0807 0D       		.uleb128 0xd
+ 1279 0808 D3030000 		.4byte	.LASF19
+ 1280 080c 04       		.byte	0x4
+ 1281 080d 3C01     		.2byte	0x13c
+ 1282 080f 9E080000 		.4byte	0x89e
+ 1283 0813 04       		.byte	0x4
+ 1284 0814 23       		.byte	0x23
+ 1285 0815 808001   		.uleb128 0x4000
+ 1286 0818 15       		.uleb128 0x15
+ 1287 0819 44495200 		.ascii	"DIR\000"
+ 1288 081d 04       		.byte	0x4
+ 1289 081e 3D01     		.2byte	0x13d
+ 1290 0820 81000000 		.4byte	0x81
+ 1291 0824 04       		.byte	0x4
+ 1292 0825 23       		.byte	0x23
+ 1293 0826 808002   		.uleb128 0x8000
+ 1294 0829 15       		.uleb128 0x15
+ 1295 082a 495300   		.ascii	"IS\000"
+ 1296 082d 04       		.byte	0x4
+ 1297 082e 3E01     		.2byte	0x13e
+ 1298 0830 81000000 		.4byte	0x81
+ 1299 0834 04       		.byte	0x4
+ 1300 0835 23       		.byte	0x23
+ 1301 0836 848002   		.uleb128 0x8004
+ 1302 0839 15       		.uleb128 0x15
+ 1303 083a 49424500 		.ascii	"IBE\000"
+ 1304 083e 04       		.byte	0x4
+ 1305 083f 3F01     		.2byte	0x13f
+ 1306 0841 81000000 		.4byte	0x81
+ 1307 0845 04       		.byte	0x4
+ 1308 0846 23       		.byte	0x23
+ 1309 0847 888002   		.uleb128 0x8008
+ 1310 084a 15       		.uleb128 0x15
+ 1311 084b 49455600 		.ascii	"IEV\000"
+ 1312 084f 04       		.byte	0x4
+ 1313 0850 4001     		.2byte	0x140
+ 1314 0852 81000000 		.4byte	0x81
+ 1315 0856 04       		.byte	0x4
+ 1316 0857 23       		.byte	0x23
+ 1317 0858 8C8002   		.uleb128 0x800c
+ 1318 085b 15       		.uleb128 0x15
+ 1319 085c 494500   		.ascii	"IE\000"
+ 1320 085f 04       		.byte	0x4
+ 1321 0860 4101     		.2byte	0x141
+ 1322 0862 81000000 		.4byte	0x81
+ 1323 0866 04       		.byte	0x4
+ 1324 0867 23       		.byte	0x23
+ 1325 0868 908002   		.uleb128 0x8010
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 25
+
+
+ 1326 086b 15       		.uleb128 0x15
+ 1327 086c 52495300 		.ascii	"RIS\000"
+ 1328 0870 04       		.byte	0x4
+ 1329 0871 4201     		.2byte	0x142
+ 1330 0873 81000000 		.4byte	0x81
+ 1331 0877 04       		.byte	0x4
+ 1332 0878 23       		.byte	0x23
+ 1333 0879 948002   		.uleb128 0x8014
+ 1334 087c 15       		.uleb128 0x15
+ 1335 087d 4D495300 		.ascii	"MIS\000"
+ 1336 0881 04       		.byte	0x4
+ 1337 0882 4301     		.2byte	0x143
+ 1338 0884 81000000 		.4byte	0x81
+ 1339 0888 04       		.byte	0x4
+ 1340 0889 23       		.byte	0x23
+ 1341 088a 988002   		.uleb128 0x8018
+ 1342 088d 15       		.uleb128 0x15
+ 1343 088e 494300   		.ascii	"IC\000"
+ 1344 0891 04       		.byte	0x4
+ 1345 0892 4401     		.2byte	0x144
+ 1346 0894 81000000 		.4byte	0x81
+ 1347 0898 04       		.byte	0x4
+ 1348 0899 23       		.byte	0x23
+ 1349 089a 9C8002   		.uleb128 0x801c
+ 1350 089d 00       		.byte	0
+ 1351 089e 0A       		.uleb128 0xa
+ 1352 089f 76000000 		.4byte	0x76
+ 1353 08a3 AF080000 		.4byte	0x8af
+ 1354 08a7 10       		.uleb128 0x10
+ 1355 08a8 6F000000 		.4byte	0x6f
+ 1356 08ac FF0F     		.2byte	0xfff
+ 1357 08ae 00       		.byte	0
+ 1358 08af 0E       		.uleb128 0xe
+ 1359 08b0 3B030000 		.4byte	.LASF121
+ 1360 08b4 04       		.byte	0x4
+ 1361 08b5 4501     		.2byte	0x145
+ 1362 08b7 F5070000 		.4byte	0x7f5
+ 1363 08bb 16       		.uleb128 0x16
+ 1364 08bc 01       		.byte	0x1
+ 1365 08bd E1040000 		.4byte	.LASF122
+ 1366 08c1 01       		.byte	0x1
+ 1367 08c2 26       		.byte	0x26
+ 1368 08c3 01       		.byte	0x1
+ 1369 08c4 78000000 		.4byte	.LFB44
+ 1370 08c8 90000000 		.4byte	.LFE44
+ 1371 08cc 00000000 		.4byte	.LLST2
+ 1372 08d0 01       		.byte	0x1
+ 1373 08d1 16       		.uleb128 0x16
+ 1374 08d2 01       		.byte	0x1
+ 1375 08d3 7B020000 		.4byte	.LASF123
+ 1376 08d7 01       		.byte	0x1
+ 1377 08d8 1E       		.byte	0x1e
+ 1378 08d9 01       		.byte	0x1
+ 1379 08da 60000000 		.4byte	.LFB43
+ 1380 08de 78000000 		.4byte	.LFE43
+ 1381 08e2 2C000000 		.4byte	.LLST1
+ 1382 08e6 01       		.byte	0x1
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 26
+
+
+ 1383 08e7 16       		.uleb128 0x16
+ 1384 08e8 01       		.byte	0x1
+ 1385 08e9 EF020000 		.4byte	.LASF124
+ 1386 08ed 01       		.byte	0x1
+ 1387 08ee 04       		.byte	0x4
+ 1388 08ef 01       		.byte	0x1
+ 1389 08f0 00000000 		.4byte	.LFB42
+ 1390 08f4 60000000 		.4byte	.LFE42
+ 1391 08f8 58000000 		.4byte	.LLST0
+ 1392 08fc 01       		.byte	0x1
+ 1393 08fd 00       		.byte	0
+ 1394              		.section	.debug_abbrev,"",%progbits
+ 1395              	.Ldebug_abbrev0:
+ 1396 0000 01       		.uleb128 0x1
+ 1397 0001 11       		.uleb128 0x11
+ 1398 0002 01       		.byte	0x1
+ 1399 0003 25       		.uleb128 0x25
+ 1400 0004 0E       		.uleb128 0xe
+ 1401 0005 13       		.uleb128 0x13
+ 1402 0006 0B       		.uleb128 0xb
+ 1403 0007 03       		.uleb128 0x3
+ 1404 0008 0E       		.uleb128 0xe
+ 1405 0009 1B       		.uleb128 0x1b
+ 1406 000a 0E       		.uleb128 0xe
+ 1407 000b 11       		.uleb128 0x11
+ 1408 000c 01       		.uleb128 0x1
+ 1409 000d 12       		.uleb128 0x12
+ 1410 000e 01       		.uleb128 0x1
+ 1411 000f 10       		.uleb128 0x10
+ 1412 0010 06       		.uleb128 0x6
+ 1413 0011 00       		.byte	0
+ 1414 0012 00       		.byte	0
+ 1415 0013 02       		.uleb128 0x2
+ 1416 0014 24       		.uleb128 0x24
+ 1417 0015 00       		.byte	0
+ 1418 0016 0B       		.uleb128 0xb
+ 1419 0017 0B       		.uleb128 0xb
+ 1420 0018 3E       		.uleb128 0x3e
+ 1421 0019 0B       		.uleb128 0xb
+ 1422 001a 03       		.uleb128 0x3
+ 1423 001b 0E       		.uleb128 0xe
+ 1424 001c 00       		.byte	0
+ 1425 001d 00       		.byte	0
+ 1426 001e 03       		.uleb128 0x3
+ 1427 001f 16       		.uleb128 0x16
+ 1428 0020 00       		.byte	0
+ 1429 0021 03       		.uleb128 0x3
+ 1430 0022 0E       		.uleb128 0xe
+ 1431 0023 3A       		.uleb128 0x3a
+ 1432 0024 0B       		.uleb128 0xb
+ 1433 0025 3B       		.uleb128 0x3b
+ 1434 0026 0B       		.uleb128 0xb
+ 1435 0027 49       		.uleb128 0x49
+ 1436 0028 13       		.uleb128 0x13
+ 1437 0029 00       		.byte	0
+ 1438 002a 00       		.byte	0
+ 1439 002b 04       		.uleb128 0x4
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 27
+
+
+ 1440 002c 24       		.uleb128 0x24
+ 1441 002d 00       		.byte	0
+ 1442 002e 0B       		.uleb128 0xb
+ 1443 002f 0B       		.uleb128 0xb
+ 1444 0030 3E       		.uleb128 0x3e
+ 1445 0031 0B       		.uleb128 0xb
+ 1446 0032 03       		.uleb128 0x3
+ 1447 0033 08       		.uleb128 0x8
+ 1448 0034 00       		.byte	0
+ 1449 0035 00       		.byte	0
+ 1450 0036 05       		.uleb128 0x5
+ 1451 0037 35       		.uleb128 0x35
+ 1452 0038 00       		.byte	0
+ 1453 0039 49       		.uleb128 0x49
+ 1454 003a 13       		.uleb128 0x13
+ 1455 003b 00       		.byte	0
+ 1456 003c 00       		.byte	0
+ 1457 003d 06       		.uleb128 0x6
+ 1458 003e 26       		.uleb128 0x26
+ 1459 003f 00       		.byte	0
+ 1460 0040 49       		.uleb128 0x49
+ 1461 0041 13       		.uleb128 0x13
+ 1462 0042 00       		.byte	0
+ 1463 0043 00       		.byte	0
+ 1464 0044 07       		.uleb128 0x7
+ 1465 0045 34       		.uleb128 0x34
+ 1466 0046 00       		.byte	0
+ 1467 0047 03       		.uleb128 0x3
+ 1468 0048 0E       		.uleb128 0xe
+ 1469 0049 3A       		.uleb128 0x3a
+ 1470 004a 0B       		.uleb128 0xb
+ 1471 004b 3B       		.uleb128 0x3b
+ 1472 004c 0B       		.uleb128 0xb
+ 1473 004d 49       		.uleb128 0x49
+ 1474 004e 13       		.uleb128 0x13
+ 1475 004f 3F       		.uleb128 0x3f
+ 1476 0050 0C       		.uleb128 0xc
+ 1477 0051 3C       		.uleb128 0x3c
+ 1478 0052 0C       		.uleb128 0xc
+ 1479 0053 00       		.byte	0
+ 1480 0054 00       		.byte	0
+ 1481 0055 08       		.uleb128 0x8
+ 1482 0056 13       		.uleb128 0x13
+ 1483 0057 01       		.byte	0x1
+ 1484 0058 0B       		.uleb128 0xb
+ 1485 0059 05       		.uleb128 0x5
+ 1486 005a 3A       		.uleb128 0x3a
+ 1487 005b 0B       		.uleb128 0xb
+ 1488 005c 3B       		.uleb128 0x3b
+ 1489 005d 0B       		.uleb128 0xb
+ 1490 005e 01       		.uleb128 0x1
+ 1491 005f 13       		.uleb128 0x13
+ 1492 0060 00       		.byte	0
+ 1493 0061 00       		.byte	0
+ 1494 0062 09       		.uleb128 0x9
+ 1495 0063 0D       		.uleb128 0xd
+ 1496 0064 00       		.byte	0
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 28
+
+
+ 1497 0065 03       		.uleb128 0x3
+ 1498 0066 0E       		.uleb128 0xe
+ 1499 0067 3A       		.uleb128 0x3a
+ 1500 0068 0B       		.uleb128 0xb
+ 1501 0069 3B       		.uleb128 0x3b
+ 1502 006a 0B       		.uleb128 0xb
+ 1503 006b 49       		.uleb128 0x49
+ 1504 006c 13       		.uleb128 0x13
+ 1505 006d 38       		.uleb128 0x38
+ 1506 006e 0A       		.uleb128 0xa
+ 1507 006f 00       		.byte	0
+ 1508 0070 00       		.byte	0
+ 1509 0071 0A       		.uleb128 0xa
+ 1510 0072 01       		.uleb128 0x1
+ 1511 0073 01       		.byte	0x1
+ 1512 0074 49       		.uleb128 0x49
+ 1513 0075 13       		.uleb128 0x13
+ 1514 0076 01       		.uleb128 0x1
+ 1515 0077 13       		.uleb128 0x13
+ 1516 0078 00       		.byte	0
+ 1517 0079 00       		.byte	0
+ 1518 007a 0B       		.uleb128 0xb
+ 1519 007b 21       		.uleb128 0x21
+ 1520 007c 00       		.byte	0
+ 1521 007d 49       		.uleb128 0x49
+ 1522 007e 13       		.uleb128 0x13
+ 1523 007f 2F       		.uleb128 0x2f
+ 1524 0080 0B       		.uleb128 0xb
+ 1525 0081 00       		.byte	0
+ 1526 0082 00       		.byte	0
+ 1527 0083 0C       		.uleb128 0xc
+ 1528 0084 13       		.uleb128 0x13
+ 1529 0085 01       		.byte	0x1
+ 1530 0086 0B       		.uleb128 0xb
+ 1531 0087 0B       		.uleb128 0xb
+ 1532 0088 3A       		.uleb128 0x3a
+ 1533 0089 0B       		.uleb128 0xb
+ 1534 008a 3B       		.uleb128 0x3b
+ 1535 008b 0B       		.uleb128 0xb
+ 1536 008c 01       		.uleb128 0x1
+ 1537 008d 13       		.uleb128 0x13
+ 1538 008e 00       		.byte	0
+ 1539 008f 00       		.byte	0
+ 1540 0090 0D       		.uleb128 0xd
+ 1541 0091 0D       		.uleb128 0xd
+ 1542 0092 00       		.byte	0
+ 1543 0093 03       		.uleb128 0x3
+ 1544 0094 0E       		.uleb128 0xe
+ 1545 0095 3A       		.uleb128 0x3a
+ 1546 0096 0B       		.uleb128 0xb
+ 1547 0097 3B       		.uleb128 0x3b
+ 1548 0098 05       		.uleb128 0x5
+ 1549 0099 49       		.uleb128 0x49
+ 1550 009a 13       		.uleb128 0x13
+ 1551 009b 38       		.uleb128 0x38
+ 1552 009c 0A       		.uleb128 0xa
+ 1553 009d 00       		.byte	0
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 29
+
+
+ 1554 009e 00       		.byte	0
+ 1555 009f 0E       		.uleb128 0xe
+ 1556 00a0 16       		.uleb128 0x16
+ 1557 00a1 00       		.byte	0
+ 1558 00a2 03       		.uleb128 0x3
+ 1559 00a3 0E       		.uleb128 0xe
+ 1560 00a4 3A       		.uleb128 0x3a
+ 1561 00a5 0B       		.uleb128 0xb
+ 1562 00a6 3B       		.uleb128 0x3b
+ 1563 00a7 05       		.uleb128 0x5
+ 1564 00a8 49       		.uleb128 0x49
+ 1565 00a9 13       		.uleb128 0x13
+ 1566 00aa 00       		.byte	0
+ 1567 00ab 00       		.byte	0
+ 1568 00ac 0F       		.uleb128 0xf
+ 1569 00ad 13       		.uleb128 0x13
+ 1570 00ae 01       		.byte	0x1
+ 1571 00af 0B       		.uleb128 0xb
+ 1572 00b0 05       		.uleb128 0x5
+ 1573 00b1 3A       		.uleb128 0x3a
+ 1574 00b2 0B       		.uleb128 0xb
+ 1575 00b3 3B       		.uleb128 0x3b
+ 1576 00b4 05       		.uleb128 0x5
+ 1577 00b5 01       		.uleb128 0x1
+ 1578 00b6 13       		.uleb128 0x13
+ 1579 00b7 00       		.byte	0
+ 1580 00b8 00       		.byte	0
+ 1581 00b9 10       		.uleb128 0x10
+ 1582 00ba 21       		.uleb128 0x21
+ 1583 00bb 00       		.byte	0
+ 1584 00bc 49       		.uleb128 0x49
+ 1585 00bd 13       		.uleb128 0x13
+ 1586 00be 2F       		.uleb128 0x2f
+ 1587 00bf 05       		.uleb128 0x5
+ 1588 00c0 00       		.byte	0
+ 1589 00c1 00       		.byte	0
+ 1590 00c2 11       		.uleb128 0x11
+ 1591 00c3 17       		.uleb128 0x17
+ 1592 00c4 01       		.byte	0x1
+ 1593 00c5 0B       		.uleb128 0xb
+ 1594 00c6 05       		.uleb128 0x5
+ 1595 00c7 3A       		.uleb128 0x3a
+ 1596 00c8 0B       		.uleb128 0xb
+ 1597 00c9 3B       		.uleb128 0x3b
+ 1598 00ca 05       		.uleb128 0x5
+ 1599 00cb 01       		.uleb128 0x1
+ 1600 00cc 13       		.uleb128 0x13
+ 1601 00cd 00       		.byte	0
+ 1602 00ce 00       		.byte	0
+ 1603 00cf 12       		.uleb128 0x12
+ 1604 00d0 0D       		.uleb128 0xd
+ 1605 00d1 00       		.byte	0
+ 1606 00d2 03       		.uleb128 0x3
+ 1607 00d3 0E       		.uleb128 0xe
+ 1608 00d4 3A       		.uleb128 0x3a
+ 1609 00d5 0B       		.uleb128 0xb
+ 1610 00d6 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 30
+
+
+ 1611 00d7 05       		.uleb128 0x5
+ 1612 00d8 49       		.uleb128 0x49
+ 1613 00d9 13       		.uleb128 0x13
+ 1614 00da 00       		.byte	0
+ 1615 00db 00       		.byte	0
+ 1616 00dc 13       		.uleb128 0x13
+ 1617 00dd 0D       		.uleb128 0xd
+ 1618 00de 00       		.byte	0
+ 1619 00df 49       		.uleb128 0x49
+ 1620 00e0 13       		.uleb128 0x13
+ 1621 00e1 00       		.byte	0
+ 1622 00e2 00       		.byte	0
+ 1623 00e3 14       		.uleb128 0x14
+ 1624 00e4 0D       		.uleb128 0xd
+ 1625 00e5 00       		.byte	0
+ 1626 00e6 49       		.uleb128 0x49
+ 1627 00e7 13       		.uleb128 0x13
+ 1628 00e8 38       		.uleb128 0x38
+ 1629 00e9 0A       		.uleb128 0xa
+ 1630 00ea 00       		.byte	0
+ 1631 00eb 00       		.byte	0
+ 1632 00ec 15       		.uleb128 0x15
+ 1633 00ed 0D       		.uleb128 0xd
+ 1634 00ee 00       		.byte	0
+ 1635 00ef 03       		.uleb128 0x3
+ 1636 00f0 08       		.uleb128 0x8
+ 1637 00f1 3A       		.uleb128 0x3a
+ 1638 00f2 0B       		.uleb128 0xb
+ 1639 00f3 3B       		.uleb128 0x3b
+ 1640 00f4 05       		.uleb128 0x5
+ 1641 00f5 49       		.uleb128 0x49
+ 1642 00f6 13       		.uleb128 0x13
+ 1643 00f7 38       		.uleb128 0x38
+ 1644 00f8 0A       		.uleb128 0xa
+ 1645 00f9 00       		.byte	0
+ 1646 00fa 00       		.byte	0
+ 1647 00fb 16       		.uleb128 0x16
+ 1648 00fc 2E       		.uleb128 0x2e
+ 1649 00fd 00       		.byte	0
+ 1650 00fe 3F       		.uleb128 0x3f
+ 1651 00ff 0C       		.uleb128 0xc
+ 1652 0100 03       		.uleb128 0x3
+ 1653 0101 0E       		.uleb128 0xe
+ 1654 0102 3A       		.uleb128 0x3a
+ 1655 0103 0B       		.uleb128 0xb
+ 1656 0104 3B       		.uleb128 0x3b
+ 1657 0105 0B       		.uleb128 0xb
+ 1658 0106 27       		.uleb128 0x27
+ 1659 0107 0C       		.uleb128 0xc
+ 1660 0108 11       		.uleb128 0x11
+ 1661 0109 01       		.uleb128 0x1
+ 1662 010a 12       		.uleb128 0x12
+ 1663 010b 01       		.uleb128 0x1
+ 1664 010c 40       		.uleb128 0x40
+ 1665 010d 06       		.uleb128 0x6
+ 1666 010e 9742     		.uleb128 0x2117
+ 1667 0110 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 31
+
+
+ 1668 0111 00       		.byte	0
+ 1669 0112 00       		.byte	0
+ 1670 0113 00       		.byte	0
+ 1671              		.section	.debug_loc,"",%progbits
+ 1672              	.Ldebug_loc0:
+ 1673              	.LLST2:
+ 1674 0000 78000000 		.4byte	.LFB44-.Ltext0
+ 1675 0004 7A000000 		.4byte	.LCFI4-.Ltext0
+ 1676 0008 0200     		.2byte	0x2
+ 1677 000a 7D       		.byte	0x7d
+ 1678 000b 00       		.sleb128 0
+ 1679 000c 7A000000 		.4byte	.LCFI4-.Ltext0
+ 1680 0010 7C000000 		.4byte	.LCFI5-.Ltext0
+ 1681 0014 0200     		.2byte	0x2
+ 1682 0016 7D       		.byte	0x7d
+ 1683 0017 08       		.sleb128 8
+ 1684 0018 7C000000 		.4byte	.LCFI5-.Ltext0
+ 1685 001c 90000000 		.4byte	.LFE44-.Ltext0
+ 1686 0020 0200     		.2byte	0x2
+ 1687 0022 77       		.byte	0x77
+ 1688 0023 08       		.sleb128 8
+ 1689 0024 00000000 		.4byte	0
+ 1690 0028 00000000 		.4byte	0
+ 1691              	.LLST1:
+ 1692 002c 60000000 		.4byte	.LFB43-.Ltext0
+ 1693 0030 62000000 		.4byte	.LCFI2-.Ltext0
+ 1694 0034 0200     		.2byte	0x2
+ 1695 0036 7D       		.byte	0x7d
+ 1696 0037 00       		.sleb128 0
+ 1697 0038 62000000 		.4byte	.LCFI2-.Ltext0
+ 1698 003c 64000000 		.4byte	.LCFI3-.Ltext0
+ 1699 0040 0200     		.2byte	0x2
+ 1700 0042 7D       		.byte	0x7d
+ 1701 0043 08       		.sleb128 8
+ 1702 0044 64000000 		.4byte	.LCFI3-.Ltext0
+ 1703 0048 78000000 		.4byte	.LFE43-.Ltext0
+ 1704 004c 0200     		.2byte	0x2
+ 1705 004e 77       		.byte	0x77
+ 1706 004f 08       		.sleb128 8
+ 1707 0050 00000000 		.4byte	0
+ 1708 0054 00000000 		.4byte	0
+ 1709              	.LLST0:
+ 1710 0058 00000000 		.4byte	.LFB42-.Ltext0
+ 1711 005c 02000000 		.4byte	.LCFI0-.Ltext0
+ 1712 0060 0200     		.2byte	0x2
+ 1713 0062 7D       		.byte	0x7d
+ 1714 0063 00       		.sleb128 0
+ 1715 0064 02000000 		.4byte	.LCFI0-.Ltext0
+ 1716 0068 04000000 		.4byte	.LCFI1-.Ltext0
+ 1717 006c 0200     		.2byte	0x2
+ 1718 006e 7D       		.byte	0x7d
+ 1719 006f 08       		.sleb128 8
+ 1720 0070 04000000 		.4byte	.LCFI1-.Ltext0
+ 1721 0074 60000000 		.4byte	.LFE42-.Ltext0
+ 1722 0078 0200     		.2byte	0x2
+ 1723 007a 77       		.byte	0x77
+ 1724 007b 08       		.sleb128 8
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 32
+
+
+ 1725 007c 00000000 		.4byte	0
+ 1726 0080 00000000 		.4byte	0
+ 1727              		.section	.debug_aranges,"",%progbits
+ 1728 0000 1C000000 		.4byte	0x1c
+ 1729 0004 0200     		.2byte	0x2
+ 1730 0006 00000000 		.4byte	.Ldebug_info0
+ 1731 000a 04       		.byte	0x4
+ 1732 000b 00       		.byte	0
+ 1733 000c 0000     		.2byte	0
+ 1734 000e 0000     		.2byte	0
+ 1735 0010 00000000 		.4byte	.Ltext0
+ 1736 0014 90000000 		.4byte	.Letext0-.Ltext0
+ 1737 0018 00000000 		.4byte	0
+ 1738 001c 00000000 		.4byte	0
+ 1739              		.section	.debug_line,"",%progbits
+ 1740              	.Ldebug_line0:
+ 1741 0000 4E010000 		.section	.debug_str,"MS",%progbits,1
+ 1741      02002A01 
+ 1741      00000201 
+ 1741      FB0E0D00 
+ 1741      01010101 
+ 1742              	.LASF16:
+ 1743 0000 5359534F 		.ascii	"SYSOSCCTRL\000"
+ 1743      53434354 
+ 1743      524C00
+ 1744              	.LASF8:
+ 1745 000b 756E7369 		.ascii	"unsigned int\000"
+ 1745      676E6564 
+ 1745      20696E74 
+ 1745      00
+ 1746              	.LASF29:
+ 1747 0018 53595341 		.ascii	"SYSAHBCLKCTRL\000"
+ 1747      4842434C 
+ 1747      4B435452 
+ 1747      4C00
+ 1748              	.LASF25:
+ 1749 0026 4D41494E 		.ascii	"MAINCLKSEL\000"
+ 1749      434C4B53 
+ 1749      454C00
+ 1750              	.LASF117:
+ 1751 0031 43543332 		.ascii	"CT32B0_CAP0_LOC\000"
+ 1751      42305F43 
+ 1751      4150305F 
+ 1751      4C4F4300 
+ 1752              	.LASF12:
+ 1753 0041 50524553 		.ascii	"PRESETCTRL\000"
+ 1753      45544354 
+ 1753      524C00
+ 1754              	.LASF61:
+ 1755 004c 50444157 		.ascii	"PDAWAKECFG\000"
+ 1755      414B4543 
+ 1755      464700
+ 1756              	.LASF120:
+ 1757 0057 44415441 		.ascii	"DATA\000"
+ 1757      00
+ 1758              	.LASF13:
+ 1759 005c 53595350 		.ascii	"SYSPLLCTRL\000"
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 33
+
+
+ 1759      4C4C4354 
+ 1759      524C00
+ 1760              	.LASF67:
+ 1761 0067 50494F32 		.ascii	"PIO2_0\000"
+ 1761      5F3000
+ 1762              	.LASF75:
+ 1763 006e 50494F32 		.ascii	"PIO2_1\000"
+ 1763      5F3100
+ 1764              	.LASF88:
+ 1765 0075 50494F32 		.ascii	"PIO2_2\000"
+ 1765      5F3200
+ 1766              	.LASF100:
+ 1767 007c 50494F32 		.ascii	"PIO2_3\000"
+ 1767      5F3300
+ 1768              	.LASF81:
+ 1769 0083 50494F32 		.ascii	"PIO2_4\000"
+ 1769      5F3400
+ 1770              	.LASF82:
+ 1771 008a 50494F32 		.ascii	"PIO2_5\000"
+ 1771      5F3500
+ 1772              	.LASF66:
+ 1773 0091 50494F32 		.ascii	"PIO2_6\000"
+ 1773      5F3600
+ 1774              	.LASF73:
+ 1775 0098 50494F32 		.ascii	"PIO2_7\000"
+ 1775      5F3700
+ 1776              	.LASF10:
+ 1777 009f 75696E74 		.ascii	"uint32_t\000"
+ 1777      33325F74 
+ 1777      00
+ 1778              	.LASF86:
+ 1779 00a8 50494F32 		.ascii	"PIO2_9\000"
+ 1779      5F3900
+ 1780              	.LASF36:
+ 1781 00af 57445443 		.ascii	"WDTCLKUEN\000"
+ 1781      4C4B5545 
+ 1781      4E00
+ 1782              	.LASF41:
+ 1783 00b9 434C4B4F 		.ascii	"CLKOUTDIV\000"
+ 1783      55544449 
+ 1783      5600
+ 1784              	.LASF32:
+ 1785 00c3 55415254 		.ascii	"UARTCLKDIV\000"
+ 1785      434C4B44 
+ 1785      495600
+ 1786              	.LASF47:
+ 1787 00ce 53595354 		.ascii	"SYSTCKCAL\000"
+ 1787      434B4341 
+ 1787      4C00
+ 1788              	.LASF125:
+ 1789 00d8 474E5520 		.ascii	"GNU C11 7.3.1 20180622 (release) [ARM/embedded-7-br"
+ 1789      43313120 
+ 1789      372E332E 
+ 1789      31203230 
+ 1789      31383036 
+ 1790 010b 616E6368 		.ascii	"anch revision 261907] -mcpu=cortex-m0 -mthumb -mapc"
+ 1790      20726576 
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 34
+
+
+ 1790      6973696F 
+ 1790      6E203236 
+ 1790      31393037 
+ 1791 013e 732D6672 		.ascii	"s-frame -mthumb-interwork -gdwarf-2 -O0\000"
+ 1791      616D6520 
+ 1791      2D6D7468 
+ 1791      756D622D 
+ 1791      696E7465 
+ 1792              	.LASF7:
+ 1793 0166 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1793      206C6F6E 
+ 1793      6720756E 
+ 1793      7369676E 
+ 1793      65642069 
+ 1794              	.LASF17:
+ 1795 017d 5744544F 		.ascii	"WDTOSCCTRL\000"
+ 1795      53434354 
+ 1795      524C00
+ 1796              	.LASF23:
+ 1797 0188 53595350 		.ascii	"SYSPLLCLKUEN\000"
+ 1797      4C4C434C 
+ 1797      4B55454E 
+ 1797      00
+ 1798              	.LASF101:
+ 1799 0195 53574449 		.ascii	"SWDIO_PIO1_3\000"
+ 1799      4F5F5049 
+ 1799      4F315F33 
+ 1799      00
+ 1800              	.LASF14:
+ 1801 01a2 53595350 		.ascii	"SYSPLLSTAT\000"
+ 1801      4C4C5354 
+ 1801      415400
+ 1802              	.LASF110:
+ 1803 01ad 4453525F 		.ascii	"DSR_LOC\000"
+ 1803      4C4F4300 
+ 1804              	.LASF33:
+ 1805 01b5 53535031 		.ascii	"SSP1CLKDIV\000"
+ 1805      434C4B44 
+ 1805      495600
+ 1806              	.LASF127:
+ 1807 01c0 433A5C55 		.ascii	"C:\\Users\\Roland\\source\\KeilIDE\\LPC1113_GCC_Kei"
+ 1807      73657273 
+ 1807      5C526F6C 
+ 1807      616E645C 
+ 1807      736F7572 
+ 1808 01ee 6C5F5561 		.ascii	"l_Uart\000"
+ 1808      727400
+ 1809              	.LASF118:
+ 1810 01f5 5258445F 		.ascii	"RXD_LOC\000"
+ 1810      4C4F4300 
+ 1811              	.LASF91:
+ 1812 01fd 5357434C 		.ascii	"SWCLK_PIO0_10\000"
+ 1812      4B5F5049 
+ 1812      4F305F31 
+ 1812      3000
+ 1813              	.LASF69:
+ 1814 020b 50494F30 		.ascii	"PIO0_1\000"
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 35
+
+
+ 1814      5F3100
+ 1815              	.LASF72:
+ 1816 0212 50494F30 		.ascii	"PIO0_2\000"
+ 1816      5F3200
+ 1817              	.LASF76:
+ 1818 0219 50494F30 		.ascii	"PIO0_3\000"
+ 1818      5F3300
+ 1819              	.LASF77:
+ 1820 0220 50494F30 		.ascii	"PIO0_4\000"
+ 1820      5F3400
+ 1821              	.LASF78:
+ 1822 0227 50494F30 		.ascii	"PIO0_5\000"
+ 1822      5F3500
+ 1823              	.LASF84:
+ 1824 022e 50494F30 		.ascii	"PIO0_6\000"
+ 1824      5F3600
+ 1825              	.LASF85:
+ 1826 0235 50494F30 		.ascii	"PIO0_7\000"
+ 1826      5F3700
+ 1827              	.LASF89:
+ 1828 023c 50494F30 		.ascii	"PIO0_8\000"
+ 1828      5F3800
+ 1829              	.LASF90:
+ 1830 0243 50494F30 		.ascii	"PIO0_9\000"
+ 1830      5F3900
+ 1831              	.LASF35:
+ 1832 024a 57445443 		.ascii	"WDTCLKSEL\000"
+ 1832      4C4B5345 
+ 1832      4C00
+ 1833              	.LASF53:
+ 1834 0254 53544152 		.ascii	"STARTRSRP0CLR\000"
+ 1834      54525352 
+ 1834      5030434C 
+ 1834      5200
+ 1835              	.LASF109:
+ 1836 0262 53434B5F 		.ascii	"SCK_LOC\000"
+ 1836      4C4F4300 
+ 1837              	.LASF49:
+ 1838 026a 4E4D4953 		.ascii	"NMISRC\000"
+ 1838      524300
+ 1839              	.LASF116:
+ 1840 0271 4D4F5349 		.ascii	"MOSI1_LOC\000"
+ 1840      315F4C4F 
+ 1840      4300
+ 1841              	.LASF123:
+ 1842 027b 4C45445F 		.ascii	"LED_Set\000"
+ 1842      53657400 
+ 1843              	.LASF113:
+ 1844 0283 43543136 		.ascii	"CT16B0_CAP0_LOC\000"
+ 1844      42305F43 
+ 1844      4150305F 
+ 1844      4C4F4300 
+ 1845              	.LASF126:
+ 1846 0293 4170706C 		.ascii	"Application/led_funcs.c\000"
+ 1846      69636174 
+ 1846      696F6E2F 
+ 1846      6C65645F 
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 36
+
+
+ 1846      66756E63 
+ 1847              	.LASF27:
+ 1848 02ab 53595341 		.ascii	"SYSAHBCLKDIV\000"
+ 1848      4842434C 
+ 1848      4B444956 
+ 1848      00
+ 1849              	.LASF60:
+ 1850 02b8 5044534C 		.ascii	"PDSLEEPCFG\000"
+ 1850      45455043 
+ 1850      464700
+ 1851              	.LASF22:
+ 1852 02c3 53595350 		.ascii	"SYSPLLCLKSEL\000"
+ 1852      4C4C434C 
+ 1852      4B53454C 
+ 1852      00
+ 1853              	.LASF6:
+ 1854 02d0 6C6F6E67 		.ascii	"long long int\000"
+ 1854      206C6F6E 
+ 1854      6720696E 
+ 1854      7400
+ 1855              	.LASF111:
+ 1856 02de 4443445F 		.ascii	"DCD_LOC\000"
+ 1856      4C4F4300 
+ 1857              	.LASF114:
+ 1858 02e6 53434B31 		.ascii	"SCK1_LOC\000"
+ 1858      5F4C4F43 
+ 1858      00
+ 1859              	.LASF124:
+ 1860 02ef 4C45445F 		.ascii	"LED_Config\000"
+ 1860      436F6E66 
+ 1860      696700
+ 1861              	.LASF43:
+ 1862 02fa 50494F50 		.ascii	"PIOPORCAP0\000"
+ 1862      4F524341 
+ 1862      503000
+ 1863              	.LASF44:
+ 1864 0305 50494F50 		.ascii	"PIOPORCAP1\000"
+ 1864      4F524341 
+ 1864      503100
+ 1865              	.LASF87:
+ 1866 0310 50494F32 		.ascii	"PIO2_10\000"
+ 1866      5F313000 
+ 1867              	.LASF93:
+ 1868 0318 50494F32 		.ascii	"PIO2_11\000"
+ 1868      5F313100 
+ 1869              	.LASF95:
+ 1870 0320 525F5049 		.ascii	"R_PIO1_0\000"
+ 1870      4F315F30 
+ 1870      00
+ 1871              	.LASF96:
+ 1872 0329 525F5049 		.ascii	"R_PIO1_1\000"
+ 1872      4F315F31 
+ 1872      00
+ 1873              	.LASF97:
+ 1874 0332 525F5049 		.ascii	"R_PIO1_2\000"
+ 1874      4F315F32 
+ 1874      00
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 37
+
+
+ 1875              	.LASF121:
+ 1876 033b 4C50435F 		.ascii	"LPC_GPIO_TypeDef\000"
+ 1876      4750494F 
+ 1876      5F547970 
+ 1876      65446566 
+ 1876      00
+ 1877              	.LASF11:
+ 1878 034c 5359534D 		.ascii	"SYSMEMREMAP\000"
+ 1878      454D5245 
+ 1878      4D415000 
+ 1879              	.LASF98:
+ 1880 0358 50494F33 		.ascii	"PIO3_0\000"
+ 1880      5F3000
+ 1881              	.LASF99:
+ 1882 035f 50494F33 		.ascii	"PIO3_1\000"
+ 1882      5F3100
+ 1883              	.LASF104:
+ 1884 0366 50494F33 		.ascii	"PIO3_2\000"
+ 1884      5F3200
+ 1885              	.LASF108:
+ 1886 036d 50494F33 		.ascii	"PIO3_3\000"
+ 1886      5F3300
+ 1887              	.LASF80:
+ 1888 0374 50494F33 		.ascii	"PIO3_4\000"
+ 1888      5F3400
+ 1889              	.LASF83:
+ 1890 037b 50494F33 		.ascii	"PIO3_5\000"
+ 1890      5F3500
+ 1891              	.LASF51:
+ 1892 0382 53544152 		.ascii	"STARTAPRP0\000"
+ 1892      54415052 
+ 1892      503000
+ 1893              	.LASF55:
+ 1894 038d 53544152 		.ascii	"STARTAPRP1\000"
+ 1894      54415052 
+ 1894      503100
+ 1895              	.LASF39:
+ 1896 0398 434C4B4F 		.ascii	"CLKOUTCLKSEL\000"
+ 1896      5554434C 
+ 1896      4B53454C 
+ 1896      00
+ 1897              	.LASF128:
+ 1898 03a5 53797374 		.ascii	"SystemCoreClock\000"
+ 1898      656D436F 
+ 1898      7265436C 
+ 1898      6F636B00 
+ 1899              	.LASF52:
+ 1900 03b5 53544152 		.ascii	"STARTERP0\000"
+ 1900      54455250 
+ 1900      3000
+ 1901              	.LASF56:
+ 1902 03bf 53544152 		.ascii	"STARTERP1\000"
+ 1902      54455250 
+ 1902      3100
+ 1903              	.LASF15:
+ 1904 03c9 52455345 		.ascii	"RESERVED0\000"
+ 1904      52564544 
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 38
+
+
+ 1904      3000
+ 1905              	.LASF19:
+ 1906 03d3 52455345 		.ascii	"RESERVED1\000"
+ 1906      52564544 
+ 1906      3100
+ 1907              	.LASF21:
+ 1908 03dd 52455345 		.ascii	"RESERVED2\000"
+ 1908      52564544 
+ 1908      3200
+ 1909              	.LASF24:
+ 1910 03e7 52455345 		.ascii	"RESERVED3\000"
+ 1910      52564544 
+ 1910      3300
+ 1911              	.LASF28:
+ 1912 03f1 52455345 		.ascii	"RESERVED4\000"
+ 1912      52564544 
+ 1912      3400
+ 1913              	.LASF30:
+ 1914 03fb 52455345 		.ascii	"RESERVED5\000"
+ 1914      52564544 
+ 1914      3500
+ 1915              	.LASF34:
+ 1916 0405 52455345 		.ascii	"RESERVED6\000"
+ 1916      52564544 
+ 1916      3600
+ 1917              	.LASF2:
+ 1918 040f 73686F72 		.ascii	"short int\000"
+ 1918      7420696E 
+ 1918      7400
+ 1919              	.LASF38:
+ 1920 0419 52455345 		.ascii	"RESERVED8\000"
+ 1920      52564544 
+ 1920      3800
+ 1921              	.LASF42:
+ 1922 0423 52455345 		.ascii	"RESERVED9\000"
+ 1922      52564544 
+ 1922      3900
+ 1923              	.LASF40:
+ 1924 042d 434C4B4F 		.ascii	"CLKOUTUEN\000"
+ 1924      55545545 
+ 1924      4E00
+ 1925              	.LASF4:
+ 1926 0437 6C6F6E67 		.ascii	"long int\000"
+ 1926      20696E74 
+ 1926      00
+ 1927              	.LASF62:
+ 1928 0440 50445255 		.ascii	"PDRUNCFG\000"
+ 1928      4E434647 
+ 1928      00
+ 1929              	.LASF54:
+ 1930 0449 53544152 		.ascii	"STARTSRP0\000"
+ 1930      54535250 
+ 1930      3000
+ 1931              	.LASF58:
+ 1932 0453 53544152 		.ascii	"STARTSRP1\000"
+ 1932      54535250 
+ 1932      3100
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 39
+
+
+ 1933              	.LASF37:
+ 1934 045d 57445443 		.ascii	"WDTCLKDIV\000"
+ 1934      4C4B4449 
+ 1934      5600
+ 1935              	.LASF129:
+ 1936 0467 4D41534B 		.ascii	"MASKED_ACCESS\000"
+ 1936      45445F41 
+ 1936      43434553 
+ 1936      5300
+ 1937              	.LASF31:
+ 1938 0475 53535030 		.ascii	"SSP0CLKDIV\000"
+ 1938      434C4B44 
+ 1938      495600
+ 1939              	.LASF64:
+ 1940 0480 44455649 		.ascii	"DEVICE_ID\000"
+ 1940      43455F49 
+ 1940      4400
+ 1941              	.LASF74:
+ 1942 048a 50494F32 		.ascii	"PIO2_8\000"
+ 1942      5F3800
+ 1943              	.LASF71:
+ 1944 0491 5353454C 		.ascii	"SSEL1_LOC\000"
+ 1944      315F4C4F 
+ 1944      4300
+ 1945              	.LASF5:
+ 1946 049b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1946      20756E73 
+ 1946      69676E65 
+ 1946      6420696E 
+ 1946      7400
+ 1947              	.LASF102:
+ 1948 04ad 50494F31 		.ascii	"PIO1_4\000"
+ 1948      5F3400
+ 1949              	.LASF105:
+ 1950 04b4 50494F31 		.ascii	"PIO1_5\000"
+ 1950      5F3500
+ 1951              	.LASF106:
+ 1952 04bb 50494F31 		.ascii	"PIO1_6\000"
+ 1952      5F3600
+ 1953              	.LASF107:
+ 1954 04c2 50494F31 		.ascii	"PIO1_7\000"
+ 1954      5F3700
+ 1955              	.LASF70:
+ 1956 04c9 50494F31 		.ascii	"PIO1_8\000"
+ 1956      5F3800
+ 1957              	.LASF79:
+ 1958 04d0 50494F31 		.ascii	"PIO1_9\000"
+ 1958      5F3900
+ 1959              	.LASF115:
+ 1960 04d7 4D49534F 		.ascii	"MISO1_LOC\000"
+ 1960      315F4C4F 
+ 1960      4300
+ 1961              	.LASF122:
+ 1962 04e1 4C45445F 		.ascii	"LED_Clear\000"
+ 1962      436C6561 
+ 1962      7200
+ 1963              	.LASF1:
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 40
+
+
+ 1964 04eb 756E7369 		.ascii	"unsigned char\000"
+ 1964      676E6564 
+ 1964      20636861 
+ 1964      7200
+ 1965              	.LASF46:
+ 1966 04f9 424F4443 		.ascii	"BODCTRL\000"
+ 1966      54524C00 
+ 1967              	.LASF9:
+ 1968 0501 5F5F7569 		.ascii	"__uint32_t\000"
+ 1968      6E743332 
+ 1968      5F7400
+ 1969              	.LASF45:
+ 1970 050c 52455345 		.ascii	"RESERVED10\000"
+ 1970      52564544 
+ 1970      313000
+ 1971              	.LASF48:
+ 1972 0517 52455345 		.ascii	"RESERVED13\000"
+ 1972      52564544 
+ 1972      313300
+ 1973              	.LASF50:
+ 1974 0522 52455345 		.ascii	"RESERVED14\000"
+ 1974      52564544 
+ 1974      313400
+ 1975              	.LASF63:
+ 1976 052d 52455345 		.ascii	"RESERVED15\000"
+ 1976      52564544 
+ 1976      313500
+ 1977              	.LASF59:
+ 1978 0538 52455345 		.ascii	"RESERVED17\000"
+ 1978      52564544 
+ 1978      313700
+ 1979              	.LASF112:
+ 1980 0543 52495F4C 		.ascii	"RI_LOC\000"
+ 1980      4F4300
+ 1981              	.LASF68:
+ 1982 054a 52455345 		.ascii	"RESET_PIO0_0\000"
+ 1982      545F5049 
+ 1982      4F305F30 
+ 1982      00
+ 1983              	.LASF26:
+ 1984 0557 4D41494E 		.ascii	"MAINCLKUEN\000"
+ 1984      434C4B55 
+ 1984      454E00
+ 1985              	.LASF119:
+ 1986 0562 4C50435F 		.ascii	"LPC_IOCON_TypeDef\000"
+ 1986      494F434F 
+ 1986      4E5F5479 
+ 1986      70654465 
+ 1986      6600
+ 1987              	.LASF20:
+ 1988 0574 53595352 		.ascii	"SYSRSTSTAT\000"
+ 1988      53545354 
+ 1988      415400
+ 1989              	.LASF65:
+ 1990 057f 4C50435F 		.ascii	"LPC_SYSCON_TypeDef\000"
+ 1990      53595343 
+ 1990      4F4E5F54 
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 41
+
+
+ 1990      79706544 
+ 1990      656600
+ 1991              	.LASF0:
+ 1992 0592 7369676E 		.ascii	"signed char\000"
+ 1992      65642063 
+ 1992      68617200 
+ 1993              	.LASF3:
+ 1994 059e 73686F72 		.ascii	"short unsigned int\000"
+ 1994      7420756E 
+ 1994      7369676E 
+ 1994      65642069 
+ 1994      6E7400
+ 1995              	.LASF18:
+ 1996 05b1 49524343 		.ascii	"IRCCTRL\000"
+ 1996      54524C00 
+ 1997              	.LASF94:
+ 1998 05b9 525F5049 		.ascii	"R_PIO0_11\000"
+ 1998      4F305F31 
+ 1998      3100
+ 1999              	.LASF92:
+ 2000 05c3 50494F31 		.ascii	"PIO1_10\000"
+ 2000      5F313000 
+ 2001              	.LASF103:
+ 2002 05cb 50494F31 		.ascii	"PIO1_11\000"
+ 2002      5F313100 
+ 2003              	.LASF57:
+ 2004 05d3 53544152 		.ascii	"STARTRSRP1CLR\000"
+ 2004      54525352 
+ 2004      5031434C 
+ 2004      5200
+ 2005              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2018-q2-update) 7.3.1 20180622 (release) [AR
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s 			page 42
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 led_funcs.c
+C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s:15     .text:00000000 $t
+C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s:22     .text:00000000 LED_Config
+C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s:95     .text:0000004c $d
+C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s:103    .text:00000060 $t
+C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s:110    .text:00000060 LED_Set
+C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s:138    .text:00000074 $d
+C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s:142    .text:00000078 $t
+C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s:149    .text:00000078 LED_Clear
+C:\Users\Roland\AppData\Local\Temp\ccRBEjZs.s:177    .text:0000008c $d
+
+NO UNDEFINED SYMBOLS

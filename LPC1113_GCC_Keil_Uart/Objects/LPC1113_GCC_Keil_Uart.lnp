@@ -1,0 +1,1 @@
+-T ./Startup/lpc1113F_301.ld -mcpu=cortex-m0 -mthumb -mthumb-interwork -Wl,-Map="./Listings/LPC1113_GCC_Keil_Uart.map" -o "./Objects/LPC1113_GCC_Keil_Uart.elf" "./objects/system_lpc11xx.o" "./objects/startup_lpc11xx.o" "./objects/led_funcs.o" "./objects/uart_echo.o" "./objects/uart_funcs.o" -lm -Wl,-lgcc, -lnosys --specs=nosys.specs

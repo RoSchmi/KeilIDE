@@ -1,0 +1,751 @@
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"uart_echo.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.comm	ctr,4,4
+  16              		.section	.rodata
+  17              		.align	2
+  18              	.LC1:
+  19 0000 53696D70 		.ascii	"Simple UART echo test\015\012\000"
+  19      6C652055 
+  19      41525420 
+  19      6563686F 
+  19      20746573 
+  20              		.align	2
+  21              	.LC3:
+  22 0018 4F6E0D0A 		.ascii	"On\015\012\000"
+  22      00
+  23 001d 000000   		.align	2
+  24              	.LC5:
+  25 0020 4F66660D 		.ascii	"Off\015\012\000"
+  25      0A00
+  26              		.text
+  27              		.align	1
+  28              		.global	main
+  29              		.syntax unified
+  30              		.code	16
+  31              		.thumb_func
+  32              		.fpu softvfp
+  33              		.type	main, %function
+  34              	main:
+  35              	.LFB42:
+  36              		.file 1 "Application/uart_echo.c"
+   1:Application/uart_echo.c **** // Blinks a LED (GPIO)
+   2:Application/uart_echo.c **** // Sends messages via Uart
+   3:Application/uart_echo.c **** // Receives and returns messages via Uart
+   4:Application/uart_echo.c **** 
+   5:Application/uart_echo.c **** 
+   6:Application/uart_echo.c **** 
+   7:Application/uart_echo.c **** // UART TXD is PIO_1_7
+   8:Application/uart_echo.c **** // UART RXD is PIO_1_6
+   9:Application/uart_echo.c **** // System running at 48MHz
+  10:Application/uart_echo.c **** // Baud rate 38400 at system clock 48MHz
+  11:Application/uart_echo.c **** 
+  12:Application/uart_echo.c **** #include <LPC11xx.h>
+  13:Application/uart_echo.c **** 
+  14:Application/uart_echo.c **** // LED functions
+  15:Application/uart_echo.c **** extern void LED_Config(void);
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 2
+
+
+  16:Application/uart_echo.c **** extern void LED_Set(void);
+  17:Application/uart_echo.c **** extern void LED_Clear(void);
+  18:Application/uart_echo.c **** 
+  19:Application/uart_echo.c **** 
+  20:Application/uart_echo.c **** //const uint32_t led_mask[] = {1UL << 18, 1UL << 19, 1UL << 1};
+  21:Application/uart_echo.c **** // LED #0, #1 are port B, LED #2 is port D
+  22:Application/uart_echo.c **** 
+  23:Application/uart_echo.c **** // UART functions
+  24:Application/uart_echo.c **** extern void UART_config(void);
+  25:Application/uart_echo.c **** extern char UART_putc(char ch);
+  26:Application/uart_echo.c **** extern char UART_getc(void);
+  27:Application/uart_echo.c **** extern void UART_echo(void);
+  28:Application/uart_echo.c **** extern void UART_puts(char * mytext);
+  29:Application/uart_echo.c **** 
+  30:Application/uart_echo.c **** void   Delay(uint32_t nCount);
+  31:Application/uart_echo.c **** 
+  32:Application/uart_echo.c **** int32_t ctr;
+  33:Application/uart_echo.c **** 
+  34:Application/uart_echo.c **** int main(void)
+  35:Application/uart_echo.c **** {
+  37              		.loc 1 35 0
+  38              		.cfi_startproc
+  39              		@ args = 0, pretend = 0, frame = 0
+  40              		@ frame_needed = 1, uses_anonymous_args = 0
+  41 0000 80B5     		push	{r7, lr}
+  42              	.LCFI0:
+  43              		.cfi_def_cfa_offset 8
+  44              		.cfi_offset 7, -8
+  45              		.cfi_offset 14, -4
+  46 0002 00AF     		add	r7, sp, #0
+  47              	.LCFI1:
+  48              		.cfi_def_cfa_register 7
+  36:Application/uart_echo.c **** 	ctr = 0;
+  49              		.loc 1 36 0
+  50 0004 134B     		ldr	r3, .L3
+  51 0006 0022     		movs	r2, #0
+  52 0008 1A60     		str	r2, [r3]
+  37:Application/uart_echo.c ****   
+  38:Application/uart_echo.c ****   // Configure LED outputs
+  39:Application/uart_echo.c ****   LED_Config();
+  53              		.loc 1 39 0
+  54 000a FFF7FEFF 		bl	LED_Config
+  40:Application/uart_echo.c **** 
+  41:Application/uart_echo.c **** 	// Initialize UART
+  42:Application/uart_echo.c ****   UART_config();
+  55              		.loc 1 42 0
+  56 000e FFF7FEFF 		bl	UART_config
+  43:Application/uart_echo.c ****   
+  44:Application/uart_echo.c **** 	UART_puts("Simple UART echo test\r\n");
+  57              		.loc 1 44 0
+  58 0012 114B     		ldr	r3, .L3+4
+  59 0014 1800     		movs	r0, r3
+  60 0016 FFF7FEFF 		bl	UART_puts
+  61              	.L2:
+  45:Application/uart_echo.c **** 	
+  46:Application/uart_echo.c **** 
+  47:Application/uart_echo.c **** #define LOOP_COUNT 0x80000
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 3
+
+
+  48:Application/uart_echo.c ****   while(1){
+  49:Application/uart_echo.c **** 
+  50:Application/uart_echo.c ****     __NOP();
+  62              		.loc 1 50 0 discriminator 1
+  63              		.syntax divided
+  64              	@ 50 "Application/uart_echo.c" 1
+  65 001a C046     		nop
+  66              	@ 0 "" 2
+  51:Application/uart_echo.c **** 		
+  52:Application/uart_echo.c **** 	 Delay(LOOP_COUNT);
+  67              		.loc 1 52 0 discriminator 1
+  68              		.thumb
+  69              		.syntax unified
+  70 001c 8023     		movs	r3, #128
+  71 001e 1B03     		lsls	r3, r3, #12
+  72 0020 1800     		movs	r0, r3
+  73 0022 FFF7FEFF 		bl	Delay
+  53:Application/uart_echo.c **** 	 ctr++;
+  74              		.loc 1 53 0 discriminator 1
+  75 0026 0B4B     		ldr	r3, .L3
+  76 0028 1B68     		ldr	r3, [r3]
+  77 002a 5A1C     		adds	r2, r3, #1
+  78 002c 094B     		ldr	r3, .L3
+  79 002e 1A60     		str	r2, [r3]
+  54:Application/uart_echo.c ****    LED_Set();
+  80              		.loc 1 54 0 discriminator 1
+  81 0030 FFF7FEFF 		bl	LED_Set
+  55:Application/uart_echo.c **** 	
+  56:Application/uart_echo.c **** 		
+  57:Application/uart_echo.c **** 	 UART_puts("On\r\n");
+  82              		.loc 1 57 0 discriminator 1
+  83 0034 094B     		ldr	r3, .L3+8
+  84 0036 1800     		movs	r0, r3
+  85 0038 FFF7FEFF 		bl	UART_puts
+  58:Application/uart_echo.c ****    Delay(LOOP_COUNT);
+  86              		.loc 1 58 0 discriminator 1
+  87 003c 8023     		movs	r3, #128
+  88 003e 1B03     		lsls	r3, r3, #12
+  89 0040 1800     		movs	r0, r3
+  90 0042 FFF7FEFF 		bl	Delay
+  59:Application/uart_echo.c **** 		
+  60:Application/uart_echo.c **** 		
+  61:Application/uart_echo.c ****    LED_Clear();
+  91              		.loc 1 61 0 discriminator 1
+  92 0046 FFF7FEFF 		bl	LED_Clear
+  62:Application/uart_echo.c **** 	 UART_puts("Off\r\n");
+  93              		.loc 1 62 0 discriminator 1
+  94 004a 054B     		ldr	r3, .L3+12
+  95 004c 1800     		movs	r0, r3
+  96 004e FFF7FEFF 		bl	UART_puts
+  50:Application/uart_echo.c **** 		
+  97              		.loc 1 50 0 discriminator 1
+  98 0052 E2E7     		b	.L2
+  99              	.L4:
+ 100              		.align	2
+ 101              	.L3:
+ 102 0054 00000000 		.word	ctr
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 4
+
+
+ 103 0058 00000000 		.word	.LC1
+ 104 005c 18000000 		.word	.LC3
+ 105 0060 20000000 		.word	.LC5
+ 106              		.cfi_endproc
+ 107              	.LFE42:
+ 108              		.size	main, .-main
+ 109              		.align	1
+ 110              		.global	Delay
+ 111              		.syntax unified
+ 112              		.code	16
+ 113              		.thumb_func
+ 114              		.fpu softvfp
+ 115              		.type	Delay, %function
+ 116              	Delay:
+ 117              	.LFB43:
+  63:Application/uart_echo.c ****    };
+  64:Application/uart_echo.c **** }
+  65:Application/uart_echo.c **** 
+  66:Application/uart_echo.c **** void Delay(uint32_t nCount)
+  67:Application/uart_echo.c **** {
+ 118              		.loc 1 67 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 8
+ 121              		@ frame_needed = 1, uses_anonymous_args = 0
+ 122 0064 80B5     		push	{r7, lr}
+ 123              	.LCFI2:
+ 124              		.cfi_def_cfa_offset 8
+ 125              		.cfi_offset 7, -8
+ 126              		.cfi_offset 14, -4
+ 127 0066 82B0     		sub	sp, sp, #8
+ 128              	.LCFI3:
+ 129              		.cfi_def_cfa_offset 16
+ 130 0068 00AF     		add	r7, sp, #0
+ 131              	.LCFI4:
+ 132              		.cfi_def_cfa_register 7
+ 133 006a 7860     		str	r0, [r7, #4]
+  68:Application/uart_echo.c ****   while(nCount--)
+ 134              		.loc 1 68 0
+ 135 006c 02E0     		b	.L6
+ 136              	.L7:
+  69:Application/uart_echo.c ****   {
+  70:Application/uart_echo.c **** 		// Echo UART inputs if any
+  71:Application/uart_echo.c ****   __NOP();
+ 137              		.loc 1 71 0
+ 138              		.syntax divided
+ 139              	@ 71 "Application/uart_echo.c" 1
+ 140 006e C046     		nop
+ 141              	@ 0 "" 2
+  72:Application/uart_echo.c **** 		UART_echo();
+ 142              		.loc 1 72 0
+ 143              		.thumb
+ 144              		.syntax unified
+ 145 0070 FFF7FEFF 		bl	UART_echo
+ 146              	.L6:
+  68:Application/uart_echo.c ****   while(nCount--)
+ 147              		.loc 1 68 0
+ 148 0074 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 5
+
+
+ 149 0076 5A1E     		subs	r2, r3, #1
+ 150 0078 7A60     		str	r2, [r7, #4]
+ 151 007a 002B     		cmp	r3, #0
+ 152 007c F7D1     		bne	.L7
+  73:Application/uart_echo.c ****   }
+  74:Application/uart_echo.c **** }
+ 153              		.loc 1 74 0
+ 154 007e C046     		nop
+ 155 0080 BD46     		mov	sp, r7
+ 156 0082 02B0     		add	sp, sp, #8
+ 157              		@ sp needed
+ 158 0084 80BD     		pop	{r7, pc}
+ 159              		.cfi_endproc
+ 160              	.LFE43:
+ 161              		.size	Delay, .-Delay
+ 162              	.Letext0:
+ 163              		.file 2 "c:\\nanoframework_tools\\gnu_arm_toolchain\\8-2018-q4_major\\arm-none-eabi\\include\\mach
+ 164              		.file 3 "c:\\nanoframework_tools\\gnu_arm_toolchain\\8-2018-q4_major\\arm-none-eabi\\include\\sys\
+ 165              		.file 4 "./CMSIS/Include/system_LPC11xx.h"
+ 166 0086 C046     		.section	.debug_info,"",%progbits
+ 167              	.Ldebug_info0:
+ 168 0000 F6000000 		.4byte	0xf6
+ 169 0004 0200     		.2byte	0x2
+ 170 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 171 000a 04       		.byte	0x4
+ 172 000b 01       		.uleb128 0x1
+ 173 000c 74000000 		.4byte	.LASF14
+ 174 0010 0C       		.byte	0xc
+ 175 0011 1B000000 		.4byte	.LASF15
+ 176 0015 02010000 		.4byte	.LASF16
+ 177 0019 00000000 		.4byte	.Ltext0
+ 178 001d 86000000 		.4byte	.Letext0
+ 179 0021 00000000 		.4byte	.Ldebug_line0
+ 180 0025 02       		.uleb128 0x2
+ 181 0026 01       		.byte	0x1
+ 182 0027 06       		.byte	0x6
+ 183 0028 7F010000 		.4byte	.LASF0
+ 184 002c 02       		.uleb128 0x2
+ 185 002d 01       		.byte	0x1
+ 186 002e 08       		.byte	0x8
+ 187 002f 37010000 		.4byte	.LASF1
+ 188 0033 02       		.uleb128 0x2
+ 189 0034 02       		.byte	0x2
+ 190 0035 05       		.byte	0x5
+ 191 0036 95010000 		.4byte	.LASF2
+ 192 003a 02       		.uleb128 0x2
+ 193 003b 02       		.byte	0x2
+ 194 003c 07       		.byte	0x7
+ 195 003d 6C010000 		.4byte	.LASF3
+ 196 0041 03       		.uleb128 0x3
+ 197 0042 8B010000 		.4byte	.LASF5
+ 198 0046 02       		.byte	0x2
+ 199 0047 4D       		.byte	0x4d
+ 200 0048 4C000000 		.4byte	0x4c
+ 201 004c 02       		.uleb128 0x2
+ 202 004d 04       		.byte	0x4
+ 203 004e 05       		.byte	0x5
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 6
+
+
+ 204 004f 63010000 		.4byte	.LASF4
+ 205 0053 03       		.uleb128 0x3
+ 206 0054 33000000 		.4byte	.LASF6
+ 207 0058 02       		.byte	0x2
+ 208 0059 4F       		.byte	0x4f
+ 209 005a 5E000000 		.4byte	0x5e
+ 210 005e 02       		.uleb128 0x2
+ 211 005f 04       		.byte	0x4
+ 212 0060 07       		.byte	0x7
+ 213 0061 4B000000 		.4byte	.LASF7
+ 214 0065 02       		.uleb128 0x2
+ 215 0066 08       		.byte	0x8
+ 216 0067 05       		.byte	0x5
+ 217 0068 00000000 		.4byte	.LASF8
+ 218 006c 02       		.uleb128 0x2
+ 219 006d 08       		.byte	0x8
+ 220 006e 07       		.byte	0x7
+ 221 006f 5D000000 		.4byte	.LASF9
+ 222 0073 04       		.uleb128 0x4
+ 223 0074 04       		.byte	0x4
+ 224 0075 05       		.byte	0x5
+ 225 0076 696E7400 		.ascii	"int\000"
+ 226 007a 02       		.uleb128 0x2
+ 227 007b 04       		.byte	0x4
+ 228 007c 07       		.byte	0x7
+ 229 007d 0E000000 		.4byte	.LASF10
+ 230 0081 03       		.uleb128 0x3
+ 231 0082 9F010000 		.4byte	.LASF11
+ 232 0086 03       		.byte	0x3
+ 233 0087 2C       		.byte	0x2c
+ 234 0088 41000000 		.4byte	0x41
+ 235 008c 03       		.uleb128 0x3
+ 236 008d 4A010000 		.4byte	.LASF12
+ 237 0091 03       		.byte	0x3
+ 238 0092 30       		.byte	0x30
+ 239 0093 53000000 		.4byte	0x53
+ 240 0097 05       		.uleb128 0x5
+ 241 0098 53010000 		.4byte	.LASF13
+ 242 009c 04       		.byte	0x4
+ 243 009d 23       		.byte	0x23
+ 244 009e 8C000000 		.4byte	0x8c
+ 245 00a2 01       		.byte	0x1
+ 246 00a3 01       		.byte	0x1
+ 247 00a4 06       		.uleb128 0x6
+ 248 00a5 63747200 		.ascii	"ctr\000"
+ 249 00a9 01       		.byte	0x1
+ 250 00aa 20       		.byte	0x20
+ 251 00ab 81000000 		.4byte	0x81
+ 252 00af 01       		.byte	0x1
+ 253 00b0 05       		.byte	0x5
+ 254 00b1 03       		.byte	0x3
+ 255 00b2 00000000 		.4byte	ctr
+ 256 00b6 07       		.uleb128 0x7
+ 257 00b7 01       		.byte	0x1
+ 258 00b8 45000000 		.4byte	.LASF17
+ 259 00bc 01       		.byte	0x1
+ 260 00bd 42       		.byte	0x42
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 7
+
+
+ 261 00be 01       		.byte	0x1
+ 262 00bf 64000000 		.4byte	.LFB43
+ 263 00c3 86000000 		.4byte	.LFE43
+ 264 00c7 00000000 		.4byte	.LLST1
+ 265 00cb 01       		.byte	0x1
+ 266 00cc DF000000 		.4byte	0xdf
+ 267 00d0 08       		.uleb128 0x8
+ 268 00d1 3E000000 		.4byte	.LASF18
+ 269 00d5 01       		.byte	0x1
+ 270 00d6 42       		.byte	0x42
+ 271 00d7 8C000000 		.4byte	0x8c
+ 272 00db 02       		.byte	0x2
+ 273 00dc 91       		.byte	0x91
+ 274 00dd 74       		.sleb128 -12
+ 275 00de 00       		.byte	0
+ 276 00df 09       		.uleb128 0x9
+ 277 00e0 01       		.byte	0x1
+ 278 00e1 45010000 		.4byte	.LASF19
+ 279 00e5 01       		.byte	0x1
+ 280 00e6 22       		.byte	0x22
+ 281 00e7 01       		.byte	0x1
+ 282 00e8 73000000 		.4byte	0x73
+ 283 00ec 00000000 		.4byte	.LFB42
+ 284 00f0 64000000 		.4byte	.LFE42
+ 285 00f4 38000000 		.4byte	.LLST0
+ 286 00f8 01       		.byte	0x1
+ 287 00f9 00       		.byte	0
+ 288              		.section	.debug_abbrev,"",%progbits
+ 289              	.Ldebug_abbrev0:
+ 290 0000 01       		.uleb128 0x1
+ 291 0001 11       		.uleb128 0x11
+ 292 0002 01       		.byte	0x1
+ 293 0003 25       		.uleb128 0x25
+ 294 0004 0E       		.uleb128 0xe
+ 295 0005 13       		.uleb128 0x13
+ 296 0006 0B       		.uleb128 0xb
+ 297 0007 03       		.uleb128 0x3
+ 298 0008 0E       		.uleb128 0xe
+ 299 0009 1B       		.uleb128 0x1b
+ 300 000a 0E       		.uleb128 0xe
+ 301 000b 11       		.uleb128 0x11
+ 302 000c 01       		.uleb128 0x1
+ 303 000d 12       		.uleb128 0x12
+ 304 000e 01       		.uleb128 0x1
+ 305 000f 10       		.uleb128 0x10
+ 306 0010 06       		.uleb128 0x6
+ 307 0011 00       		.byte	0
+ 308 0012 00       		.byte	0
+ 309 0013 02       		.uleb128 0x2
+ 310 0014 24       		.uleb128 0x24
+ 311 0015 00       		.byte	0
+ 312 0016 0B       		.uleb128 0xb
+ 313 0017 0B       		.uleb128 0xb
+ 314 0018 3E       		.uleb128 0x3e
+ 315 0019 0B       		.uleb128 0xb
+ 316 001a 03       		.uleb128 0x3
+ 317 001b 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 8
+
+
+ 318 001c 00       		.byte	0
+ 319 001d 00       		.byte	0
+ 320 001e 03       		.uleb128 0x3
+ 321 001f 16       		.uleb128 0x16
+ 322 0020 00       		.byte	0
+ 323 0021 03       		.uleb128 0x3
+ 324 0022 0E       		.uleb128 0xe
+ 325 0023 3A       		.uleb128 0x3a
+ 326 0024 0B       		.uleb128 0xb
+ 327 0025 3B       		.uleb128 0x3b
+ 328 0026 0B       		.uleb128 0xb
+ 329 0027 49       		.uleb128 0x49
+ 330 0028 13       		.uleb128 0x13
+ 331 0029 00       		.byte	0
+ 332 002a 00       		.byte	0
+ 333 002b 04       		.uleb128 0x4
+ 334 002c 24       		.uleb128 0x24
+ 335 002d 00       		.byte	0
+ 336 002e 0B       		.uleb128 0xb
+ 337 002f 0B       		.uleb128 0xb
+ 338 0030 3E       		.uleb128 0x3e
+ 339 0031 0B       		.uleb128 0xb
+ 340 0032 03       		.uleb128 0x3
+ 341 0033 08       		.uleb128 0x8
+ 342 0034 00       		.byte	0
+ 343 0035 00       		.byte	0
+ 344 0036 05       		.uleb128 0x5
+ 345 0037 34       		.uleb128 0x34
+ 346 0038 00       		.byte	0
+ 347 0039 03       		.uleb128 0x3
+ 348 003a 0E       		.uleb128 0xe
+ 349 003b 3A       		.uleb128 0x3a
+ 350 003c 0B       		.uleb128 0xb
+ 351 003d 3B       		.uleb128 0x3b
+ 352 003e 0B       		.uleb128 0xb
+ 353 003f 49       		.uleb128 0x49
+ 354 0040 13       		.uleb128 0x13
+ 355 0041 3F       		.uleb128 0x3f
+ 356 0042 0C       		.uleb128 0xc
+ 357 0043 3C       		.uleb128 0x3c
+ 358 0044 0C       		.uleb128 0xc
+ 359 0045 00       		.byte	0
+ 360 0046 00       		.byte	0
+ 361 0047 06       		.uleb128 0x6
+ 362 0048 34       		.uleb128 0x34
+ 363 0049 00       		.byte	0
+ 364 004a 03       		.uleb128 0x3
+ 365 004b 08       		.uleb128 0x8
+ 366 004c 3A       		.uleb128 0x3a
+ 367 004d 0B       		.uleb128 0xb
+ 368 004e 3B       		.uleb128 0x3b
+ 369 004f 0B       		.uleb128 0xb
+ 370 0050 49       		.uleb128 0x49
+ 371 0051 13       		.uleb128 0x13
+ 372 0052 3F       		.uleb128 0x3f
+ 373 0053 0C       		.uleb128 0xc
+ 374 0054 02       		.uleb128 0x2
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 9
+
+
+ 375 0055 0A       		.uleb128 0xa
+ 376 0056 00       		.byte	0
+ 377 0057 00       		.byte	0
+ 378 0058 07       		.uleb128 0x7
+ 379 0059 2E       		.uleb128 0x2e
+ 380 005a 01       		.byte	0x1
+ 381 005b 3F       		.uleb128 0x3f
+ 382 005c 0C       		.uleb128 0xc
+ 383 005d 03       		.uleb128 0x3
+ 384 005e 0E       		.uleb128 0xe
+ 385 005f 3A       		.uleb128 0x3a
+ 386 0060 0B       		.uleb128 0xb
+ 387 0061 3B       		.uleb128 0x3b
+ 388 0062 0B       		.uleb128 0xb
+ 389 0063 27       		.uleb128 0x27
+ 390 0064 0C       		.uleb128 0xc
+ 391 0065 11       		.uleb128 0x11
+ 392 0066 01       		.uleb128 0x1
+ 393 0067 12       		.uleb128 0x12
+ 394 0068 01       		.uleb128 0x1
+ 395 0069 40       		.uleb128 0x40
+ 396 006a 06       		.uleb128 0x6
+ 397 006b 9642     		.uleb128 0x2116
+ 398 006d 0C       		.uleb128 0xc
+ 399 006e 01       		.uleb128 0x1
+ 400 006f 13       		.uleb128 0x13
+ 401 0070 00       		.byte	0
+ 402 0071 00       		.byte	0
+ 403 0072 08       		.uleb128 0x8
+ 404 0073 05       		.uleb128 0x5
+ 405 0074 00       		.byte	0
+ 406 0075 03       		.uleb128 0x3
+ 407 0076 0E       		.uleb128 0xe
+ 408 0077 3A       		.uleb128 0x3a
+ 409 0078 0B       		.uleb128 0xb
+ 410 0079 3B       		.uleb128 0x3b
+ 411 007a 0B       		.uleb128 0xb
+ 412 007b 49       		.uleb128 0x49
+ 413 007c 13       		.uleb128 0x13
+ 414 007d 02       		.uleb128 0x2
+ 415 007e 0A       		.uleb128 0xa
+ 416 007f 00       		.byte	0
+ 417 0080 00       		.byte	0
+ 418 0081 09       		.uleb128 0x9
+ 419 0082 2E       		.uleb128 0x2e
+ 420 0083 00       		.byte	0
+ 421 0084 3F       		.uleb128 0x3f
+ 422 0085 0C       		.uleb128 0xc
+ 423 0086 03       		.uleb128 0x3
+ 424 0087 0E       		.uleb128 0xe
+ 425 0088 3A       		.uleb128 0x3a
+ 426 0089 0B       		.uleb128 0xb
+ 427 008a 3B       		.uleb128 0x3b
+ 428 008b 0B       		.uleb128 0xb
+ 429 008c 27       		.uleb128 0x27
+ 430 008d 0C       		.uleb128 0xc
+ 431 008e 49       		.uleb128 0x49
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 10
+
+
+ 432 008f 13       		.uleb128 0x13
+ 433 0090 11       		.uleb128 0x11
+ 434 0091 01       		.uleb128 0x1
+ 435 0092 12       		.uleb128 0x12
+ 436 0093 01       		.uleb128 0x1
+ 437 0094 40       		.uleb128 0x40
+ 438 0095 06       		.uleb128 0x6
+ 439 0096 9642     		.uleb128 0x2116
+ 440 0098 0C       		.uleb128 0xc
+ 441 0099 00       		.byte	0
+ 442 009a 00       		.byte	0
+ 443 009b 00       		.byte	0
+ 444              		.section	.debug_loc,"",%progbits
+ 445              	.Ldebug_loc0:
+ 446              	.LLST1:
+ 447 0000 64000000 		.4byte	.LFB43-.Ltext0
+ 448 0004 66000000 		.4byte	.LCFI2-.Ltext0
+ 449 0008 0200     		.2byte	0x2
+ 450 000a 7D       		.byte	0x7d
+ 451 000b 00       		.sleb128 0
+ 452 000c 66000000 		.4byte	.LCFI2-.Ltext0
+ 453 0010 68000000 		.4byte	.LCFI3-.Ltext0
+ 454 0014 0200     		.2byte	0x2
+ 455 0016 7D       		.byte	0x7d
+ 456 0017 08       		.sleb128 8
+ 457 0018 68000000 		.4byte	.LCFI3-.Ltext0
+ 458 001c 6A000000 		.4byte	.LCFI4-.Ltext0
+ 459 0020 0200     		.2byte	0x2
+ 460 0022 7D       		.byte	0x7d
+ 461 0023 10       		.sleb128 16
+ 462 0024 6A000000 		.4byte	.LCFI4-.Ltext0
+ 463 0028 86000000 		.4byte	.LFE43-.Ltext0
+ 464 002c 0200     		.2byte	0x2
+ 465 002e 77       		.byte	0x77
+ 466 002f 10       		.sleb128 16
+ 467 0030 00000000 		.4byte	0
+ 468 0034 00000000 		.4byte	0
+ 469              	.LLST0:
+ 470 0038 00000000 		.4byte	.LFB42-.Ltext0
+ 471 003c 02000000 		.4byte	.LCFI0-.Ltext0
+ 472 0040 0200     		.2byte	0x2
+ 473 0042 7D       		.byte	0x7d
+ 474 0043 00       		.sleb128 0
+ 475 0044 02000000 		.4byte	.LCFI0-.Ltext0
+ 476 0048 04000000 		.4byte	.LCFI1-.Ltext0
+ 477 004c 0200     		.2byte	0x2
+ 478 004e 7D       		.byte	0x7d
+ 479 004f 08       		.sleb128 8
+ 480 0050 04000000 		.4byte	.LCFI1-.Ltext0
+ 481 0054 64000000 		.4byte	.LFE42-.Ltext0
+ 482 0058 0200     		.2byte	0x2
+ 483 005a 77       		.byte	0x77
+ 484 005b 08       		.sleb128 8
+ 485 005c 00000000 		.4byte	0
+ 486 0060 00000000 		.4byte	0
+ 487              		.section	.debug_aranges,"",%progbits
+ 488 0000 1C000000 		.4byte	0x1c
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 11
+
+
+ 489 0004 0200     		.2byte	0x2
+ 490 0006 00000000 		.4byte	.Ldebug_info0
+ 491 000a 04       		.byte	0x4
+ 492 000b 00       		.byte	0
+ 493 000c 0000     		.2byte	0
+ 494 000e 0000     		.2byte	0
+ 495 0010 00000000 		.4byte	.Ltext0
+ 496 0014 86000000 		.4byte	.Letext0-.Ltext0
+ 497 0018 00000000 		.4byte	0
+ 498 001c 00000000 		.4byte	0
+ 499              		.section	.debug_line,"",%progbits
+ 500              	.Ldebug_line0:
+ 501 0000 6D010000 		.section	.debug_str,"MS",%progbits,1
+ 501      02001D01 
+ 501      00000201 
+ 501      FB0E0D00 
+ 501      01010101 
+ 502              	.LASF8:
+ 503 0000 6C6F6E67 		.ascii	"long long int\000"
+ 503      206C6F6E 
+ 503      6720696E 
+ 503      7400
+ 504              	.LASF10:
+ 505 000e 756E7369 		.ascii	"unsigned int\000"
+ 505      676E6564 
+ 505      20696E74 
+ 505      00
+ 506              	.LASF15:
+ 507 001b 4170706C 		.ascii	"Application/uart_echo.c\000"
+ 507      69636174 
+ 507      696F6E2F 
+ 507      75617274 
+ 507      5F656368 
+ 508              	.LASF6:
+ 509 0033 5F5F7569 		.ascii	"__uint32_t\000"
+ 509      6E743332 
+ 509      5F7400
+ 510              	.LASF18:
+ 511 003e 6E436F75 		.ascii	"nCount\000"
+ 511      6E7400
+ 512              	.LASF17:
+ 513 0045 44656C61 		.ascii	"Delay\000"
+ 513      7900
+ 514              	.LASF7:
+ 515 004b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 515      20756E73 
+ 515      69676E65 
+ 515      6420696E 
+ 515      7400
+ 516              	.LASF9:
+ 517 005d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 517      206C6F6E 
+ 517      6720756E 
+ 517      7369676E 
+ 517      65642069 
+ 518              	.LASF14:
+ 519 0074 474E5520 		.ascii	"GNU C11 7.3.1 20180622 (release) [ARM/embedded-7-br"
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 12
+
+
+ 519      43313120 
+ 519      372E332E 
+ 519      31203230 
+ 519      31383036 
+ 520 00a7 616E6368 		.ascii	"anch revision 261907] -mcpu=cortex-m0 -mthumb -mapc"
+ 520      20726576 
+ 520      6973696F 
+ 520      6E203236 
+ 520      31393037 
+ 521 00da 732D6672 		.ascii	"s-frame -mthumb-interwork -gdwarf-2 -O0\000"
+ 521      616D6520 
+ 521      2D6D7468 
+ 521      756D622D 
+ 521      696E7465 
+ 522              	.LASF16:
+ 523 0102 433A5C55 		.ascii	"C:\\Users\\Roland\\source\\KeilIDE\\LPC1113_GCC_Kei"
+ 523      73657273 
+ 523      5C526F6C 
+ 523      616E645C 
+ 523      736F7572 
+ 524 0130 6C5F5561 		.ascii	"l_Uart\000"
+ 524      727400
+ 525              	.LASF1:
+ 526 0137 756E7369 		.ascii	"unsigned char\000"
+ 526      676E6564 
+ 526      20636861 
+ 526      7200
+ 527              	.LASF19:
+ 528 0145 6D61696E 		.ascii	"main\000"
+ 528      00
+ 529              	.LASF12:
+ 530 014a 75696E74 		.ascii	"uint32_t\000"
+ 530      33325F74 
+ 530      00
+ 531              	.LASF13:
+ 532 0153 53797374 		.ascii	"SystemCoreClock\000"
+ 532      656D436F 
+ 532      7265436C 
+ 532      6F636B00 
+ 533              	.LASF4:
+ 534 0163 6C6F6E67 		.ascii	"long int\000"
+ 534      20696E74 
+ 534      00
+ 535              	.LASF3:
+ 536 016c 73686F72 		.ascii	"short unsigned int\000"
+ 536      7420756E 
+ 536      7369676E 
+ 536      65642069 
+ 536      6E7400
+ 537              	.LASF0:
+ 538 017f 7369676E 		.ascii	"signed char\000"
+ 538      65642063 
+ 538      68617200 
+ 539              	.LASF5:
+ 540 018b 5F5F696E 		.ascii	"__int32_t\000"
+ 540      7433325F 
+ 540      7400
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 13
+
+
+ 541              	.LASF2:
+ 542 0195 73686F72 		.ascii	"short int\000"
+ 542      7420696E 
+ 542      7400
+ 543              	.LASF11:
+ 544 019f 696E7433 		.ascii	"int32_t\000"
+ 544      325F7400 
+ 545              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2018-q2-update) 7.3.1 20180622 (release) [AR
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 uart_echo.c
+                            *COM*:00000004 ctr
+C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s:17     .rodata:00000000 $d
+C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s:27     .text:00000000 $t
+C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s:34     .text:00000000 main
+C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s:116    .text:00000064 Delay
+C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s:102    .text:00000054 $d
+C:\Users\Roland\AppData\Local\Temp\ccnoFQ8B.s:109    .text:00000064 $t
+
+UNDEFINED SYMBOLS
+LED_Config
+UART_config
+UART_puts
+LED_Set
+LED_Clear
+UART_echo

@@ -1,0 +1,421 @@
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 6
+   9              		.eabi_attribute 34, 0
+  10              		.eabi_attribute 18, 4
+  11              		.file	"blinky.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.align	1
+  16              		.global	mainAlt
+  17              		.syntax unified
+  18              		.code	16
+  19              		.thumb_func
+  20              		.fpu softvfp
+  21              		.type	mainAlt, %function
+  22              	mainAlt:
+  23              	.LFB42:
+  24              		.file 1 "blinky.c"
+   1:blinky.c      **** // This is a blinky example made on the Keil MDK using the GNU compiler toolchain
+   2:blinky.c      **** // Runs on NXP LPC1113F/301 MCU (obsolete GHI electronics DL40 Gadgeteer Module)
+   3:blinky.c      **** 
+   4:blinky.c      **** #include <LPC11xx.h>
+   5:blinky.c      **** 
+   6:blinky.c      **** //const uint32_t led_mask[] = {1UL << 18, 1UL << 19, 1UL << 1};
+   7:blinky.c      **** // LED #0, #1 are port B, LED #2 is port D
+   8:blinky.c      **** 
+   9:blinky.c      **** //void   LED_Config(void);
+  10:blinky.c      **** //void   LED_Set(void);
+  11:blinky.c      **** //void   LED_Clear(void);
+  12:blinky.c      **** 
+  13:blinky.c      **** //void   Delay(uint32_t nCount);
+  14:blinky.c      **** 
+  15:blinky.c      **** //int32_t dummy;
+  16:blinky.c      **** 
+  17:blinky.c      **** int mainAlt(void)
+  18:blinky.c      **** {
+  25              		.loc 1 18 0
+  26              		.cfi_startproc
+  27              		@ args = 0, pretend = 0, frame = 0
+  28              		@ frame_needed = 1, uses_anonymous_args = 0
+  29 0000 80B5     		push	{r7, lr}
+  30              	.LCFI0:
+  31              		.cfi_def_cfa_offset 8
+  32              		.cfi_offset 7, -8
+  33              		.cfi_offset 14, -4
+  34 0002 00AF     		add	r7, sp, #0
+  35              	.LCFI1:
+  36              		.cfi_def_cfa_register 7
+  37              	.L2:
+  19:blinky.c      **** 	//dummy = 2;
+  20:blinky.c      ****   
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s 			page 2
+
+
+  21:blinky.c      ****   // Configure LED outputs
+  22:blinky.c      ****   //LED_Config();
+  23:blinky.c      **** 
+  24:blinky.c      **** 
+  25:blinky.c      **** #define LOOP_COUNT 0x08000
+  26:blinky.c      ****   while(1){
+  27:blinky.c      **** 
+  28:blinky.c      ****     __NOP();
+  38              		.loc 1 28 0 discriminator 1
+  39              		.syntax divided
+  40              	@ 28 "blinky.c" 1
+  41 0004 C046     		nop
+  42              	@ 0 "" 2
+  43              		.thumb
+  44              		.syntax unified
+  45 0006 FDE7     		b	.L2
+  46              		.cfi_endproc
+  47              	.LFE42:
+  48              		.size	mainAlt, .-mainAlt
+  49              	.Letext0:
+  50              		.file 2 "c:\\nanoframework_tools\\gnu_arm_toolchain\\8-2018-q4_major\\arm-none-eabi\\include\\mach
+  51              		.file 3 "c:\\nanoframework_tools\\gnu_arm_toolchain\\8-2018-q4_major\\arm-none-eabi\\include\\sys\
+  52              		.file 4 "./CMSIS/Include/system_LPC11xx.h"
+  53              		.section	.debug_info,"",%progbits
+  54              	.Ldebug_info0:
+  55 0000 A5000000 		.4byte	0xa5
+  56 0004 0200     		.2byte	0x2
+  57 0006 00000000 		.4byte	.Ldebug_abbrev0
+  58 000a 04       		.byte	0x4
+  59 000b 01       		.uleb128 0x1
+  60 000c 4F000000 		.4byte	.LASF11
+  61 0010 0C       		.byte	0xc
+  62 0011 12010000 		.4byte	.LASF12
+  63 0015 DD000000 		.4byte	.LASF13
+  64 0019 00000000 		.4byte	.Ltext0
+  65 001d 08000000 		.4byte	.Letext0
+  66 0021 00000000 		.4byte	.Ldebug_line0
+  67 0025 02       		.uleb128 0x2
+  68 0026 01       		.byte	0x1
+  69 0027 06       		.byte	0x6
+  70 0028 70010000 		.4byte	.LASF0
+  71 002c 02       		.uleb128 0x2
+  72 002d 01       		.byte	0x1
+  73 002e 08       		.byte	0x8
+  74 002f 1B010000 		.4byte	.LASF1
+  75 0033 02       		.uleb128 0x2
+  76 0034 02       		.byte	0x2
+  77 0035 05       		.byte	0x5
+  78 0036 66010000 		.4byte	.LASF2
+  79 003a 02       		.uleb128 0x2
+  80 003b 02       		.byte	0x2
+  81 003c 07       		.byte	0x7
+  82 003d 4B010000 		.4byte	.LASF3
+  83 0041 02       		.uleb128 0x2
+  84 0042 04       		.byte	0x4
+  85 0043 05       		.byte	0x5
+  86 0044 42010000 		.4byte	.LASF4
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s 			page 3
+
+
+  87 0048 03       		.uleb128 0x3
+  88 0049 1B000000 		.4byte	.LASF9
+  89 004d 02       		.byte	0x2
+  90 004e 4F       		.byte	0x4f
+  91 004f 53000000 		.4byte	0x53
+  92 0053 02       		.uleb128 0x2
+  93 0054 04       		.byte	0x4
+  94 0055 07       		.byte	0x7
+  95 0056 26000000 		.4byte	.LASF5
+  96 005a 02       		.uleb128 0x2
+  97 005b 08       		.byte	0x8
+  98 005c 05       		.byte	0x5
+  99 005d 00000000 		.4byte	.LASF6
+ 100 0061 02       		.uleb128 0x2
+ 101 0062 08       		.byte	0x8
+ 102 0063 07       		.byte	0x7
+ 103 0064 38000000 		.4byte	.LASF7
+ 104 0068 04       		.uleb128 0x4
+ 105 0069 04       		.byte	0x4
+ 106 006a 05       		.byte	0x5
+ 107 006b 696E7400 		.ascii	"int\000"
+ 108 006f 02       		.uleb128 0x2
+ 109 0070 04       		.byte	0x4
+ 110 0071 07       		.byte	0x7
+ 111 0072 0E000000 		.4byte	.LASF8
+ 112 0076 03       		.uleb128 0x3
+ 113 0077 29010000 		.4byte	.LASF10
+ 114 007b 03       		.byte	0x3
+ 115 007c 30       		.byte	0x30
+ 116 007d 48000000 		.4byte	0x48
+ 117 0081 05       		.uleb128 0x5
+ 118 0082 32010000 		.4byte	.LASF14
+ 119 0086 04       		.byte	0x4
+ 120 0087 23       		.byte	0x23
+ 121 0088 76000000 		.4byte	0x76
+ 122 008c 01       		.byte	0x1
+ 123 008d 01       		.byte	0x1
+ 124 008e 06       		.uleb128 0x6
+ 125 008f 01       		.byte	0x1
+ 126 0090 5E010000 		.4byte	.LASF15
+ 127 0094 01       		.byte	0x1
+ 128 0095 11       		.byte	0x11
+ 129 0096 01       		.byte	0x1
+ 130 0097 68000000 		.4byte	0x68
+ 131 009b 00000000 		.4byte	.LFB42
+ 132 009f 08000000 		.4byte	.LFE42
+ 133 00a3 00000000 		.4byte	.LLST0
+ 134 00a7 01       		.byte	0x1
+ 135 00a8 00       		.byte	0
+ 136              		.section	.debug_abbrev,"",%progbits
+ 137              	.Ldebug_abbrev0:
+ 138 0000 01       		.uleb128 0x1
+ 139 0001 11       		.uleb128 0x11
+ 140 0002 01       		.byte	0x1
+ 141 0003 25       		.uleb128 0x25
+ 142 0004 0E       		.uleb128 0xe
+ 143 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s 			page 4
+
+
+ 144 0006 0B       		.uleb128 0xb
+ 145 0007 03       		.uleb128 0x3
+ 146 0008 0E       		.uleb128 0xe
+ 147 0009 1B       		.uleb128 0x1b
+ 148 000a 0E       		.uleb128 0xe
+ 149 000b 11       		.uleb128 0x11
+ 150 000c 01       		.uleb128 0x1
+ 151 000d 12       		.uleb128 0x12
+ 152 000e 01       		.uleb128 0x1
+ 153 000f 10       		.uleb128 0x10
+ 154 0010 06       		.uleb128 0x6
+ 155 0011 00       		.byte	0
+ 156 0012 00       		.byte	0
+ 157 0013 02       		.uleb128 0x2
+ 158 0014 24       		.uleb128 0x24
+ 159 0015 00       		.byte	0
+ 160 0016 0B       		.uleb128 0xb
+ 161 0017 0B       		.uleb128 0xb
+ 162 0018 3E       		.uleb128 0x3e
+ 163 0019 0B       		.uleb128 0xb
+ 164 001a 03       		.uleb128 0x3
+ 165 001b 0E       		.uleb128 0xe
+ 166 001c 00       		.byte	0
+ 167 001d 00       		.byte	0
+ 168 001e 03       		.uleb128 0x3
+ 169 001f 16       		.uleb128 0x16
+ 170 0020 00       		.byte	0
+ 171 0021 03       		.uleb128 0x3
+ 172 0022 0E       		.uleb128 0xe
+ 173 0023 3A       		.uleb128 0x3a
+ 174 0024 0B       		.uleb128 0xb
+ 175 0025 3B       		.uleb128 0x3b
+ 176 0026 0B       		.uleb128 0xb
+ 177 0027 49       		.uleb128 0x49
+ 178 0028 13       		.uleb128 0x13
+ 179 0029 00       		.byte	0
+ 180 002a 00       		.byte	0
+ 181 002b 04       		.uleb128 0x4
+ 182 002c 24       		.uleb128 0x24
+ 183 002d 00       		.byte	0
+ 184 002e 0B       		.uleb128 0xb
+ 185 002f 0B       		.uleb128 0xb
+ 186 0030 3E       		.uleb128 0x3e
+ 187 0031 0B       		.uleb128 0xb
+ 188 0032 03       		.uleb128 0x3
+ 189 0033 08       		.uleb128 0x8
+ 190 0034 00       		.byte	0
+ 191 0035 00       		.byte	0
+ 192 0036 05       		.uleb128 0x5
+ 193 0037 34       		.uleb128 0x34
+ 194 0038 00       		.byte	0
+ 195 0039 03       		.uleb128 0x3
+ 196 003a 0E       		.uleb128 0xe
+ 197 003b 3A       		.uleb128 0x3a
+ 198 003c 0B       		.uleb128 0xb
+ 199 003d 3B       		.uleb128 0x3b
+ 200 003e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s 			page 5
+
+
+ 201 003f 49       		.uleb128 0x49
+ 202 0040 13       		.uleb128 0x13
+ 203 0041 3F       		.uleb128 0x3f
+ 204 0042 0C       		.uleb128 0xc
+ 205 0043 3C       		.uleb128 0x3c
+ 206 0044 0C       		.uleb128 0xc
+ 207 0045 00       		.byte	0
+ 208 0046 00       		.byte	0
+ 209 0047 06       		.uleb128 0x6
+ 210 0048 2E       		.uleb128 0x2e
+ 211 0049 00       		.byte	0
+ 212 004a 3F       		.uleb128 0x3f
+ 213 004b 0C       		.uleb128 0xc
+ 214 004c 03       		.uleb128 0x3
+ 215 004d 0E       		.uleb128 0xe
+ 216 004e 3A       		.uleb128 0x3a
+ 217 004f 0B       		.uleb128 0xb
+ 218 0050 3B       		.uleb128 0x3b
+ 219 0051 0B       		.uleb128 0xb
+ 220 0052 27       		.uleb128 0x27
+ 221 0053 0C       		.uleb128 0xc
+ 222 0054 49       		.uleb128 0x49
+ 223 0055 13       		.uleb128 0x13
+ 224 0056 11       		.uleb128 0x11
+ 225 0057 01       		.uleb128 0x1
+ 226 0058 12       		.uleb128 0x12
+ 227 0059 01       		.uleb128 0x1
+ 228 005a 40       		.uleb128 0x40
+ 229 005b 06       		.uleb128 0x6
+ 230 005c 9742     		.uleb128 0x2117
+ 231 005e 0C       		.uleb128 0xc
+ 232 005f 00       		.byte	0
+ 233 0060 00       		.byte	0
+ 234 0061 00       		.byte	0
+ 235              		.section	.debug_loc,"",%progbits
+ 236              	.Ldebug_loc0:
+ 237              	.LLST0:
+ 238 0000 00000000 		.4byte	.LFB42-.Ltext0
+ 239 0004 02000000 		.4byte	.LCFI0-.Ltext0
+ 240 0008 0200     		.2byte	0x2
+ 241 000a 7D       		.byte	0x7d
+ 242 000b 00       		.sleb128 0
+ 243 000c 02000000 		.4byte	.LCFI0-.Ltext0
+ 244 0010 04000000 		.4byte	.LCFI1-.Ltext0
+ 245 0014 0200     		.2byte	0x2
+ 246 0016 7D       		.byte	0x7d
+ 247 0017 08       		.sleb128 8
+ 248 0018 04000000 		.4byte	.LCFI1-.Ltext0
+ 249 001c 08000000 		.4byte	.LFE42-.Ltext0
+ 250 0020 0200     		.2byte	0x2
+ 251 0022 77       		.byte	0x77
+ 252 0023 08       		.sleb128 8
+ 253 0024 00000000 		.4byte	0
+ 254 0028 00000000 		.4byte	0
+ 255              		.section	.debug_aranges,"",%progbits
+ 256 0000 1C000000 		.4byte	0x1c
+ 257 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s 			page 6
+
+
+ 258 0006 00000000 		.4byte	.Ldebug_info0
+ 259 000a 04       		.byte	0x4
+ 260 000b 00       		.byte	0
+ 261 000c 0000     		.2byte	0
+ 262 000e 0000     		.2byte	0
+ 263 0010 00000000 		.4byte	.Ltext0
+ 264 0014 08000000 		.4byte	.Letext0-.Ltext0
+ 265 0018 00000000 		.4byte	0
+ 266 001c 00000000 		.4byte	0
+ 267              		.section	.debug_line,"",%progbits
+ 268              	.Ldebug_line0:
+ 269 0000 2A010000 		.section	.debug_str,"MS",%progbits,1
+ 269      02000E01 
+ 269      00000201 
+ 269      FB0E0D00 
+ 269      01010101 
+ 270              	.LASF6:
+ 271 0000 6C6F6E67 		.ascii	"long long int\000"
+ 271      206C6F6E 
+ 271      6720696E 
+ 271      7400
+ 272              	.LASF8:
+ 273 000e 756E7369 		.ascii	"unsigned int\000"
+ 273      676E6564 
+ 273      20696E74 
+ 273      00
+ 274              	.LASF9:
+ 275 001b 5F5F7569 		.ascii	"__uint32_t\000"
+ 275      6E743332 
+ 275      5F7400
+ 276              	.LASF5:
+ 277 0026 6C6F6E67 		.ascii	"long unsigned int\000"
+ 277      20756E73 
+ 277      69676E65 
+ 277      6420696E 
+ 277      7400
+ 278              	.LASF7:
+ 279 0038 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 279      206C6F6E 
+ 279      6720756E 
+ 279      7369676E 
+ 279      65642069 
+ 280              	.LASF11:
+ 281 004f 474E5520 		.ascii	"GNU C11 7.3.1 20180622 (release) [ARM/embedded-7-br"
+ 281      43313120 
+ 281      372E332E 
+ 281      31203230 
+ 281      31383036 
+ 282 0082 616E6368 		.ascii	"anch revision 261907] -mcpu=cortex-m0 -mthumb -mapc"
+ 282      20726576 
+ 282      6973696F 
+ 282      6E203236 
+ 282      31393037 
+ 283 00b5 732D6672 		.ascii	"s-frame -mthumb-interwork -gdwarf-2 -O0\000"
+ 283      616D6520 
+ 283      2D6D7468 
+ 283      756D622D 
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s 			page 7
+
+
+ 283      696E7465 
+ 284              	.LASF13:
+ 285 00dd 433A5C55 		.ascii	"C:\\Users\\Roland\\source\\KeilIDE\\LPC1113_GCC_Kei"
+ 285      73657273 
+ 285      5C526F6C 
+ 285      616E645C 
+ 285      736F7572 
+ 286 010b 6C5F5561 		.ascii	"l_Uart\000"
+ 286      727400
+ 287              	.LASF12:
+ 288 0112 626C696E 		.ascii	"blinky.c\000"
+ 288      6B792E63 
+ 288      00
+ 289              	.LASF1:
+ 290 011b 756E7369 		.ascii	"unsigned char\000"
+ 290      676E6564 
+ 290      20636861 
+ 290      7200
+ 291              	.LASF10:
+ 292 0129 75696E74 		.ascii	"uint32_t\000"
+ 292      33325F74 
+ 292      00
+ 293              	.LASF14:
+ 294 0132 53797374 		.ascii	"SystemCoreClock\000"
+ 294      656D436F 
+ 294      7265436C 
+ 294      6F636B00 
+ 295              	.LASF4:
+ 296 0142 6C6F6E67 		.ascii	"long int\000"
+ 296      20696E74 
+ 296      00
+ 297              	.LASF3:
+ 298 014b 73686F72 		.ascii	"short unsigned int\000"
+ 298      7420756E 
+ 298      7369676E 
+ 298      65642069 
+ 298      6E7400
+ 299              	.LASF15:
+ 300 015e 6D61696E 		.ascii	"mainAlt\000"
+ 300      416C7400 
+ 301              	.LASF2:
+ 302 0166 73686F72 		.ascii	"short int\000"
+ 302      7420696E 
+ 302      7400
+ 303              	.LASF0:
+ 304 0170 7369676E 		.ascii	"signed char\000"
+ 304      65642063 
+ 304      68617200 
+ 305              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 7-2018-q2-update) 7.3.1 20180622 (release) [AR
+ARM GAS  C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 blinky.c
+C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s:15     .text:00000000 $t
+C:\Users\Roland\AppData\Local\Temp\cc7FDmwp.s:22     .text:00000000 mainAlt
+
+NO UNDEFINED SYMBOLS
