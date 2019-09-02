@@ -15,7 +15,7 @@ A video showing the boot sequence of Cortex-M0 MCUs can be seen here.
 https://www.youtube.com/watch?v=3brOzLJmeek
 
 ### On this link the boot and initialization process is explained in my own words:
-https://github.com/RoSchmi/KeilIDE/blob/master/LPC1113_GCC_Keil_Uart/Docs/Start_mechanisms_in_ARM_Cortex_M0.pdf"
+https://github.com/RoSchmi/KeilIDE/blob/master/LPC1113_GCC_Keil_Uart/Docs/Start_mechanisms_in_ARM_Cortex_M0.pdf
 
 A comprehensive tutorial explaining the boot process can be seen here:
 https://jacobmossberg.se/posts/2018/08/11/run-c-program-bare-metal-on-arm-cortex-m3.html
