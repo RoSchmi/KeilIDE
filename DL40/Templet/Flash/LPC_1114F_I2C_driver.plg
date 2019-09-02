@@ -1,0 +1,87 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+G:\Data\Code\LPC1114F_302\ServoInOut_Module\LPC_1114F_I2C_driver.uvproj
+Project File Date:  04/20/2012
+
+<h2>Output:</h2>
+Rebuild target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+linking...
+Program Size: Code=4972 RO-data=240 RW-data=88 ZI-data=624  
+".\Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 1 Warning(s).
+Load "G:\\Data\\Code\\LPC1114F_302\\ServoInOut_Module\\Flash\\LPC_1114F_I2C_driver.AXF" 
+Set JLink Project File to "G:\Data\Code\LPC1114F_302\ServoInOut_Module\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM V8 compiled Dec  6 2011 18:57:44
+Hardware: V8.00
+S/N : 58006981 
+ 
+* JLink Info: TotalIRLen = ?, IRPrint = 0x..000000000000000000000000
+Rebuild target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+linking...
+Program Size: Code=4972 RO-data=240 RW-data=88 ZI-data=624  
+".\Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 1 Warning(s).
+Load "G:\\Data\\Code\\LPC1114F_302\\ServoInOut_Module\\Flash\\LPC_1114F_I2C_driver.AXF" 
+Set JLink Project File to "G:\Data\Code\LPC1114F_302\ServoInOut_Module\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM V8 compiled Dec  6 2011 18:57:44
+Hardware: V8.00
+S/N : 58006981 
+ 
+* JLink Info: TotalIRLen = ?, IRPrint = 0x..000000000000000000000000
+Load "G:\\Data\\Code\\LPC1114F_302\\ServoInOut_Module\\Flash\\LPC_1114F_I2C_driver.AXF" 
+Set JLink Project File to "G:\Data\Code\LPC1114F_302\ServoInOut_Module\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.40c, compiled Jan 24 2012 09:30:33
+Firmware: J-Link ARM V8 compiled Dec  6 2011 18:57:44
+Hardware: V8.00
+S/N : 58006981 
+ 
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ 
+Target info:
+------------
+Device: LPC1114/302
+VTarget = 3.351V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 4
+Software-Breakpoints: 8192
+Watchpoints:          2
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.

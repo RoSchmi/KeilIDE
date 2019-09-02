@@ -1,0 +1,4 @@
+--cpu Cortex-M0 ".\flash\startup_lpc11xx.o" ".\flash\system_lpc11xx.o" ".\flash\user.o" ".\flash\daisylink.o" ".\flash\i2c.o" ".\flash\hal_lpc1114f302.o" ".\flash\gpio.o" --strict --scatter ".\Flash\LPC_1114F_I2C_driver.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\LPC_1114F_I2C_driver.map" -o ".\Flash\LPC_1114F_I2C_driver.axf"

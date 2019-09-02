@@ -1,0 +1,1226 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+G:\Data\Code\LPC1114F\LPC_1114F_I2C_driver.uvproj
+Project File Date:  03/16/2012
+
+<h2>Output:</h2>
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling I2C.c...
+Main\I2C.c(23): error:  #5: cannot open source input file "type.h": No such file or directory
+compiling User.c...
+Main\User.c(2): error:  #5: cannot open source input file "type.h": No such file or directory
+Target not created
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling I2C.c...
+Main\I2C.c(23): error:  #5: cannot open source input file "type.h": No such file or directory
+compiling User.c...
+Main\User.c(2): error:  #5: cannot open source input file "type.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling I2C.c...
+Main\I2C.c(23): error:  #5: cannot open source input file "..\\Common\type.h": No such file or directory
+compiling User.c...
+Main\User.c(2): error:  #5: cannot open source input file "type.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling I2C.c...
+Main\I2C.c(24): error:  #5: cannot open source input file "i2cslave.h": No such file or directory
+compiling User.c...
+Main\User.c(3): error:  #5: cannot open source input file "i2cslave.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling I2C.c...
+compiling User.c...
+Main\User.c(3): error:  #5: cannot open source input file "i2cslave.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(34): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1752 RO-data=364 RW-data=44 ZI-data=612  
+"LPC_1114F_I2C_driver.axf" - 0 Error(s), 1 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+linking...
+Program Size: Code=1752 RO-data=364 RW-data=44 ZI-data=612  
+"LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling I2C.c...
+compiling User.c...
+linking...
+Program Size: Code=1752 RO-data=364 RW-data=44 ZI-data=612  
+"LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling I2C.c...
+compiling User.c...
+linking...
+Program Size: Code=1752 RO-data=364 RW-data=44 ZI-data=612  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling I2C.c...
+compiling User.c...
+linking...
+Program Size: Code=1752 RO-data=364 RW-data=44 ZI-data=612  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+linking...
+Program Size: Code=1752 RO-data=364 RW-data=44 ZI-data=612  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(21): error:  #20: identifier "I2CRdBuffer" is undefined
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling I2C.c...
+Main\I2C.c(78): error:  #20: identifier "I2CRdBuffer" is undefined
+Main\I2C.c(94): error:  #20: identifier "I2CRdBuffer" is undefined
+compiling User.c...
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling I2C.c...
+linking...
+Program Size: Code=1752 RO-data=364 RW-data=40 ZI-data=608  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(2): error:  #5: cannot open source input file "type.h": No such file or directory
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.h(4): error:  #5: cannot open source input file "..\Common\Types.h": No such file or directory
+compiling I2C.c...
+HAL\I2C.c(23): error:  #5: cannot open source input file "type.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(2): error:  #5: cannot open source input file "type.h": No such file or directory
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.h(4): error:  #5: cannot open source input file "types.h": No such file or directory
+compiling I2C.c...
+HAL\I2C.c(23): error:  #5: cannot open source input file "type.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(2): error:  #5: cannot open source input file "type.h": No such file or directory
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.h(4): error:  #5: cannot open source input file "type.h": No such file or directory
+compiling I2C.c...
+HAL\I2C.c(23): error:  #5: cannot open source input file "type.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(3): error:  #5: cannot open source input file "i2c.h": No such file or directory
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.h(5): error:  #5: cannot open source input file "HAL.h": No such file or directory
+compiling I2C.c...
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling system_LPC11xx.c...
+compiling User.c...
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.h(5): error:  #5: cannot open source input file "HAL.h": No such file or directory
+compiling I2C.c...
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.h(18): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(19): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(20): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(21): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(22): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(23): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(24): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(25): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(28): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(28): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(28): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(29): warning:  #1295-D: Deprecated declaration DL_Process - give arg types
+DaisyLink\DaisyLink.h(30): warning:  #1295-D: Deprecated declaration DL_Interrupt - give arg types
+DaisyLink\DaisyLink.h(33): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(33): error:  #20: identifier "UINT32" is undefined
+DaisyLink\DaisyLink.h(33): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(34): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(34): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(34): error:  #20: identifier "UINT32" is undefined
+DaisyLink\DaisyLink.h(36): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.c(3): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.c(4): error:  #20: identifier "UINT32" is undefined
+DaisyLink\DaisyLink.c(6): error:  #20: identifier "BOOL" is undefined
+DaisyLink\DaisyLink.c(6): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.c(8): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.c(9): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.c(24): warning:  #223-D: function "HAL_I2C_Read" declared implicitly
+DaisyLink\DaisyLink.c(60): warning:  #223-D: function "HAL_I2C_Write" declared implicitly
+DaisyLink\DaisyLink.c(71): warning:  #223-D: function "HAL_I2C_Write" declared implicitly
+DaisyLink\DaisyLink.c(91): warning:  #1166-D: returning pointer to local variable
+DaisyLink\DaisyLink.c(157): error:  #20: identifier "WORD" is undefined
+DaisyLink\DaisyLink.c(158): error:  #20: identifier "WORD" is undefined
+DaisyLink\DaisyLink.c(179): warning:  #223-D: function "HAL_GetTicks100us" declared implicitly
+DaisyLink\DaisyLink.c(213): warning:  #223-D: function "HAL_SharedPinInput" declared implicitly
+DaisyLink\DaisyLink.c(213): error:  #20: identifier "UPSTREAM_PIN" is undefined
+DaisyLink\DaisyLink.c(214): warning:  #223-D: function "HAL_SharedPinLow" declared implicitly
+DaisyLink\DaisyLink.c(214): error:  #20: identifier "DOWNSTREAM_PIN" is undefined
+DaisyLink\DaisyLink.c(224): warning:  #223-D: function "HAL_I2C_SetPullups" declared implicitly
+DaisyLink\DaisyLink.c(230): warning:  #223-D: function "HAL_I2C_Enable" declared implicitly
+DaisyLink\DaisyLink.c(232): warning:  #223-D: function "HAL_I2C_SetAddress" declared implicitly
+DaisyLink\DaisyLink.c(235): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.c(237): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.c(237): error:  #20: identifier "BYTE" is undefined
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.h(5): error:  #5: cannot open source input file "HAL.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(4): error:  #5: cannot open source input file "Types.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(6): error:  #79: expected a type specifier
+G:\Data\Code\LPC1114F\Common\HAL.h(6): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(6): error:  #90: function returning function is not allowed
+G:\Data\Code\LPC1114F\Common\HAL.h(7): error:  #20: identifier "UINT32" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(7): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(7): error:  #20: identifier "DL_I2C_CALLBACK" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(8): warning:  #1295-D: Deprecated declaration HAL_I2C_Disable - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(9): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(10): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(10): warning:  #1295-D: Deprecated declaration HAL_I2C_Read - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(11): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(13): warning:  #1295-D: Deprecated declaration HAL_ResetChip - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(15): warning:  #1295-D: Deprecated declaration HAL_Init_SysTick100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(16): warning:  #1295-D: Deprecated declaration HAL_GetTicks100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(17): error:  #20: identifier "UINT32" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(24): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(27): warning:  #1295-D: Deprecated declaration HAL_Assert - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.h(18): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(19): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(20): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(21): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(22): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(23): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(24): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(25): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(28): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(28): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(28): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(29): warning:  #1295-D: Deprecated declaration DL_Process - give arg types
+DaisyLink\DaisyLink.h(30): warning:  #1295-D: Deprecated declaration DL_Interrupt - give arg types
+DaisyLink\DaisyLink.h(33): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(33): error:  #20: identifier "UINT32" is undefined
+DaisyLink\DaisyLink.h(33): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(34): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(34): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(34): error:  #20: identifier "UINT32" is undefined
+DaisyLink\DaisyLink.h(36): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.c(3): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.c(4): error:  #20: identifier "UINT32" is undefined
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(6): error:  #79: expected a type specifier
+G:\Data\Code\LPC1114F\Common\HAL.h(6): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(6): error:  #90: function returning function is not allowed
+G:\Data\Code\LPC1114F\Common\HAL.h(7): error:  #20: identifier "UINT32" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(7): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(7): error:  #20: identifier "DL_I2C_CALLBACK" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(8): warning:  #1295-D: Deprecated declaration HAL_I2C_Disable - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(9): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(10): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(10): warning:  #1295-D: Deprecated declaration HAL_I2C_Read - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(11): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(13): warning:  #1295-D: Deprecated declaration HAL_ResetChip - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(15): warning:  #1295-D: Deprecated declaration HAL_Init_SysTick100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(16): warning:  #1295-D: Deprecated declaration HAL_GetTicks100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(17): error:  #20: identifier "UINT32" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(24): error:  #20: identifier "UINT8" is undefined
+G:\Data\Code\LPC1114F\Common\HAL.h(27): warning:  #1295-D: Deprecated declaration HAL_Assert - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.h(18): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(19): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(20): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(21): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(22): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(23): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(24): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(25): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(28): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(28): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(28): error:  #20: identifier "BYTE" is undefined
+DaisyLink\DaisyLink.h(29): warning:  #1295-D: Deprecated declaration DL_Process - give arg types
+DaisyLink\DaisyLink.h(30): warning:  #1295-D: Deprecated declaration DL_Interrupt - give arg types
+DaisyLink\DaisyLink.h(33): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(33): error:  #20: identifier "UINT32" is undefined
+DaisyLink\DaisyLink.h(33): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(34): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(34): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.h(34): error:  #20: identifier "UINT32" is undefined
+DaisyLink\DaisyLink.h(36): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.c(3): error:  #20: identifier "UINT8" is undefined
+DaisyLink\DaisyLink.c(4): error:  #20: identifier "UINT32" is undefined
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(8): warning:  #1295-D: Deprecated declaration HAL_I2C_Disable - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(10): warning:  #1295-D: Deprecated declaration HAL_I2C_Read - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(13): warning:  #1295-D: Deprecated declaration HAL_ResetChip - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(15): warning:  #1295-D: Deprecated declaration HAL_Init_SysTick100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(16): warning:  #1295-D: Deprecated declaration HAL_GetTicks100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(27): warning:  #1295-D: Deprecated declaration HAL_Assert - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.h(29): warning:  #1295-D: Deprecated declaration DL_Process - give arg types
+DaisyLink\DaisyLink.h(30): warning:  #1295-D: Deprecated declaration DL_Interrupt - give arg types
+DaisyLink\DaisyLink.h(36): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+DaisyLink\DaisyLink.c(278): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(290): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(307): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(316): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(337): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(366): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(370): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(376): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(388): warning:  #223-D: function "memcpy" declared implicitly
+compiling I2C.c...
+linking...
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol DL_Platform_ReadRegister (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol DL_Platform_WriteRegister (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_GetTicks100us (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Enable (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Read (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_SetAddress (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_SetPullups (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Write (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_SharedPinInput (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_SharedPinLow (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_SharedPinRead (referred from daisylink.o).
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(58): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+linking...
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_GetTicks100us (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Enable (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Read (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_SetAddress (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Write (referred from daisylink.o).
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling I2C.c...
+HAL\I2C.c(181): error:  #20: identifier "DL_I2C_CALLBACK" is undefined
+HAL\I2C.c(209): warning:  #940-D: missing return statement at end of non-void function "HAL_I2C_Read"
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(8): warning:  #1295-D: Deprecated declaration HAL_I2C_Disable - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(10): warning:  #1295-D: Deprecated declaration HAL_I2C_Read - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(13): warning:  #1295-D: Deprecated declaration HAL_ResetChip - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(15): warning:  #1295-D: Deprecated declaration HAL_Init_SysTick100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(16): warning:  #1295-D: Deprecated declaration HAL_GetTicks100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(27): warning:  #1295-D: Deprecated declaration HAL_Assert - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.h(29): warning:  #1295-D: Deprecated declaration DL_Process - give arg types
+DaisyLink\DaisyLink.h(30): warning:  #1295-D: Deprecated declaration DL_Interrupt - give arg types
+DaisyLink\DaisyLink.h(36): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+DaisyLink\DaisyLink.c(278): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(290): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(307): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(316): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(337): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(366): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(370): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(376): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(388): warning:  #223-D: function "memcpy" declared implicitly
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(8): warning:  #1295-D: Deprecated declaration HAL_I2C_Disable - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(10): warning:  #1295-D: Deprecated declaration HAL_I2C_Read - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(13): warning:  #1295-D: Deprecated declaration HAL_ResetChip - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(15): warning:  #1295-D: Deprecated declaration HAL_Init_SysTick100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(16): warning:  #1295-D: Deprecated declaration HAL_GetTicks100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(27): warning:  #1295-D: Deprecated declaration HAL_Assert - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+HAL\HAL_LPC1114F302.c(39): warning:  #1-D: last line of file ends without a newline
+linking...
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_GetTicks100us (referred from daisylink.o).
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling HAL_LPC1114F302.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(8): warning:  #1295-D: Deprecated declaration HAL_I2C_Disable - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(10): warning:  #1295-D: Deprecated declaration HAL_I2C_Read - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(13): warning:  #1295-D: Deprecated declaration HAL_ResetChip - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(15): warning:  #1295-D: Deprecated declaration HAL_Init_SysTick100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(16): warning:  #1295-D: Deprecated declaration HAL_GetTicks100us - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(27): warning:  #1295-D: Deprecated declaration HAL_Assert - give arg types
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+HAL\HAL_LPC1114F302.c(43): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=1756 RO-data=360 RW-data=40 ZI-data=608  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 8 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.h(29): warning:  #1295-D: Deprecated declaration DL_Process - give arg types
+DaisyLink\DaisyLink.h(30): warning:  #1295-D: Deprecated declaration DL_Interrupt - give arg types
+DaisyLink\DaisyLink.h(36): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+DaisyLink\DaisyLink.c(278): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(290): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(307): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(316): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(337): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(366): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(370): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(376): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(388): warning:  #223-D: function "memcpy" declared implicitly
+compiling HAL_LPC1114F302.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+HAL\HAL_LPC1114F302.c(50): warning:  #1-D: last line of file ends without a newline
+HAL\HAL_LPC1114F302.c(50): error:  #127: expected a statement
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.h(29): warning:  #1295-D: Deprecated declaration DL_Process - give arg types
+DaisyLink\DaisyLink.h(30): warning:  #1295-D: Deprecated declaration DL_Interrupt - give arg types
+DaisyLink\DaisyLink.h(36): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.c(5): warning:  #68-D: integer conversion resulted in a change of sign
+DaisyLink\DaisyLink.c(279): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(291): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(308): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(317): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(338): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(367): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(371): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(377): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(389): warning:  #223-D: function "memcpy" declared implicitly
+compiling HAL_LPC1114F302.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+HAL\HAL_LPC1114F302.c(50): warning:  #1-D: last line of file ends without a newline
+HAL\HAL_LPC1114F302.c(50): error:  #127: expected a statement
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.h(29): warning:  #1295-D: Deprecated declaration DL_Process - give arg types
+DaisyLink\DaisyLink.h(30): warning:  #1295-D: Deprecated declaration DL_Interrupt - give arg types
+DaisyLink\DaisyLink.h(36): warning:  #1-D: last line of file ends without a newline
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+compiling HAL_LPC1114F302.c...
+G:\Data\Code\LPC1114F\Common\HAL.h(32): warning:  #1-D: last line of file ends without a newline
+HAL\HAL_LPC1114F302.c(50): warning:  #1-D: last line of file ends without a newline
+HAL\HAL_LPC1114F302.c(50): error:  #127: expected a statement
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(50): warning:  #1-D: last line of file ends without a newline
+HAL\HAL_LPC1114F302.c(50): error:  #127: expected a statement
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling HAL_LPC1114F302.c...
+linking...
+Program Size: Code=1756 RO-data=360 RW-data=40 ZI-data=608  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(15): error:  #70: incomplete type is not allowed
+Main\User.c(78): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+compiling HAL_LPC1114F302.c...
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(15): error:  #70: incomplete type is not allowed
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+linking...
+Program Size: Code=1952 RO-data=224 RW-data=40 ZI-data=608  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(15): error:  #70: incomplete type is not allowed
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(15): error:  #70: incomplete type is not allowed
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(16): error:  #1031: Definition of "struct DL_Regs" in packed "struct Reg_t" must be __packed
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=1952 RO-data=224 RW-data=40 ZI-data=608  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 1 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(43): warning:  #223-D: function "memset" declared implicitly
+Main\User.c(43): error:  #20: identifier "REGS_SIZE" is undefined
+Main\User.c(44): error:  #20: identifier "MANUFACTURER_GHI" is undefined
+Main\User.c(44): error:  #20: identifier "MODULE_TYPE" is undefined
+Main\User.c(44): error:  #20: identifier "MODULE_VERSION" is undefined
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(49): warning:  #223-D: function "memset" declared implicitly
+Main\User.c(49): error:  #20: identifier "REGS_SIZE" is undefined
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(52): error:  #20: identifier "REGS_SIZE" is undefined
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+linking...
+Program Size: Code=3128 RO-data=224 RW-data=72 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(62): error:  #20: identifier "lastTicks" is undefined
+Main\User.c(62): warning:  #223-D: function "GetTicks" declared implicitly
+Main\User.c(81): warning:  #111-D: statement is unreachable
+Main\User.c(46): warning:  #177-D: variable "i" was declared but never referenced
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(21): warning:  #223-D: function "memset" declared implicitly
+HAL\HAL_LPC1114F302.c(21): error:  #20: identifier "I2CRegBuffer" is undefined
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(62): error:  #20: identifier "lastTicks" is undefined
+Main\User.c(62): warning:  #223-D: function "GetTicks" declared implicitly
+Main\User.c(81): warning:  #111-D: statement is unreachable
+Main\User.c(46): warning:  #177-D: variable "i" was declared but never referenced
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(22): warning:  #223-D: function "memset" declared implicitly
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(68): warning:  #223-D: function "GetTicks" declared implicitly
+Main\User.c(87): warning:  #111-D: statement is unreachable
+Main\User.c(52): warning:  #177-D: variable "i" was declared but never referenced
+linking...
+Program Size: Code=3148 RO-data=224 RW-data=80 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 3 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(87): warning:  #111-D: statement is unreachable
+Main\User.c(52): warning:  #177-D: variable "i" was declared but never referenced
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+linking...
+Program Size: Code=3148 RO-data=224 RW-data=80 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 3 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(88): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(146): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+linking...
+Program Size: Code=3204 RO-data=224 RW-data=80 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 3 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(88): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(147): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+linking...
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol DL_Platform_ReadRegister (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol DL_Platform_WriteRegister (referred from daisylink.o).
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(88): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(152): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(22): warning:  #223-D: function "memset" declared implicitly
+linking...
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_GetTicks100us (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Read (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_SetAddress (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Write (referred from daisylink.o).
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(22): warning:  #223-D: function "memset" declared implicitly
+linking...
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_GetTicks100us (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Enable (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Read (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_SetAddress (referred from daisylink.o).
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol HAL_I2C_Write (referred from daisylink.o).
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(149): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+compiling I2C.c...
+HAL\I2C.c(71): error:  #20: identifier "RdIndex" is undefined
+HAL\I2C.c(237): error:  #20: identifier "E_DRVI2C_ERR_ARGUMENT" is undefined
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(22): warning:  #223-D: function "memset" declared implicitly
+HAL\HAL_LPC1114F302.c(32): warning:  #223-D: function "DrvI2C_WriteData" declared implicitly
+HAL\HAL_LPC1114F302.c(37): warning:  #223-D: function "DrvI2C_ReadData" declared implicitly
+HAL\HAL_LPC1114F302.c(43): warning:  #223-D: function "DrvI2C_SetAddress" declared implicitly
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(149): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+compiling I2C.c...
+HAL\I2C.c(94): error:  #20: identifier "RdIndex" is undefined
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(22): warning:  #223-D: function "memset" declared implicitly
+HAL\HAL_LPC1114F302.c(32): warning:  #223-D: function "DrvI2C_WriteData" declared implicitly
+HAL\HAL_LPC1114F302.c(37): warning:  #223-D: function "DrvI2C_ReadData" declared implicitly
+HAL\HAL_LPC1114F302.c(43): warning:  #223-D: function "DrvI2C_SetAddress" declared implicitly
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling I2C.c...
+linking...
+.\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf: Error: L6218E: Undefined symbol I2CRegBuffer (referred from hal_lpc1114f302.o).
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(32): warning:  #223-D: function "DrvI2C_WriteData" declared implicitly
+HAL\HAL_LPC1114F302.c(37): warning:  #223-D: function "DrvI2C_ReadData" declared implicitly
+HAL\HAL_LPC1114F302.c(43): warning:  #223-D: function "DrvI2C_SetAddress" declared implicitly
+linking...
+Program Size: Code=3260 RO-data=224 RW-data=64 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 3 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(149): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(43): warning:  #223-D: function "DrvI2C_SetAddress" declared implicitly
+linking...
+Program Size: Code=3260 RO-data=224 RW-data=64 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 4 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(149): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+Main\User.c(149): error:  #169: expected a declaration
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(149): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+Main\User.c(149): error:  #169: expected a declaration
+compiling I2C.c...
+HAL\I2C.c(146): error:  #147-D: declaration is incompatible with "void I2CSlaveInit(void)" (declared at line 62 of "HAL\i2c.h")
+HAL\I2C.c(176): error:  #20: identifier "PCF8594_ADDR" is undefined
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(43): warning:  #223-D: function "DrvI2C_SetAddress" declared implicitly
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+G:\Data\Code\LPC1114F\HAL\i2c.h(63): error:  #130: expected a "{"
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(17): warning:  #12-D: parsing restarts here after previous syntax error
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(18): warning:  #177-D: variable "ID" was declared but never referenced
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(19): warning:  #177-D: variable "Config" was declared but never referenced
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(20): warning:  #177-D: variable "DLVersion" was declared but never referenced
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(21): warning:  #177-D: variable "ModuleType" was declared but never referenced
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(22): warning:  #177-D: variable "ModuleVersion" was declared but never referenced
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(23): warning:  #177-D: variable "Manufacturer" was declared but never referenced
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(24): warning:  #177-D: variable "Reserved4" was declared but never referenced
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(25): warning:  #177-D: variable "Reserved5" was declared but never referenced
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(26): warning:  #64-D: declaration does not declare anything
+G:\Data\Code\LPC1114F\DaisyLink\DaisyLink.h(28): warning:  #231-D: declaration is not visible outside of function
+Main\User.c(26): error:  #70: incomplete type is not allowed
+Main\User.c(58): error:  #167: argument of type "struct DL_Regs *" is incompatible with parameter of type "struct DL_Regs *"
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(149): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+Main\User.c(149): error:  #169: expected a declaration
+compiling I2C.c...
+HAL\i2c.h(63): error:  #130: expected a "{"
+HAL\I2C.c(62): warning:  #12-D: parsing restarts here after previous syntax error
+HAL\I2C.c(74): error:  #20: identifier "I2CSlaveState" is undefined
+HAL\I2C.c(82): error:  #20: identifier "rx_data" is undefined
+HAL\I2C.c(105): error:  #20: identifier "tx_data" is undefined
+HAL\I2C.c(146): error:  #247: function "I2CSlaveInit" has already been defined
+HAL\I2C.c(177): error:  #20: identifier "I2CSlaveState" is undefined
+HAL\I2C.c(198): error:  #20: identifier "tx_data" is undefined
+HAL\I2C.c(213): error:  #20: identifier "rx_data" is undefined
+compiling HAL_LPC1114F302.c...
+HAL\i2c.h(63): error:  #130: expected a "{"
+HAL\HAL_LPC1114F302.c(7): warning:  #12-D: parsing restarts here after previous syntax error
+HAL\HAL_LPC1114F302.c(32): warning:  #223-D: function "DrvI2C_WriteData" declared implicitly
+HAL\HAL_LPC1114F302.c(37): warning:  #223-D: function "DrvI2C_ReadData" declared implicitly
+HAL\HAL_LPC1114F302.c(43): warning:  #223-D: function "DrvI2C_SetAddress" declared implicitly
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(149): warning:  #940-D: missing return statement at end of non-void function "HAL_SharedPinRead"
+Main\User.c(149): error:  #169: expected a declaration
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(43): warning:  #223-D: function "DrvI2C_SetAddress" declared implicitly
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+linking...
+Program Size: Code=3264 RO-data=224 RW-data=64 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 2 Warning(s).
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+HAL\HAL_LPC1114F302.c(43): warning:  #223-D: function "DrvI2C_SetAddress" declared implicitly
+linking...
+Program Size: Code=3264 RO-data=224 RW-data=64 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 4 Warning(s).
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+linking...
+Program Size: Code=3264 RO-data=224 RW-data=64 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 3 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+linking...
+Program Size: Code=4472 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 2 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(55): warning:  #223-D: function "GPIOInit" declared implicitly
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(120): warning:  #223-D: function "GPIOIntClear" declared implicitly
+Main\User.c(121): warning:  #223-D: function "GPIOSetDir" declared implicitly
+Main\User.c(139): warning:  #223-D: function "GPIOSetDir" declared implicitly
+linking...
+Program Size: Code=4540 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 6 Warning(s).
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(55): warning:  #223-D: function "GPIOInit" declared implicitly
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(120): warning:  #223-D: function "GPIOIntClear" declared implicitly
+Main\User.c(121): warning:  #223-D: function "GPIOSetDir" declared implicitly
+Main\User.c(139): warning:  #223-D: function "GPIOSetDir" declared implicitly
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+linking...
+Program Size: Code=4540 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 7 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(55): warning:  #223-D: function "GPIOInit" declared implicitly
+Main\User.c(85): warning:  #111-D: statement is unreachable
+Main\User.c(53): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(118): warning:  #223-D: function "DrvGPIO_ClrBit" declared implicitly
+Main\User.c(119): warning:  #223-D: function "DrvGPIO_Open" declared implicitly
+Main\User.c(119): error:  #20: identifier "E_IO_OUTPUT" is undefined
+Main\User.c(136): warning:  #223-D: function "DrvGPIO_Open" declared implicitly
+Main\User.c(136): error:  #20: identifier "E_IO_INPUT" is undefined
+Main\User.c(152): warning:  #223-D: function "DrvGPIO_GetBit" declared implicitly
+Main\User.c(154): warning:  #111-D: statement is unreachable
+Main\User.c(159): warning:  #111-D: statement is unreachable
+Main\User.c(168): warning:  #223-D: function "DrvGPIO_SetBit" declared implicitly
+Main\User.c(168): error:  #20: identifier "E_PORT3" is undefined
+Main\User.c(169): warning:  #223-D: function "DrvGPIO_Open" declared implicitly
+Main\User.c(169): error:  #20: identifier "E_IO_OUTPUT" is undefined
+Main\User.c(178): warning:  #223-D: function "DrvGPIO_Open" declared implicitly
+Main\User.c(178): error:  #20: identifier "E_PORT3" is undefined
+Main\User.c(178): error:  #20: identifier "E_IO_INPUT" is undefined
+compiling gpio.c...
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(5): error:  #5: cannot open source input file "gpio.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(119): error:  #165: too few arguments in function call
+Main\User.c(125): error:  #165: too few arguments in function call
+Main\User.c(153): error:  #165: too few arguments in function call
+Main\User.c(155): warning:  #111-D: statement is unreachable
+Main\User.c(158): error:  #165: too few arguments in function call
+Main\User.c(160): warning:  #111-D: statement is unreachable
+Main\User.c(169): error:  #20: identifier "E_PORT3" is undefined
+Main\User.c(179): error:  #20: identifier "E_PORT3" is undefined
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(7): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(155): warning:  #111-D: statement is unreachable
+Main\User.c(160): warning:  #111-D: statement is unreachable
+Main\User.c(169): error:  #20: identifier "E_PORT3" is undefined
+Main\User.c(179): error:  #20: identifier "E_PORT3" is undefined
+compiling gpio.c...
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(155): warning:  #111-D: statement is unreachable
+Main\User.c(160): warning:  #111-D: statement is unreachable
+linking...
+Program Size: Code=4756 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 4 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+linking...
+Program Size: Code=4756 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 4 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+linking...
+Program Size: Code=4756 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 4 Warning(s).
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+DaisyLink\DaisyLink.c(278): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(290): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(307): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(316): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(337): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(366): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(370): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(376): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(388): warning:  #223-D: function "memcpy" declared implicitly
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+linking...
+Program Size: Code=4756 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 14 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+G:\Data\Code\LPC1114F\Common\type.h(20): error:  #5: cannot open source input file "stype.h": No such file or directory
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\type.h(20): error:  #5: cannot open source input file "stype.h": No such file or directory
+compiling I2C.c...
+G:\Data\Code\LPC1114F\Common\type.h(20): error:  #5: cannot open source input file "stype.h": No such file or directory
+compiling HAL_LPC1114F302.c...
+G:\Data\Code\LPC1114F\Common\type.h(20): error:  #5: cannot open source input file "stype.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+G:\Data\Code\LPC1114F\Common\type.h(21): error:  #5: cannot open source input file "stype.h": No such file or directory
+compiling DaisyLink.c...
+G:\Data\Code\LPC1114F\Common\type.h(21): error:  #5: cannot open source input file "stype.h": No such file or directory
+compiling I2C.c...
+G:\Data\Code\LPC1114F\Common\type.h(21): error:  #5: cannot open source input file "stype.h": No such file or directory
+compiling HAL_LPC1114F302.c...
+G:\Data\Code\LPC1114F\Common\type.h(21): error:  #5: cannot open source input file "stype.h": No such file or directory
+Target not created
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+DaisyLink\DaisyLink.c(278): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(290): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(307): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(316): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(337): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(366): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(370): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(376): warning:  #223-D: function "memcpy" declared implicitly
+DaisyLink\DaisyLink.c(388): warning:  #223-D: function "memcpy" declared implicitly
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+linking...
+Program Size: Code=4756 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 14 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+linking...
+Program Size: Code=4756 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 5 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+linking...
+Program Size: Code=4756 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 5 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+linking...
+Program Size: Code=4756 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 5 Warning(s).
+Build target 'LPC1114F302_Flash'
+compiling HAL_LPC1114F302.c...
+linking...
+Program Size: Code=4784 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 0 Warning(s).
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+linking...
+Program Size: Code=4784 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 5 Warning(s).
+Load "G:\\Data\\Code\\LPC1114F\\LPC1114F302_Flash\\LPC_1114F_I2C_driver.AXF" 
+Set JLink Project File to "G:\Data\Code\LPC1114F\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.35b, compiled Sep  2 2011 18:34:46
+Firmware: J-Link ARM V8 compiled Sep 22 2011 16:23:23
+Hardware: V8.00
+S/N : 58006981 
+ 
+**JLink Warning: RESET (pin 15) high, but should be low. Please check target hardware.
+**JLink Warning: CPU core not found.
+***JLink Error: Supply voltage too low (1 Volt is required, Measured: 0.0 Volt).
+Please check target power.
+Load "G:\\Data\\Code\\LPC1114F\\LPC1114F302_Flash\\LPC_1114F_I2C_driver.AXF" 
+Set JLink Project File to "G:\Data\Code\LPC1114F\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.35b, compiled Sep  2 2011 18:34:46
+Firmware: J-Link ARM V8 compiled Sep 22 2011 16:23:23
+Hardware: V8.00
+S/N : 58006981 
+ 
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ 
+Target info:
+------------
+Device: LPC1114/302
+VTarget = 3.319V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 0
+Hardware-Breakpoints: 4
+Software-Breakpoints: 8192
+Watchpoints:          2
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+linking...
+Program Size: Code=4784 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 5 Warning(s).
+Load "G:\\Data\\Code\\LPC1114F\\LPC1114F302_Flash\\LPC_1114F_I2C_driver.AXF" 
+Set JLink Project File to "G:\Data\Code\LPC1114F\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.35b, compiled Sep  2 2011 18:34:46
+Firmware: J-Link ARM V8 compiled Sep 22 2011 16:23:23
+Hardware: V8.00
+S/N : 58006981 
+ 
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ 
+Target info:
+------------
+Device: LPC1114/302
+VTarget = 3.319V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 1
+Hardware-Breakpoints: 4
+Software-Breakpoints: 8192
+Watchpoints:          2
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+linking...
+Program Size: Code=4784 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 5 Warning(s).
+Load "G:\\Data\\Code\\LPC1114F\\LPC1114F302_Flash\\LPC_1114F_I2C_driver.AXF" 
+Set JLink Project File to "G:\Data\Code\LPC1114F\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.35b, compiled Sep  2 2011 18:34:46
+Firmware: J-Link ARM V8 compiled Sep 22 2011 16:23:23
+Hardware: V8.00
+S/N : 58006981 
+ 
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ 
+Target info:
+------------
+Device: LPC1114/302
+VTarget = 3.325V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 0
+Hardware-Breakpoints: 4
+Software-Breakpoints: 8192
+Watchpoints:          2
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Load "G:\\Data\\Code\\LPC1114F\\LPC1114F302_Flash\\LPC_1114F_I2C_driver.AXF" 
+Set JLink Project File to "G:\Data\Code\LPC1114F\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.35b, compiled Sep  2 2011 18:34:46
+Firmware: J-Link ARM V8 compiled Sep 22 2011 16:23:23
+Hardware: V8.00
+S/N : 58006981 
+ 
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ 
+Target info:
+------------
+Device: LPC1114/302
+VTarget = 3.325V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 0
+Hardware-Breakpoints: 4
+Software-Breakpoints: 8192
+Watchpoints:          2
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.
+Clean started: Project: 'LPC_1114F_I2C_driver'
+   deleting intermediate output files for target 'LPC1114F302_Flash'
+Build target 'LPC1114F302_Flash'
+assembling startup_LPC11xx.s...
+compiling system_LPC11xx.c...
+compiling User.c...
+Main\User.c(86): warning:  #111-D: statement is unreachable
+Main\User.c(54): warning:  #177-D: variable "i" was declared but never referenced
+Main\User.c(156): warning:  #111-D: statement is unreachable
+Main\User.c(161): warning:  #111-D: statement is unreachable
+compiling DaisyLink.c...
+DaisyLink\DaisyLink.c(4): warning:  #68-D: integer conversion resulted in a change of sign
+compiling I2C.c...
+compiling HAL_LPC1114F302.c...
+compiling gpio.c...
+linking...
+Program Size: Code=4784 RO-data=240 RW-data=96 ZI-data=624  
+".\LPC1114F302_Flash\LPC_1114F_I2C_driver.axf" - 0 Error(s), 5 Warning(s).
+Load "G:\\Data\\Code\\LPC1114F\\LPC1114F302_Flash\\LPC_1114F_I2C_driver.AXF" 
+Set JLink Project File to "G:\Data\Code\LPC1114F\JLinkSettings.ini"
+ 
+JLink info:
+------------
+DLL: V4.35b, compiled Sep  2 2011 18:34:46
+Firmware: J-Link ARM V8 compiled Sep 22 2011 16:23:23
+Hardware: V8.00
+S/N : 58006981 
+ 
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ROMTableAddr = 0xE00FF003
+* JLink Info: Found SWD-DP with ID 0x0BB11477
+* JLink Info:   FPUnit: 4 code (BP) slots and 0 literal slots
+* JLink Info: Found Cortex-M0 r0p0, Little endian.
+ 
+Target info:
+------------
+Device: LPC1114/302
+VTarget = 3.325V
+State of Pins: 
+TCK: 0, TDI: 0, TDO: 0, TMS: 0, TRES: 1, TRST: 0
+Hardware-Breakpoints: 4
+Software-Breakpoints: 8192
+Watchpoints:          2
+JTAG speed: 2000 kHz
+ 
+Erase Done.
+Programming Done.
+Verify OK.

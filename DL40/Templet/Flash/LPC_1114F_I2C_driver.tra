@@ -1,0 +1,25 @@
+*** Creating Trace Output File '.\Flash\LPC_1114F_I2C_driver.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\flash\startup_lpc11xx.o"'
+### List of Objects: adding '".\flash\system_lpc11xx.o"'
+### List of Objects: adding '".\flash\user.o"'
+### List of Objects: adding '".\flash\daisylink.o"'
+### List of Objects: adding '".\flash\i2c.o"'
+### List of Objects: adding '".\flash\hal_lpc1114f302.o"'
+### List of Objects: adding '".\flash\gpio.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 ".\flash\startup_lpc11xx.o" ".\flash\system_lpc11xx.o" ".\flash\user.o" ".\flash\daisylink.o" ".\flash\i2c.o" ".\flash\hal_lpc1114f302.o" ".\flash\gpio.o" --strict --scatter ".\Flash\LPC_1114F_I2C_driver.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\LPC_1114F_I2C_driver.map" -o ".\Flash\LPC_1114F_I2C_driver.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\Flash\LPC_1114F_I2C_driver.axf'
+### ADS-LD Command File: '.\Flash\LPC_1114F_I2C_driver.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\Flash\LPC_1114F_I2C_driver.lnp', Handle=0x00000444
+### Writing '.lnp' file
+### ADS-LD Command file '.\Flash\LPC_1114F_I2C_driver.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

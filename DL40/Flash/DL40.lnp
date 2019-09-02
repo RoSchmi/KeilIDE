@@ -1,0 +1,12 @@
+--cpu Cortex-M0
+".\flash\daisylink.o"
+".\flash\gpio.o"
+".\flash\hal_lpc1114f302.o"
+".\flash\i2c.o"
+".\flash\dl40.o"
+".\flash\startup_lpc11xx.o"
+".\flash\system_lpc11xx.o"
+--strict --scatter ".\Flash\DL40.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\DL40.map" -o .\Flash\DL40.axf

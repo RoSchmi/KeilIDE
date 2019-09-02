@@ -1,0 +1,25 @@
+*** Creating Trace Output File '.\Flash\DL40.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '".\flash\daisylink.o"'
+### List of Objects: adding '".\flash\gpio.o"'
+### List of Objects: adding '".\flash\hal_lpc1114f302.o"'
+### List of Objects: adding '".\flash\i2c.o"'
+### List of Objects: adding '".\flash\dl40.o"'
+### List of Objects: adding '".\flash\startup_lpc11xx.o"'
+### List of Objects: adding '".\flash\system_lpc11xx.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0 ".\flash\daisylink.o" ".\flash\gpio.o" ".\flash\hal_lpc1114f302.o" ".\flash\i2c.o" ".\flash\dl40.o" ".\flash\startup_lpc11xx.o" ".\flash\system_lpc11xx.o" --strict --scatter ".\Flash\DL40.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\DL40.map" -o ".\Flash\DL40.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: '.\Flash\DL40.axf'
+### ADS-LD Command File: '.\Flash\DL40.lnp'
+### Checking for dirty Components...
+### Creating CmdFile '.\Flash\DL40.lnp', Handle=0x00000364
+### Writing '.lnp' file
+### ADS-LD Command file '.\Flash\DL40.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

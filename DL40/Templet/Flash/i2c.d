@@ -1,0 +1,14 @@
+.\Flash\i2c.o: HAL\I2C.c
+.\Flash\i2c.o: C:\Keil\ARM\Inc\NXP\LPC11xx\LPC11xx.h
+.\Flash\i2c.o: C:\Keil\ARM\CMSIS\Include\core_cm0.h
+.\Flash\i2c.o: C:\Keil\ARM\RV31\Inc\stdint.h
+.\Flash\i2c.o: C:\Keil\ARM\CMSIS\Include\core_cmInstr.h
+.\Flash\i2c.o: C:\Keil\ARM\CMSIS\Include\core_cmFunc.h
+.\Flash\i2c.o: C:\Keil\ARM\Inc\NXP\LPC11xx\system_LPC11xx.h
+.\Flash\i2c.o: G:\Data\Code\LPC1114F_302\ServoInOut_Module\Common\type.h
+.\Flash\i2c.o: C:\Keil\ARM\RV31\Inc\string.h
+.\Flash\i2c.o: HAL\i2c.h
+.\Flash\i2c.o: G:\Data\Code\LPC1114F_302\ServoInOut_Module\DaisyLink\DaisyLink.h
+.\Flash\i2c.o: G:\Data\Code\LPC1114F_302\ServoInOut_Module\Common\type.h
+.\Flash\i2c.o: G:\Data\Code\LPC1114F_302\ServoInOut_Module\HAL\HAL.h
+.\Flash\i2c.o: G:\Data\Code\LPC1114F_302\ServoInOut_Module\Common\type.h

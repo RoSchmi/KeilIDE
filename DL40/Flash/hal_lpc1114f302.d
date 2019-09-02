@@ -1,0 +1,14 @@
+.\flash\hal_lpc1114f302.o: HAL\HAL_LPC1114F302.c
+.\flash\hal_lpc1114f302.o: HAL\HAL.h
+.\flash\hal_lpc1114f302.o: HAL\../Common/type.h
+.\flash\hal_lpc1114f302.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\flash\hal_lpc1114f302.o: C:\Users\Roland\AppData\Local\Arm\Packs\Keil\LPC1100_DFP\1.4.0\Device\Include\LPC11xx\LPC11xx.h
+.\flash\hal_lpc1114f302.o: C:\Users\Roland\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\core_cm0.h
+.\flash\hal_lpc1114f302.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\flash\hal_lpc1114f302.o: C:\Users\Roland\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_version.h
+.\flash\hal_lpc1114f302.o: C:\Users\Roland\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_compiler.h
+.\flash\hal_lpc1114f302.o: C:\Users\Roland\AppData\Local\Arm\Packs\ARM\CMSIS\5.6.0\CMSIS\Core\Include\cmsis_armcc.h
+.\flash\hal_lpc1114f302.o: C:\Users\Roland\AppData\Local\Arm\Packs\Keil\LPC1100_DFP\1.4.0\Device\Include\LPC11xx\system_LPC11xx.h
+.\flash\hal_lpc1114f302.o: HAL\../Common/type.h
+.\flash\hal_lpc1114f302.o: HAL\../HAL/i2c.h
+.\flash\hal_lpc1114f302.o: HAL\../GPIO/gpio.h
