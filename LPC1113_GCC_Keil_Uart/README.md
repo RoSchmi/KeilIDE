@@ -1,10 +1,9 @@
-# LPC1113_GCC_Keil_Blinky
+# LPC1113_GCC_Keil_Uart
 
-Blinky project using the GNU Toolchain on Keil-MDK, running on a NXP LPC1113F/301 MCU (obsolete GHI DL40 Gadgeteer Module)
+Project using the GNU Toolchain on Keil-MDK, running on a NXP LPC1113F/301 MCU (obsolete GHI DL40 Gadgeteer Module)
+Shows GPIO and UART output and input (pollin)
 
-These are the Linker Settings. More seetings can be found in folder 'pictures'
-
-![Linker Setting](https://github.com/RoSchmi/KeilIDE/blob/master/LPC1113_GCC_Keil_Blinky/Pictures/Linker.png)
+Settings of the Kel MDK can be found in folder 'pictures'
 
 This example is adapted from an example in the Book 'The Definitive Guide to ARM® Cortex®-M0 and Cortex-M0+ Processors' by Joseph Yiu
 
@@ -15,8 +14,8 @@ https://booksite.elsevier.com/9780128032770/
 A video showing the boot sequence of Cortex-M0 MCUs can be seen here.
 https://www.youtube.com/watch?v=3brOzLJmeek
 
-### Here the boot and initialization process is explained in my own words:
-https://github.com/RoSchmi/KeilIDE/blob/master/LPC1113_GCC_Keil_Blinky/Docs/Start_mechanisms_in_ARM_Cortex_M0.pdf"
+### On this link the boot and initialization process is explained in my own words:
+https://github.com/RoSchmi/KeilIDE/blob/master/LPC1113_GCC_Keil_Uart/Docs/Start_mechanisms_in_ARM_Cortex_M0.pdf"
 
 A comprehensive tutorial explaining the boot process can be seen here:
 https://jacobmossberg.se/posts/2018/08/11/run-c-program-bare-metal-on-arm-cortex-m3.html
