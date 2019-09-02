@@ -3,6 +3,9 @@
 Project using the GNU Toolchain on Keil-MDK, running on a NXP LPC1113F/301 MCU (obsolete GHI DL40 Gadgeteer Module)
 Shows GPIO and UART output and input (pollin)
 
+![SetUp](https://github.com/RoSchmi/KeilIDE/blob/master/LPC1113_GCC_Keil_Uart/Pictures/SetUp.png)
+
+
 Settings of the Kel MDK can be found in folder 'pictures'
 
 This example is adapted from an example in the Book 'The Definitive Guide to ARM® Cortex®-M0 and Cortex-M0+ Processors' by Joseph Yiu
